@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: api
-  version: 0.0.3
+  version: 0.0.4
 paths:
   /artifacts.locate:
     get:
@@ -24,7 +24,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Artifactsartifacts-locate-response'
       security: &ref_0
-        - AuthorizationAuth: []
+        - ApiKeyAuth: []
   /artifacts.prepare:
     post:
       description: |
@@ -3047,8 +3047,9 @@ components:
     CommonsInternalServerError:
       $ref: '#/components/schemas/Commonserror-base'
   securitySchemes:
-    AuthorizationAuth:
+    ApiKeyAuth:
       type: apiKey
       in: header
       name: Authorization
-servers: []
+servers:
+  - url: https://api.devrev.ai
