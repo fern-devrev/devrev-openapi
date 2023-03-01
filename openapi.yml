@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: api
-  version: 0.0.5
+  version: 0.0.6
 paths:
   /artifacts.locate:
     get:
@@ -789,7 +789,7 @@ paths:
                 #/components/schemas/TimelineEntriestimeline-entries-create-request
   /timeline-entries.get:
     get:
-      description: Gets an entry on an object's timeline.
+      description: Gets an entry on timeline.
       operationId: timelineEntriesService.get
       tags:
         - timelineEntriesService
