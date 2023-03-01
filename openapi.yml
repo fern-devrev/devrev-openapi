@@ -1,0 +1,3054 @@
+openapi: 3.0.1
+info:
+  title: api
+  version: 0.0.3
+paths:
+  /artifacts.locate:
+    get:
+      description: Gets the download URL for the artifact.
+      operationId: artifactsService.locate
+      tags:
+        - artifactsService
+      parameters:
+        - name: id
+          in: query
+          description: The ID of the artifact to get the URL for.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Artifactsartifacts-locate-response'
+      security: &ref_0
+        - AuthorizationAuth: []
+  /artifacts.prepare:
+    post:
+      description: |
+        Creates an artifact and generates an upload URL for its data.
+      operationId: artifactsService.prepare
+      tags:
+        - artifactsService
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Artifactsartifacts-prepare-response'
+      security: *ref_0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Artifactsartifacts-prepare-request'
+  /dev-orgs.auth-connections.create:
+    post:
+      description: |
+        Creates a new enterprise authentication connection for a Dev
+        organization. This authentication connection will not be enabled by
+        default for the organization and the user will need to explicitly
+        enable this. Keep in mind that at a time, only one authentication
+        connection can be enabled for a Dev organization. At present, only 5
+        enterprise connections can be created by an organization.
+      operationId: authConnectionService.create
+      tags:
+        - authConnectionService
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      security: *ref_0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: >-
+                #/components/schemas/AuthConnectiondev-org-auth-connections-create-request
+  /dev-orgs.auth-connections.delete:
+    post:
+      description: |
+        Deletes an authentication connection. Only enterprise connections which
+        are explicitly set up for a Dev organization can be deleted. Default
+        connections can not be deleted using this method.
+      operationId: authConnectionService.delete
+      tags:
+        - authConnectionService
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      security: *ref_0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: >-
+                #/components/schemas/AuthConnectiondev-org-auth-connections-delete-request
+  /dev-orgs.auth-connections.get:
+    get:
+      description: Retrieves the details for an authentication connection.
+      operationId: authConnectionService.get
+      tags:
+        - authConnectionService
+      parameters:
+        - name: id
+          in: query
+          description: ID of the authentication connection.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/AuthConnectiondev-org-auth-connections-get-response
+      security: *ref_0
+  /dev-orgs.auth-connections.list:
+    get:
+      description: |
+        Lists all the authentication connections available for a Dev
+        organization. This list will include both social and enterprise
+        connections which are either available by default or are explicitly
+        created by the user.
+      operationId: authConnectionService.list
+      tags:
+        - authConnectionService
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/AuthConnectiondev-org-auth-connections-list-response
+      security: *ref_0
+  /dev-orgs.auth-connections.toggle:
+    post:
+      description: |
+        Enable or disable an authentication connection for a Dev organization.
+        Currently, only 1 authentication connection can be enabled at a time.
+        When a new authentication connection is enabled, the connection which
+        is currently enabled for the Dev organization is automatically
+        disabled.
+      operationId: authConnectionService.toggle
+      tags:
+        - authConnectionService
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      security: *ref_0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: >-
+                #/components/schemas/AuthConnectiondev-org-auth-connections-toggle-request
+  /dev-orgs.auth-connections.update:
+    post:
+      description: Updates an authentication connection.
+      operationId: authConnectionService.update
+      tags:
+        - authConnectionService
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      security: *ref_0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: >-
+                #/components/schemas/AuthConnectiondev-org-auth-connections-update-request
+  /auth-tokens.create:
+    post:
+      description: |
+        Creates a JWT corresponding to the requested token type for the
+        authenticated user.
+      operationId: authTokensService.create
+      tags:
+        - authTokensService
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      security: *ref_0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthTokensauth-tokens-create-request'
+  /auth-tokens.delete:
+    post:
+      description: |
+        Revokes the token that matches the given token ID issued under the
+        given Dev organization.
+      operationId: authTokensService.delete
+      tags:
+        - authTokensService
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      security: *ref_0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthTokensauth-tokens-delete-request'
+  /auth-tokens.get:
+    get:
+      description: |
+        Gets the token metadata corresponding to the given token ID under the
+        given Dev organization.
+      operationId: authTokensService.get
+      tags:
+        - authTokensService
+      parameters:
+        - name: token_id
+          in: query
+          description: |
+            The unique identifier of the token under a given Dev organization.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthTokensauth-tokens-get-response'
+      security: *ref_0
+  /auth-tokens.list:
+    get:
+      description: |
+        Gets the token metadata for all the tokens corresponding to the given
+        token type issued for a given subject.
+      operationId: authTokensService.list
+      tags:
+        - authTokensService
+      parameters:
+        - name: client_id
+          in: query
+          description: |
+            An identifier that represents the application, which requested the
+            token. Only relevant for application access tokens.
+          required: false
+          schema:
+            type: string
+        - name: requested_token_type
+          in: query
+          description: |
+            The type of the requested token. If no value is specified, the
+            response will include tokens of all the types.
+          required: false
+          schema:
+            $ref: '#/components/schemas/Commonsauth-token-requested-token-type'
+        - name: subject
+          in: query
+          description: |
+            The subject associated with the token. In the absence of this
+            parameter, the ID of the authenticated entity is treated as the
+            subject.
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthTokensauth-tokens-list-response'
+      security: *ref_0
+  /auth-tokens.self.delete:
+    post:
+      description: |
+        Revokes all the tokens that matches the given token type created by the
+        authenticated user.
+      operationId: authTokensService.selfDelete
+      tags:
+        - authTokensService
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      security: *ref_0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthTokensauth-tokens-self-delete-request'
+  /auth-tokens.update:
+    post:
+      description: |
+        Updates token metadata of a token issued under a given Dev
+        organization.
+      operationId: authTokensService.update
+      tags:
+        - authTokensService
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthTokensauth-tokens-update-response'
+      security: *ref_0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthTokensauth-tokens-update-request'
+  /dev-users.list:
+    get:
+      description: Lists users within your organization.
+      operationId: devUsersService.list
+      tags:
+        - devUsersService
+      parameters:
+        - name: cursor
+          in: query
+          description: >
+            The cursor to resume iteration from. If not provided, then iteration
+            starts from the beginning.
+          required: false
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: |
+            The maximum number of Dev users to return. The default is '50'.
+          required: false
+          schema:
+            type: integer
+        - name: mode
+          in: query
+          description: |
+            The iteration mode to use, otherwise if not set, then "after" is
+            used.
+          required: false
+          schema:
+            $ref: '#/components/schemas/Commonslist-mode'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DevUsersdev-users-list-response'
+      security: *ref_0
+  /dev-users.self:
+    get:
+      description: Gets the authenticated user's information.
+      operationId: devUsersService.self
+      tags:
+        - devUsersService
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DevUsersdev-users-self-response'
+      security: *ref_0
+  /parts.create:
+    post:
+      description: Creates new [part](https://devrev.ai/docs/product/parts).
+      operationId: partsService.create
+      tags:
+        - partsService
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      security: *ref_0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Partsparts-create-request'
+  /parts.delete:
+    post:
+      description: Deletes a [part](https://devrev.ai/docs/product/parts).
+      operationId: partsService.delete
+      tags:
+        - partsService
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Partsparts-delete-response'
+      security: *ref_0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Partsparts-delete-request'
+  /parts.get:
+    get:
+      description: |
+        Gets a [part's](https://devrev.ai/docs/product/parts) information.
+      operationId: partsService.get
+      tags:
+        - partsService
+      parameters:
+        - name: id
+          in: query
+          description: The ID of the part to retrieve.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Partsparts-get-response'
+      security: *ref_0
+  /parts.list:
+    get:
+      description: |
+        Lists a collection of [parts](https://devrev.ai/docs/product/parts).
+      operationId: partsService.list
+      tags:
+        - partsService
+      parameters:
+        - name: cursor
+          in: query
+          description: >
+            The cursor to resume iteration from. If not provided, then iteration
+            starts from the beginning.
+          required: false
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: |
+            The maximum number of parts to return. The default is '50'.
+          required: false
+          schema:
+            type: integer
+        - name: mode
+          in: query
+          description: |
+            The iteration mode to use, otherwise if not set, then "after" is
+            used.
+          required: false
+          schema:
+            $ref: '#/components/schemas/Commonslist-mode'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Partsparts-list-response'
+      security: *ref_0
+  /parts.update:
+    post:
+      description: |
+        Updates a [part's](https://devrev.ai/docs/product/parts) information.
+      operationId: partsService.update
+      tags:
+        - partsService
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Partsparts-update-response'
+      security: *ref_0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Partsparts-update-request'
+  /rev-orgs.create:
+    post:
+      description: |
+        Creates a Rev organization in the authenticated user's Dev
+        organization.
+      operationId: revOrgsService.create
+      tags:
+        - revOrgsService
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      security: *ref_0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RevOrgsrev-orgs-create-request'
+  /rev-orgs.delete:
+    post:
+      description: Deletes the Rev organization.
+      operationId: revOrgsService.delete
+      tags:
+        - revOrgsService
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RevOrgsrev-orgs-delete-response'
+      security: *ref_0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RevOrgsrev-orgs-delete-request'
+  /rev-orgs.get:
+    get:
+      description: Retrieves the Rev organization's information.
+      operationId: revOrgsService.get
+      tags:
+        - revOrgsService
+      parameters:
+        - name: id
+          in: query
+          description: The ID of the required Rev organization.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RevOrgsrev-orgs-get-response'
+      security: *ref_0
+  /rev-orgs.list:
+    get:
+      description: |
+        Gets the list of Rev organizations' information belonging to the
+        authenticated user's Dev Organization which the user is also authorized
+        to access.
+      operationId: revOrgsService.list
+      tags:
+        - revOrgsService
+      parameters:
+        - name: created_date.after
+          in: query
+          description: >
+            Filters for objects created after the provided timestamp
+            (inclusive).
+          required: false
+          schema:
+            type: string
+        - name: created_date.before
+          in: query
+          description: |
+            Filters for objects created before the provided timestamp
+            (inclusive).
+          required: false
+          schema:
+            type: string
+        - name: cursor
+          in: query
+          description: >
+            The cursor to resume iteration from. If not provided, then iteration
+            starts from the beginning.
+          required: false
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: |
+            The maximum number of Rev organizations to be retrieved per page.
+          required: false
+          schema:
+            type: integer
+        - name: mode
+          in: query
+          description: |
+            The iteration mode to use, otherwise if not set, then "after" is
+            used.
+          required: false
+          schema:
+            $ref: '#/components/schemas/Commonslist-mode'
+        - name: modified_date.after
+          in: query
+          description: >
+            Filters for objects created after the provided timestamp
+            (inclusive).
+          required: false
+          schema:
+            type: string
+        - name: modified_date.before
+          in: query
+          description: |
+            Filters for objects created before the provided timestamp
+            (inclusive).
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RevOrgsrev-orgs-list-response'
+      security: *ref_0
+  /rev-orgs.update:
+    post:
+      description: Updates the Rev organization's information.
+      operationId: revOrgsService.update
+      tags:
+        - revOrgsService
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RevOrgsrev-orgs-update-response'
+      security: *ref_0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RevOrgsrev-orgs-update-request'
+  /tags.create:
+    post:
+      description: |
+        Creates a new tag, which is used to create associations between objects
+        and a logical concept denoted by the tag's name.
+      operationId: tagsService.create
+      tags:
+        - tagsService
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      security: *ref_0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tagstags-create-request'
+  /tags.delete:
+    post:
+      description: Deletes a tag.
+      operationId: tagsService.delete
+      tags:
+        - tagsService
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tagstags-delete-response'
+      security: *ref_0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tagstags-delete-request'
+  /tags.get:
+    get:
+      description: Gets a tag's information.
+      operationId: tagsService.get
+      tags:
+        - tagsService
+      parameters:
+        - name: id
+          in: query
+          description: The requested tag's ID.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tagstags-get-response'
+      security: *ref_0
+  /tags.list:
+    get:
+      description: Lists the available tags.
+      operationId: tagsService.list
+      tags:
+        - tagsService
+      parameters:
+        - name: cursor
+          in: query
+          description: >
+            The cursor to resume iteration from. If not provided, then iteration
+            starts from the beginning.
+          required: false
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: The maximum number of tags to return. The default is '50'.
+          required: false
+          schema:
+            type: integer
+        - name: mode
+          in: query
+          description: |
+            The iteration mode to use, otherwise if not set, then "after" is
+            used.
+          required: false
+          schema:
+            $ref: '#/components/schemas/Commonslist-mode'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tagstags-list-response'
+      security: *ref_0
+  /tags.update:
+    post:
+      description: Updates a tag's information.
+      operationId: tagsService.update
+      tags:
+        - tagsService
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tagstags-update-response'
+      security: *ref_0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tagstags-update-request'
+  /timeline-entries.create:
+    post:
+      description: Creates a new entry on an object's timeline.
+      operationId: timelineEntriesService.create
+      tags:
+        - timelineEntriesService
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      security: *ref_0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: >-
+                #/components/schemas/TimelineEntriestimeline-entries-create-request
+  /timeline-entries.get:
+    get:
+      description: Gets an entry on an object's timeline.
+      operationId: timelineEntriesService.get
+      tags:
+        - timelineEntriesService
+      parameters:
+        - name: id
+          in: query
+          description: The ID of the timeline entry to get.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/TimelineEntriestimeline-entries-get-response
+      security: *ref_0
+  /timeline-entries.list:
+    get:
+      description: Lists the timeline entries for an object.
+      operationId: timelineEntriesService.list
+      tags:
+        - timelineEntriesService
+      parameters:
+        - name: object
+          in: query
+          description: The ID of the object to list timeline entries for.
+          required: true
+          schema:
+            type: string
+        - name: cursor
+          in: query
+          description: >
+            The cursor to resume iteration from. If not provided, then iteration
+            starts from the beginning.
+          required: false
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: |
+            The maximum number of entries to return. If not set, then this
+            defaults to `50`.
+          required: false
+          schema:
+            type: integer
+        - name: mode
+          in: query
+          description: |
+            The iteration mode to use, otherwise if not set, then "after" is
+            used.
+          required: false
+          schema:
+            $ref: '#/components/schemas/Commonslist-mode'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/TimelineEntriestimeline-entries-list-response
+      security: *ref_0
+  /timeline-entries.update:
+    post:
+      description: Updates an entry on an object's timeline.
+      operationId: timelineEntriesService.update
+      tags:
+        - timelineEntriesService
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/TimelineEntriestimeline-entries-update-response
+      security: *ref_0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: >-
+                #/components/schemas/TimelineEntriestimeline-entries-update-request
+  /webhooks.create:
+    post:
+      description: Creates a new webhook target.
+      operationId: webhooksService.create
+      tags:
+        - webhooksService
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      security: *ref_0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Webhookswebhooks-create-request'
+  /webhooks.delete:
+    post:
+      description: Deletes the requested webhook.
+      operationId: webhooksService.delete
+      tags:
+        - webhooksService
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Webhookswebhooks-delete-response'
+      security: *ref_0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Webhookswebhooks-delete-request'
+  /webhooks.get:
+    get:
+      description: Gets the requested webhook's information.
+      operationId: webhooksService.get
+      tags:
+        - webhooksService
+      parameters:
+        - name: id
+          in: query
+          description: ID for the webhook.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Webhookswebhooks-get-response'
+      security: *ref_0
+  /webhooks.list:
+    get:
+      description: Lists the webhooks.
+      operationId: webhooksService.list
+      tags:
+        - webhooksService
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Webhookswebhooks-list-response'
+      security: *ref_0
+  /webhooks.update:
+    post:
+      description: Updates the requested webhook.
+      operationId: webhooksService.update
+      tags:
+        - webhooksService
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Webhookswebhooks-update-response'
+      security: *ref_0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Webhookswebhooks-update-request'
+  /works.create:
+    post:
+      description: |
+        Creates new work ([issue](https://devrev.ai/docs/product/build),
+        [ticket](https://devrev.ai/docs/product/support)) item.
+      operationId: worksService.create
+      tags:
+        - worksService
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      security: *ref_0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Worksworks-create-request'
+  /works.delete:
+    post:
+      description: Deletes a work item.
+      operationId: worksService.delete
+      tags:
+        - worksService
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Worksworks-delete-response'
+      security: *ref_0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Worksworks-delete-request'
+  /works.export:
+    get:
+      description: Exports a collection of work items.
+      operationId: worksService.export
+      tags:
+        - worksService
+      parameters:
+        - name: first
+          in: query
+          description: >
+            The number of work items to return. The default is '50', the maximum
+            is '5000'.
+          required: false
+          schema:
+            type: integer
+        - name: target_close_date.after
+          in: query
+          description: >
+            Filters for objects created after the provided timestamp
+            (inclusive).
+          required: false
+          schema:
+            type: string
+        - name: target_close_date.before
+          in: query
+          description: |
+            Filters for objects created before the provided timestamp
+            (inclusive).
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Worksworks-export-response'
+      security: *ref_0
+  /works.get:
+    get:
+      description: Gets a work item's information.
+      operationId: worksService.get
+      tags:
+        - worksService
+      parameters:
+        - name: id
+          in: query
+          description: The work's ID.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Worksworks-get-response'
+      security: *ref_0
+  /works.list:
+    get:
+      description: Lists a collection of work items.
+      operationId: worksService.list
+      tags:
+        - worksService
+      parameters:
+        - name: cursor
+          in: query
+          description: >
+            The cursor to resume iteration from. If not provided, then iteration
+            starts from the beginning.
+          required: false
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: |
+            The maximum number of works to return. The default is '50'.
+          required: false
+          schema:
+            type: integer
+        - name: mode
+          in: query
+          description: |
+            The iteration mode to use, otherwise if not set, then "after" is
+            used.
+          required: false
+          schema:
+            $ref: '#/components/schemas/Commonslist-mode'
+        - name: target_close_date.after
+          in: query
+          description: >
+            Filters for objects created after the provided timestamp
+            (inclusive).
+          required: false
+          schema:
+            type: string
+        - name: target_close_date.before
+          in: query
+          description: |
+            Filters for objects created before the provided timestamp
+            (inclusive).
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Worksworks-list-response'
+      security: *ref_0
+  /works.update:
+    post:
+      description: Updates a work item's information.
+      operationId: worksService.update
+      tags:
+        - worksService
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Worksworks-update-response'
+      security: *ref_0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Worksworks-update-request'
+components:
+  schemas:
+    Artifactsartifacts-locate-response:
+      type: object
+      description: The response to getting an artifact's download URL.
+      properties:
+        expires_at:
+          type: string
+          description: The expiration timestamp of the URL.
+        url:
+          type: string
+          description: The artifact's download URL.
+      required:
+        - url
+    Artifactsartifacts-prepare-request:
+      type: object
+      description: The request to prepare a URL to upload a file.
+      properties:
+        file_name:
+          type: string
+          description: The name of the file that's being uploaded.
+      required:
+        - file_name
+    Artifactsartifacts-prepare-response:
+      type: object
+      description: The response to preparing a URL to upload a file.
+      properties:
+        form_data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Artifactsartifacts-prepare-response-form-data'
+          description: The POST policy form data.
+        id:
+          type: string
+          description: The generated artifact's ID.
+        url:
+          type: string
+          description: The URL that the file's data should be uploaded to.
+      required:
+        - form_data
+        - id
+        - url
+    Artifactsartifacts-prepare-response-form-data:
+      type: object
+      properties:
+        key:
+          type: string
+          description: Key of the form field.
+        value:
+          type: string
+          description: Value corresponding to the key.
+      required:
+        - key
+        - value
+    AuthConnectiondev-org-auth-connections-create-request:
+      type: object
+      description: |
+        Request to create a new enterprise authentication connection.
+      properties:
+        display_name:
+          type: string
+          description: |
+            Display name of the authentication connection. This name will be
+            visible to all the users when they sign in to this Dev
+            organization. For example, if the display_name is 'abclogin', then
+            it would appear on the login button as 'Log in to abclogin'.
+        type:
+          $ref: >-
+            #/components/schemas/Commonsdev-org-auth-connections-create-request-type
+      required:
+        - type
+    AuthConnectiondev-org-auth-connections-create-response:
+      type: object
+      description: |
+        Response for the request to create a new enterprise authentication
+        connection.
+      properties:
+        auth_connection:
+          $ref: '#/components/schemas/Commonsauth-connection'
+      required:
+        - auth_connection
+    AuthConnectiondev-org-auth-connections-delete-request:
+      type: object
+      description: |
+        Request to delete an enterprise authentication connection for a Dev
+        organization. A default connection and a connection which is currently
+        enabled cannot be deleted.
+      properties:
+        id:
+          type: string
+          description: ID of the authentication connection to be deleted.
+      required:
+        - id
+    AuthConnectiondev-org-auth-connections-get-response:
+      type: object
+      description: |
+        Response object encapsulating the configuration details of an
+        authentication connection.
+      properties:
+        auth_connection:
+          $ref: '#/components/schemas/Commonsauth-connection'
+      required:
+        - auth_connection
+    AuthConnectiondev-org-auth-connections-list-response:
+      type: object
+      description: |
+        Response object for the request to list all the social and enterprise
+        authentication connections configured for a Dev organization.
+      properties:
+        auth_connections:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commonsauth-connection'
+          description: |
+            List of all the authentication connections currently configured for
+            a Dev organization.
+      required:
+        - auth_connections
+    AuthConnectiondev-org-auth-connections-toggle-request:
+      type: object
+      description: |
+        Request to enable or disable an authentication connection for a Dev
+        organization.
+      properties:
+        id:
+          type: string
+          description: ID of the authentication connection to be toggled.
+        toggle:
+          $ref: '#/components/schemas/Commonsauth-connection-toggle'
+      required:
+        - id
+    AuthConnectiondev-org-auth-connections-update-request:
+      type: object
+      description: |
+        Request to update an enterprise authentication connection for a Dev
+        organization.
+      properties:
+        display_name:
+          type: string
+          description: |
+            New display name of the authentication connection. This name will
+            be visible to all the users when they sign in to this Dev
+            organization. For example, if the display_name is 'abclogin', then
+            it would appear on the login button as 'Log in to abclogin'.
+        id:
+          type: string
+          description: |
+            ID of the authentication connection which is to be updated.
+        type:
+          $ref: >-
+            #/components/schemas/AuthConnectiondev-org-auth-connections-update-request-type
+      required:
+        - id
+        - type
+    AuthConnectiondev-org-auth-connections-update-response:
+      type: object
+      description: |
+        Response for the request to update an enterprise authentication
+        connection.
+      properties:
+        auth_connection:
+          $ref: '#/components/schemas/Commonsauth-connection'
+      required:
+        - auth_connection
+    AuthConnectiondev-org-auth-connections-update-request-type:
+      type: string
+      enum:
+        - google_apps
+        - none
+        - oidc
+        - samlp
+        - waad
+      description: |
+        Specifies the type for the authentication connection. Different types
+        of authentication connections have different configuration parameters
+        that can be updated.
+    AuthTokensauth-tokens-create-request:
+      type: object
+      description: |
+        A request to create a new token corresponding to the requested token
+        type.
+      properties:
+        aud:
+          type: array
+          items:
+            type: string
+          description: The expected audience values with respect to the token.
+        client_id:
+          type: string
+          description: |
+            An identifier that represents the application which is requesting
+            the token. If no client_id is present in the request to generate an
+            application access token (AAT), DevRev will generate a client_id.
+            This client_id is only associated with an AAT.
+        expires_in:
+          type: integer
+          description: |
+            The expected validity lifetime of the token in number of days.
+        grant_type:
+          $ref: '#/components/schemas/Commonsauth-token-grant-type'
+        requested_token_type:
+          $ref: '#/components/schemas/Commonsauth-token-requested-token-type'
+        rev_info:
+          $ref: '#/components/schemas/Commonsauth-tokens-rev-info'
+        scope:
+          type: string
+          description: |
+            The requested set of scopes associated with the issued token. A
+            space-delimited list of values in which the order of values does
+            not matter.
+        subject_token:
+          type: string
+          description: |
+            Represents the entity that requests the token. Not required when
+            requesting an application access token (AAT).
+        subject_token_type:
+          $ref: '#/components/schemas/Commonsauth-token-subject-token-type'
+        token_hint:
+          type: string
+          description: A hint that identifies the token.
+    AuthTokensauth-tokens-create-response:
+      type: object
+      description: |
+        Response for the request to create a new token corresponding to the
+        requested token type.
+      properties:
+        access_token:
+          type: string
+          description: |
+            The issued JSON Web Token (JWT) corresponding to the requested
+            token type.
+        client_id:
+          type: string
+          description: |
+            An identifier that represents the application which is requesting
+            the token. Only present in a response corresponding to an
+            application access token (AAT).
+        expires_in:
+          type: integer
+          description: |
+            The validity lifetime of the token specified in seconds since Unix
+            epoch.
+        refresh_token:
+          type: string
+          description: A token to refresh the issued token.
+        scope:
+          type: string
+          description: |
+            The scopes associated with the issued token. A space-delimited list
+            of values in which the order of values does not matter.
+        token_type:
+          $ref: '#/components/schemas/Commonsauth-token-token-type'
+      required:
+        - access_token
+        - expires_in
+        - token_type
+    AuthTokensauth-tokens-delete-request:
+      type: object
+      description: The request to revoke the token.
+      properties:
+        token_id:
+          type: string
+          description: |
+            The unique identifier for the token under a given Dev organization.
+            If no token ID is provided, then the token ID will be set from the
+            JTI claim of the token in the authorization header.
+    AuthTokensauth-tokens-get-response:
+      type: object
+      description: The response to get the token metadata.
+      properties:
+        token:
+          $ref: '#/components/schemas/Commonsauth-token'
+      required:
+        - token
+    AuthTokensauth-tokens-list-response:
+      type: object
+      description: The response to list the token metadata.
+      properties:
+        tokens:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commonsauth-token'
+          description: The list of token metadata.
+      required:
+        - tokens
+    AuthTokensauth-tokens-self-delete-request:
+      type: object
+      description: |
+        The request to delete all the tokens created by the authenticated user,
+        that match with the provided token type.
+      properties:
+        requested_token_type:
+          $ref: '#/components/schemas/Commonsauth-token-requested-token-type'
+    AuthTokensauth-tokens-update-request:
+      type: object
+      description: A request to update the token metadata.
+      properties:
+        token_hint:
+          type: string
+          description: A hint that identifies the token.
+        token_id:
+          type: string
+          description: |
+            The unique identifier of the token under a given Dev organization.
+      required:
+        - token_hint
+        - token_id
+    AuthTokensauth-tokens-update-response:
+      type: object
+      description: Response for the request to update the token metadata.
+      properties:
+        token:
+          $ref: '#/components/schemas/Commonsauth-token'
+      required:
+        - token
+    Commonsauth-token-grant-type:
+      type: string
+      enum:
+        - urn:devrev:params:oauth:grant-type:token-issue
+        - urn:ietf:params:oauth:grant-type:token-exchange
+      description: Specifies the process of obtaining a token.
+    Commonsauth-token-requested-token-type:
+      type: string
+      enum:
+        - urn:devrev:params:oauth:token-type:aat
+        - urn:devrev:params:oauth:token-type:aat:public
+        - urn:devrev:params:oauth:token-type:dev
+        - urn:devrev:params:oauth:token-type:pat
+        - urn:devrev:params:oauth:token-type:rev
+        - urn:devrev:params:oauth:token-type:session
+        - urn:devrev:params:oauth:token-type:session:dev0
+        - urn:devrev:params:oauth:token-type:sys
+        - urn:ietf:params:oauth:token-type:jwt
+      description: The type of the requested token.
+    Commonsauth-tokens-rev-info:
+      type: object
+      description: |
+        Carries info corresponding to the Rev user to be provisioned and/or
+        issue a Rev session token.
+      properties:
+        org_ref:
+          type: string
+          description: An identifier which uniquely identifies a Rev org.
+        org_traits:
+          $ref: '#/components/schemas/Commonsauth-tokens-org-traits'
+        user_ref:
+          type: string
+          description: An identifier which uniquely identifies a Rev user.
+        user_traits:
+          $ref: '#/components/schemas/Commonsauth-tokens-user-traits'
+      required:
+        - user_ref
+    Commonsauth-tokens-org-traits:
+      type: object
+      description: Carries Rev org info.
+      properties:
+        display_name:
+          type: string
+          description: The display name of the Rev org.
+        domain:
+          type: string
+          description: The domain of the Rev org.
+    Commonsauth-tokens-user-traits:
+      type: object
+      description: Carries Rev user info.
+      properties:
+        display_name:
+          type: string
+          description: The display name of the Rev user.
+        email:
+          type: string
+          description: The email address of the Rev user.
+        full_name:
+          type: string
+          description: The full name of the Rev user.
+    Commonsauth-token-subject-token-type:
+      type: string
+      enum:
+        - urn:devrev:params:oauth:token-type:jwt:auth0
+        - urn:devrev:params:oauth:token-type:jwt:dev
+        - urn:devrev:params:oauth:token-type:revinfo
+        - urn:devrev:params:oauth:token-type:sysu
+        - urn:devrev:params:oauth:token-type:userinfo
+        - urn:devrev:params:oauth:token-type:userinfo:profile
+        - urn:ietf:params:oauth:token-type:jwt
+      description: The type of the subject token.
+    Commonsauth-token-token-type:
+      type: string
+      enum:
+        - bearer
+      description: |
+        The type of the issued token. Bearer is the only supported token type.
+    Commonsauth-token:
+      type: object
+      properties:
+        client_id:
+          type: string
+          description: |
+            An identifier that represents the application that requested the
+            token. Only applicable for application access tokens.
+        expires_at:
+          type: string
+          description: The time at which the token expires.
+        issued_at:
+          type: string
+          description: The time at which the token was issued.
+        requested_token_type:
+          $ref: '#/components/schemas/Commonsauth-token-requested-token-type'
+        scopes:
+          type: array
+          items:
+            type: string
+          description: The scopes associated with the issued token.
+        status:
+          $ref: '#/components/schemas/Commonsauth-token-status'
+        subject:
+          type: string
+          description: The subject of the token.
+        token_hint:
+          type: string
+          description: A hint that identifies the token.
+      allOf:
+        - $ref: '#/components/schemas/Commonsatom-base'
+    Commonsatom-base:
+      type: object
+      properties:
+        created_by:
+          $ref: '#/components/schemas/Commonsuser-summary'
+        created_date:
+          type: string
+          description: Timestamp when the object was created.
+        display_id:
+          type: string
+          description: Human-readable object ID unique to the Dev organization.
+        id:
+          type: string
+          description: Globally unique object ID.
+        modified_by:
+          $ref: '#/components/schemas/Commonsuser-summary'
+        modified_date:
+          type: string
+          description: Timestamp when the object was last modified.
+      required:
+        - id
+    Commonsuser-summary:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/Commonsuser-type'
+      required:
+        - type
+    Commonsuser-type:
+      type: string
+      enum:
+        - dev_user
+        - rev_user
+        - sys_user
+    Commonsdev-user-summary:
+      type: object
+      properties: {}
+      allOf:
+        - $ref: '#/components/schemas/Commonsuser-base-summary'
+    Commonsuser-base-summary:
+      type: object
+      properties:
+        display_name:
+          type: string
+          description: |
+            The user's display name. The name is non-unique and mutable.
+        email:
+          type: string
+          description: Email address of the user.
+        full_name:
+          type: string
+          description: Full name of the user.
+        profile_picture:
+          type: string
+          description: URL of the user's profile picture.
+        state:
+          $ref: '#/components/schemas/Commonsuser-state'
+      allOf:
+        - $ref: '#/components/schemas/Commonsatom-base-summary'
+    Commonsatom-base-summary:
+      type: object
+      properties:
+        display_id:
+          type: string
+          description: Human-readable object ID unique to the Dev organization.
+        id:
+          type: string
+          description: Globally unique object ID.
+      required:
+        - id
+    Commonsuser-state:
+      type: string
+      enum:
+        - active
+        - deactivated
+        - locked
+        - shadow
+        - unassigned
+      description: State of the user.
+    Commonsrev-user-summary:
+      type: object
+      properties:
+        rev_org:
+          $ref: '#/components/schemas/Commonsorg-summary'
+      allOf:
+        - $ref: '#/components/schemas/Commonsuser-base-summary'
+    Commonsorg-summary:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/Commonsorg-type'
+      required:
+        - type
+    Commonsorg-type:
+      type: string
+      enum:
+        - rev_org
+    Commonsrev-org-summary:
+      type: object
+      properties: {}
+      allOf:
+        - $ref: '#/components/schemas/Commonsorg-base-summary'
+    Commonsorg-base-summary:
+      type: object
+      properties:
+        display_name:
+          type: string
+          description: Name of the Organization.
+      allOf:
+        - $ref: '#/components/schemas/Commonsatom-base-summary'
+    Commonssys-user-summary:
+      type: object
+      properties: {}
+      allOf:
+        - $ref: '#/components/schemas/Commonsuser-base-summary'
+    Commonsauth-token-status:
+      type: string
+      enum:
+        - active
+        - expired
+        - revoked
+      description: The status of the token.
+    Commonsdev-org-auth-connections-create-request-type:
+      type: string
+      enum:
+        - google_apps
+        - oidc
+        - samlp
+        - waad
+      description: |
+        Defines the type for the authentication connection. Different types of
+        authentication connections have different configuration parameters.
+    Commonsauth-connection-options-azure-ad:
+      type: object
+      description: |
+        Object encapsulating the configuration parameters for an Azure AD
+        authentication connection.
+      properties:
+        client_id:
+          type: string
+          description: Client ID for the Azure authentication connection.
+        client_secret:
+          type: string
+          description: Client secret for the Azure authentication connection.
+        domain:
+          type: string
+          description: Domain URL of the Azure authentication connection.
+    Commonsauth-connection-options-google-apps:
+      type: object
+      description: |
+        Object encapsulating the configuration parameters for a Google Apps
+        authentication connection.
+      properties:
+        client_id:
+          type: string
+          description: Client ID for the Google Apps authentication connection.
+        client_secret:
+          type: string
+          description: |
+            Client secret for the Google Apps authentication connection.
+        tenant_domain:
+          type: string
+          description: |
+            Tenant domain URL of the Google Apps authentication connection.
+    Commonsauth-connection-options-oidc:
+      type: object
+      description: |
+        Object encapsulating the configuration parameters for an OIDC
+        authentication connection.
+      properties:
+        client_id:
+          type: string
+          description: Client ID for the OIDC authentication connection.
+        client_secret:
+          type: string
+          description: Client secret for the OIDC authentication connection.
+        issuer:
+          type: string
+          description: Issuer URL of the OIDC authentication connection.
+    Commonsauth-connection-options-saml:
+      type: object
+      description: |
+        Object encapsulating the configuration parameters for a SAML
+        authentication connection.
+      properties:
+        sign_in_endpoint:
+          type: string
+          description: Sign In endpoint for the SAML authentication connection.
+        signing_cert:
+          type: string
+          description: |
+            Signing certificate for the SAML authentication connection.
+    Commonsauth-connection:
+      type: object
+      description: |
+        Connection object that specifies the configuration for an
+        authentication connection that is set up for a Dev organization.
+      properties:
+        display_name:
+          type: string
+          description: |
+            Display name of the authentication connection. This name will be
+            visible to all the users when they sign in to this Dev
+            organization. For example, if the display_name is 'abclogin', then
+            it would appear on the login button as 'Log in to abclogin'.
+        enabled:
+          type: boolean
+          description: |
+            Whether the authentication connection is enabled or disabled. If
+            set to false, the authentication connection will not show up on the
+            login screen as a login option.
+        id:
+          type: string
+          description: ID of the authentication connection.
+        type:
+          $ref: '#/components/schemas/Commonsauth-connection-type'
+      required:
+        - id
+        - type
+    Commonsauth-connection-type:
+      type: string
+      enum:
+        - google_apps
+        - oidc
+        - samlp
+        - social
+        - waad
+      description: |
+        Defines the type for the authentication connection. The configuration
+        for each authentication connection will depend on the type value.
+    Commonsauth-connection-options-social:
+      type: object
+      additionalProperties: {}
+    Commonsauth-connection-toggle:
+      type: string
+      enum:
+        - disable
+        - enable
+    Commonsdev-user:
+      type: object
+      properties:
+        external_identities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commonsexternal-identity'
+          description: IDs of the Dev User outside the DevRev SOR.
+      allOf:
+        - $ref: '#/components/schemas/Commonsuser-base'
+    Commonsuser-base:
+      type: object
+      properties:
+        display_name:
+          type: string
+          description: |
+            The user's display name. The name is non-unique and mutable.
+        email:
+          type: string
+          description: Email address of the user.
+        full_name:
+          type: string
+          description: Full name of the user.
+        phone_numbers:
+          type: array
+          items:
+            type: string
+          description: Phone numbers of the user.
+        profile_picture:
+          type: string
+          description: URL of the user's profile picture.
+        state:
+          $ref: '#/components/schemas/Commonsuser-state'
+      allOf:
+        - $ref: '#/components/schemas/Commonsatom-base'
+    Commonsexternal-identity:
+      type: object
+      additionalProperties: {}
+      description: External identity of a user.
+    Commonspart-type:
+      type: string
+      enum:
+        - product
+    Commonsparts-create-request-capability:
+      type: object
+      additionalProperties: {}
+    Commonsparts-create-request-feature:
+      type: object
+      additionalProperties: {}
+    Commonsparts-create-request-product:
+      type: object
+      additionalProperties: {}
+    Commonspart:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/Commonspart-type'
+      required:
+        - type
+    Commonsproduct:
+      type: object
+      properties: {}
+      allOf:
+        - $ref: '#/components/schemas/Commonspart-base'
+    Commonspart-base:
+      type: object
+      properties:
+        artifacts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commonsartifact-summary'
+          description: The attached artifacts.
+        description:
+          type: string
+          description: Description of the part.
+        name:
+          type: string
+          description: Name of the part.
+        owned_by:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commonsuser-summary'
+          description: The users that own the part.
+        stage:
+          $ref: '#/components/schemas/Commonsstage'
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commonstag-with-value'
+          description: Tags associated with the object.
+      required:
+        - owned_by
+      allOf:
+        - $ref: '#/components/schemas/Commonsatom-base'
+    Commonsartifact-summary:
+      type: object
+      properties: {}
+      allOf:
+        - $ref: '#/components/schemas/Commonsatom-base-summary'
+    Commonsstage:
+      type: object
+      description: Describes the current stage of a work item.
+      properties:
+        name:
+          type: string
+          description: Current stage name of the work item.
+      required:
+        - name
+    Commonstag-with-value:
+      type: object
+      properties:
+        tag:
+          $ref: '#/components/schemas/Commonstag-summary'
+        value:
+          type: string
+          description: The value for the object's association with the tag.
+      required:
+        - tag
+    Commonstag-summary:
+      type: object
+      properties:
+        name:
+          type: string
+          description: |
+            The name of the tag, which denotes the logical concept by which all
+            tagged objects will be associated. The name is guaranteed to be
+            unique.
+      required:
+        - name
+      allOf:
+        - $ref: '#/components/schemas/Commonsatom-base-summary'
+    Commonsorg-environment:
+      type: string
+      enum:
+        - production
+        - staging
+        - test
+      description: |
+        The environment of the Org. Defaults to 'production' if not specified.
+    Commonsrev-org:
+      type: object
+      properties:
+        description:
+          type: string
+          description: Description of the Rev organization.
+        domain:
+          type: string
+          description: Company's domain name. Example - 'devrev.ai'.
+        external_ref:
+          type: string
+          description: |
+            External ref is a unique identifier for the Rev (customer)
+            organization from your primary customer system of records. If none
+            is specified, a system-generated identifier will be assigned to the
+            organization.
+      allOf:
+        - $ref: '#/components/schemas/Commonsorg-base'
+    Commonsorg-base:
+      type: object
+      properties:
+        display_name:
+          type: string
+          description: Name of the Organization.
+      allOf:
+        - $ref: '#/components/schemas/Commonsatom-base'
+    Commonstag:
+      type: object
+      properties:
+        allowed_values:
+          type: array
+          items:
+            type: string
+          description: |
+            The allowed values for the tag, where a value is provided when a
+            tag is associated with an object. If empty, then no value should be
+            provided when the association is made.
+        description:
+          type: string
+          description: |
+            An informative description for the tag that should provide context
+            on the tag's purpose and usage.
+        name:
+          type: string
+          description: |
+            The name of the tag, which denotes the logical concept by which all
+            tagged objects will be associated. The name is guaranteed to be
+            unique.
+      required:
+        - name
+      allOf:
+        - $ref: '#/components/schemas/Commonsatom-base'
+    Commonstimeline-entries-create-request-type:
+      type: string
+      enum:
+        - timeline_comment
+    Commonstimeline-entries-create-request-timeline-comment:
+      type: object
+      properties:
+        body:
+          type: string
+          description: The comment's body.
+        body_type:
+          $ref: '#/components/schemas/Commonstimeline-comment-body-type'
+        snap_kit_body:
+          type: object
+          additionalProperties: {}
+          description: The SnapKit body of the comment.
+    Commonstimeline-comment-body-type:
+      type: string
+      enum:
+        - snap_kit
+        - text
+      description: The type of the body to use for the comment.
+    Commonstimeline-entry:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/Commonstimeline-entry-type'
+      required:
+        - type
+    Commonstimeline-entry-type:
+      type: string
+      enum:
+        - timeline_comment
+    Commonstimeline-comment:
+      type: object
+      properties:
+        body:
+          type: string
+          description: |
+            The comment's body. If the comment has been deleted, then no body
+            will appear in the response.
+        body_type:
+          $ref: '#/components/schemas/Commonstimeline-comment-body-type'
+        snap_kit_body:
+          type: object
+          additionalProperties: {}
+          description: The SnapKit Body of the comment.
+      allOf:
+        - $ref: '#/components/schemas/Commonstimeline-entry-base'
+    Commonstimeline-entry-base:
+      type: object
+      properties: {}
+      allOf:
+        - $ref: '#/components/schemas/Commonsatom-base'
+    Commonswebhook-event-type:
+      type: string
+      enum:
+        - part_created
+        - part_deleted
+        - part_updated
+        - rev_org_created
+        - rev_org_deleted
+        - rev_org_updated
+        - tag_created
+        - tag_deleted
+        - tag_updated
+        - timeline_entry_created
+        - timeline_entry_deleted
+        - timeline_entry_updated
+        - verify
+        - work_created
+        - work_deleted
+        - work_updated
+      description: The event types that the webhook will receive.
+    Commonswebhook:
+      type: object
+      properties:
+        event_types:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commonswebhook-event-type'
+          description: The event types that the webhook will receive.
+        secret:
+          type: string
+          description: The secret to use for verifying webhook events.
+        status:
+          $ref: '#/components/schemas/Commonswebhook-status'
+        url:
+          type: string
+          description: The URL of the webhook endpoint.
+      required:
+        - secret
+        - status
+        - url
+      allOf:
+        - $ref: '#/components/schemas/Commonsatom-base'
+    Commonswebhook-status:
+      type: string
+      enum:
+        - active
+        - inactive
+        - unverified
+      description: The status of the webhook.
+    Commonsstage-init:
+      type: object
+      description: Sets an object's initial stage.
+      properties:
+        name:
+          type: string
+          description: The name of the stage.
+      required:
+        - name
+    Commonsset-tag-with-value:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The ID of the tag.
+        value:
+          type: string
+          description: |
+            The value for the object's association with the tag. If specified,
+            the value must be one that's specified in the tag's allowed values.
+      required:
+        - id
+    Commonswork-type:
+      type: string
+      enum:
+        - issue
+        - ticket
+    Commonsworks-create-request-issue:
+      type: object
+      properties:
+        priority:
+          $ref: '#/components/schemas/Commonsissue-priority'
+    Commonsissue-priority:
+      type: string
+      enum:
+        - p0
+        - p1
+        - p2
+        - p3
+      description: Priority of the work based upon impact and criticality.
+    Commonsworks-create-request-ticket:
+      type: object
+      properties:
+        rev_org:
+          type: string
+          description: The Rev organization that the ticket is associated with.
+        severity:
+          $ref: '#/components/schemas/Commonsticket-severity'
+    Commonsticket-severity:
+      type: string
+      enum:
+        - blocker
+        - high
+        - low
+        - medium
+      description: Severity of the ticket.
+    Commonswork:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/Commonswork-type'
+      required:
+        - type
+    Commonsissue:
+      type: object
+      properties: {}
+      allOf:
+        - $ref: '#/components/schemas/Commonswork-base'
+        - $ref: '#/components/schemas/Commons_InlinedType13'
+    Commons_InlinedType13:
+      type: object
+      properties:
+        priority:
+          $ref: '#/components/schemas/Commonsissue-priority'
+    Commonswork-base:
+      type: object
+      properties:
+        applies_to_part:
+          $ref: '#/components/schemas/Commonspart-summary'
+        artifacts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commonsartifact-summary'
+          description: The artifacts attached to the work item.
+        body:
+          type: string
+          description: Body of the work object.
+        owned_by:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commonsuser-summary'
+          description: The users that own the work.
+        reported_by:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commonsuser-summary'
+          description: Users that reported the work.
+        stage:
+          $ref: '#/components/schemas/Commonsstage'
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commonstag-with-value'
+          description: Tags associated with the object.
+        target_close_date:
+          type: string
+          description: Timestamp when the work is expected to be complete.
+        title:
+          type: string
+          description: Title of the work object.
+      required:
+        - owned_by
+        - title
+      allOf:
+        - $ref: '#/components/schemas/Commonsatom-base'
+    Commonslist-mode:
+      type: string
+      enum:
+        - after
+        - before
+      description: |
+        The iteration mode to use. If "after", then entries after the provided
+        cursor will be returned, or if no cursor is provided, then from the
+        beginning. If "before", then entries before the provided cursor will be
+        returned, or if no cursor is provided, then from the end. Entries will
+        always be returned in the specified sort-by order.
+    Commonspart-summary:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/Commonspart-type'
+      required:
+        - type
+    Commonsproduct-summary:
+      type: object
+      properties: {}
+      allOf:
+        - $ref: '#/components/schemas/Commonspart-base-summary'
+    Commonspart-base-summary:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the part.
+      allOf:
+        - $ref: '#/components/schemas/Commonsatom-base-summary'
+    Commonsticket:
+      type: object
+      properties:
+        rev_org:
+          $ref: '#/components/schemas/Commonsorg-summary'
+        severity:
+          $ref: '#/components/schemas/Commonsticket-severity'
+      allOf:
+        - $ref: '#/components/schemas/Commonswork-base'
+    Commonserror-base:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The message associated with the error.
+      required:
+        - message
+    DevUsersdev-users-list-response:
+      type: object
+      description: The response to listing the Dev users.
+      properties:
+        dev_users:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commonsdev-user'
+          description: The list of Dev users.
+        next_cursor:
+          type: string
+          description: |
+            The cursor used to iterate subsequent results in accordance to the
+            sort order. If not set, then no later elements exist.
+        prev_cursor:
+          type: string
+          description: |
+            The cursor used to iterate preceding results in accordance to the
+            sort order. If not set, then no prior elements exist.
+      required:
+        - dev_users
+    DevUsersdev-users-self-response:
+      type: object
+      description: |
+        The response to getting the information for the authenticated user.
+      properties:
+        dev_user:
+          $ref: '#/components/schemas/Commonsdev-user'
+      required:
+        - dev_user
+    Partsparts-create-request:
+      type: object
+      properties:
+        description:
+          type: string
+          description: Description of the part.
+        name:
+          type: string
+          description: Name of the part.
+        owned_by:
+          type: array
+          items:
+            type: string
+          description: The users that own the part.
+        type:
+          $ref: '#/components/schemas/Commonspart-type'
+      required:
+        - owned_by
+        - type
+    Partsparts-create-response:
+      type: object
+      properties:
+        part:
+          $ref: '#/components/schemas/Commonspart'
+      required:
+        - part
+    Partsparts-delete-request:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The ID of the part to delete.
+      required:
+        - id
+    Partsparts-delete-response:
+      type: object
+      additionalProperties: {}
+    Partsparts-get-response:
+      type: object
+      properties:
+        part:
+          $ref: '#/components/schemas/Commonspart'
+      required:
+        - part
+    Partsparts-list-response:
+      type: object
+      properties:
+        next_cursor:
+          type: string
+          description: |
+            The cursor used to iterate subsequent results in accordance to the
+            sort order. If not set, then no later elements exist.
+        parts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commonspart'
+          description: The list of parts.
+        prev_cursor:
+          type: string
+          description: |
+            The cursor used to iterate preceding results in accordance to the
+            sort order. If not set, then no prior elements exist.
+      required:
+        - parts
+    Partsparts-update-request:
+      type: object
+      properties:
+        description:
+          type: string
+          description: The updated description of the part.
+        id:
+          type: string
+          description: The ID of the part to update.
+        name:
+          type: string
+          description: The updated name of the part.
+        type:
+          $ref: '#/components/schemas/Commonspart-type'
+      required:
+        - id
+        - type
+    Partsparts-update-response:
+      type: object
+      properties:
+        part:
+          $ref: '#/components/schemas/Commonspart'
+      required:
+        - part
+    Partsparts-update-request-capability:
+      type: object
+      additionalProperties: {}
+    Partsparts-update-request-feature:
+      type: object
+      additionalProperties: {}
+    Partsparts-update-request-product:
+      type: object
+      additionalProperties: {}
+    RevOrgsrev-orgs-create-request:
+      type: object
+      description: |
+        Request object to create a new Rev organization in the Dev
+        organization.
+      properties:
+        description:
+          type: string
+          description: Description of the Rev organization.
+        display_name:
+          type: string
+          description: Name of the Rev organization.
+        domain:
+          type: string
+          description: Company's domain name. Example - 'devrev.ai'.
+        environment:
+          $ref: '#/components/schemas/Commonsorg-environment'
+        external_ref:
+          type: string
+          description: |
+            External ref is a custom unique identifier which is a reference to
+            an unique id for this organization's data in some system of
+            records.
+      required:
+        - display_name
+    RevOrgsrev-orgs-create-response:
+      type: object
+      description: |
+        Response object for request to create a new Rev organization.
+      properties:
+        rev_org:
+          $ref: '#/components/schemas/Commonsrev-org'
+      required:
+        - rev_org
+    RevOrgsrev-orgs-delete-request:
+      type: object
+      description: Request object to delete a Rev organization.
+      properties:
+        id:
+          type: string
+          description: The ID of Rev organization to delete.
+      required:
+        - id
+    RevOrgsrev-orgs-delete-response:
+      type: object
+      additionalProperties: {}
+      description: The response to deleting a Rev organization.
+    RevOrgsrev-orgs-get-response:
+      type: object
+      description: The response to getting a Rev organization's information.
+      properties:
+        rev_org:
+          $ref: '#/components/schemas/Commonsrev-org'
+      required:
+        - rev_org
+    RevOrgsrev-orgs-list-response:
+      type: object
+      description: |
+        The response to getting a list of Rev organizations' information.
+      properties:
+        next_cursor:
+          type: string
+          description: |
+            The cursor used to iterate subsequent results in accordance to the
+            sort order. If not set, then no later elements exist.
+        prev_cursor:
+          type: string
+          description: |
+            The cursor used to iterate preceding results in accordance to the
+            sort order. If not set, then no prior elements exist.
+        rev_orgs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commonsrev-org'
+          description: List with all of the Rev organizations' information.
+      required:
+        - rev_orgs
+    RevOrgsrev-orgs-update-request:
+      type: object
+      description: |
+        Request object to update information of the Rev organization.
+      properties:
+        description:
+          type: string
+          description: Description of the Rev organization.
+        display_name:
+          type: string
+          description: Customer chosen name for the Rev organization.
+        domain:
+          type: string
+          description: Company's domain name. Example - 'devrev.ai'.
+        environment:
+          $ref: '#/components/schemas/Commonsorg-environment'
+        external_ref:
+          type: string
+          description: |
+            External ref is a custom unique identifier which is a reference to
+            an unique id for this organization's data in some system of
+            records.
+        id:
+          type: string
+          description: The ID of Rev organization to update.
+      required:
+        - id
+    RevOrgsrev-orgs-update-response:
+      type: object
+      description: Response object to updating Rev organization's information.
+      properties:
+        rev_org:
+          $ref: '#/components/schemas/Commonsrev-org'
+      required:
+        - rev_org
+    Tagstags-create-request:
+      type: object
+      description: The request to create a new tag.
+      properties:
+        allowed_values:
+          type: array
+          items:
+            type: string
+          description: |
+            The allowed values for the tag, or empty if no values are
+            permitted.
+        description:
+          type: string
+          description: The description for the tag.
+        name:
+          type: string
+          description: |
+            The name for the tag, which must be unique across all tags.
+      required:
+        - name
+    Tagstags-create-response:
+      type: object
+      description: The response to creating a new tag.
+      properties:
+        tag:
+          $ref: '#/components/schemas/Commonstag'
+      required:
+        - tag
+    Tagstags-delete-request:
+      type: object
+      description: The request to delete a tag.
+      properties:
+        id:
+          type: string
+          description: The ID of the tag to delete.
+      required:
+        - id
+    Tagstags-delete-response:
+      type: object
+      additionalProperties: {}
+      description: The response for deleting a tag.
+    Tagstags-get-response:
+      type: object
+      description: The response to getting a tag's information.
+      properties:
+        tag:
+          $ref: '#/components/schemas/Commonstag'
+      required:
+        - tag
+    Tagstags-list-response:
+      type: object
+      description: The response to listing the tags.
+      properties:
+        next_cursor:
+          type: string
+          description: |
+            The cursor used to iterate subsequent results in accordance to the
+            sort order. If not set, then no later elements exist.
+        prev_cursor:
+          type: string
+          description: |
+            The cursor used to iterate preceding results in accordance to the
+            sort order. If not set, then no prior elements exist.
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commonstag'
+          description: The list of tags.
+      required:
+        - tags
+    Tagstags-update-request:
+      type: object
+      description: The request to update a tag.
+      properties:
+        allowed_values:
+          $ref: '#/components/schemas/Tagstags-update-allowed-values'
+        description:
+          type: string
+          description: The updated description of the tag.
+        id:
+          type: string
+          description: The ID of the tag to update.
+        name:
+          type: string
+          description: |
+            The updated name of the tag. The name must be unique across all
+            tags.
+      required:
+        - id
+    Tagstags-update-response:
+      type: object
+      description: The response for updating a tag.
+      properties:
+        tag:
+          $ref: '#/components/schemas/Commonstag'
+      required:
+        - tag
+    Tagstags-update-allowed-values:
+      type: object
+      description: Specifies an update to a tag's allowed values.
+      properties:
+        set:
+          type: array
+          items:
+            type: string
+          description: Sets the allowed values for the tag.
+    TimelineEntriestimeline-entries-create-request:
+      type: object
+      description: The request to create a timeline entry for an object.
+      properties:
+        object:
+          type: string
+          description: The ID of the object to create the timeline entry for.
+        type:
+          $ref: '#/components/schemas/Commonstimeline-entries-create-request-type'
+      required:
+        - object
+        - type
+    TimelineEntriestimeline-entries-create-response:
+      type: object
+      description: The response to creating a timeline entry for an object.
+      properties:
+        timeline_entry:
+          $ref: '#/components/schemas/Commonstimeline-entry'
+      required:
+        - timeline_entry
+    TimelineEntriestimeline-entries-get-response:
+      type: object
+      description: The request to getting a timeline entry.
+      properties:
+        timeline_entry:
+          $ref: '#/components/schemas/Commonstimeline-entry'
+      required:
+        - timeline_entry
+    TimelineEntriestimeline-entries-list-response:
+      type: object
+      description: The response to listing timeline entries for an object.
+      properties:
+        next_cursor:
+          type: string
+          description: |
+            The cursor used to iterate subsequent results in accordance to the
+            sort order. If not set, then no later elements exist.
+        prev_cursor:
+          type: string
+          description: |
+            The cursor used to iterate preceding results in accordance to the
+            sort order. If not set, then no prior elements exist.
+        timeline_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commonstimeline-entry'
+          description: The timeline entries for the object.
+      required:
+        - timeline_entries
+    TimelineEntriestimeline-entries-update-request:
+      type: object
+      description: The request to update a timeline entry.
+      properties:
+        id:
+          type: string
+          description: The ID of the timeline entry to update.
+        type:
+          $ref: >-
+            #/components/schemas/TimelineEntriestimeline-entries-update-request-type
+      required:
+        - id
+        - type
+    TimelineEntriestimeline-entries-update-response:
+      type: object
+      description: The response to updating a timeline entry.
+      properties:
+        timeline_entry:
+          $ref: '#/components/schemas/Commonstimeline-entry'
+      required:
+        - timeline_entry
+    TimelineEntriestimeline-entries-update-request-type:
+      type: string
+      enum:
+        - timeline_comment
+    TimelineEntriestimeline-entries-update-request-timeline-comment:
+      type: object
+      properties:
+        body:
+          type: string
+          description: The updated comment's body.
+        body_type:
+          $ref: '#/components/schemas/Commonstimeline-comment-body-type'
+        snap_kit_body:
+          type: object
+          additionalProperties: {}
+          description: The SnapKit body of the comment.
+    Webhookswebhooks-create-request:
+      type: object
+      description: The request to create a new webhook.
+      properties:
+        event_types:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commonswebhook-event-type'
+          description: The event types that the webhook endpoint will receive.
+        secret:
+          type: string
+          description: |
+            The secret to use when verifying webhook events. If provided, the
+            secret must be between 8 and 32 bytes (inclusive). If not set, a
+            secret will be automatically generated and provided in the
+            response.
+        url:
+          type: string
+          description: The URL of the webhook endpoint.
+      required:
+        - url
+    Webhookswebhooks-create-response:
+      type: object
+      description: The response to creating a new webhook.
+      properties:
+        webhook:
+          $ref: '#/components/schemas/Commonswebhook'
+      required:
+        - webhook
+    Webhookswebhooks-delete-request:
+      type: object
+      description: The request to delete a webhook.
+      properties:
+        id:
+          type: string
+          description: ID for the webhook.
+      required:
+        - id
+    Webhookswebhooks-delete-response:
+      type: object
+      additionalProperties: {}
+      description: The response to deleting the webhook.
+    Webhookswebhooks-get-response:
+      type: object
+      description: The response to getting the information for the webhook.
+      properties:
+        webhook:
+          $ref: '#/components/schemas/Commonswebhook'
+      required:
+        - webhook
+    Webhookswebhooks-list-response:
+      type: object
+      description: The response to listing the webhooks.
+      properties:
+        webhooks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commonswebhook'
+          description: The list of webhooks.
+      required:
+        - webhooks
+    Webhookswebhooks-update-request:
+      type: object
+      description: The request to update a webhook.
+      properties:
+        action:
+          $ref: '#/components/schemas/Webhookswebhooks-update-action'
+        event_types:
+          $ref: '#/components/schemas/Webhookswebhooks-update-request-event-types'
+        id:
+          type: string
+          description: ID for the webhook.
+        secret:
+          type: string
+          description: |
+            If provided, updates the secret that's used when verifying webhook
+            events, which must be between 8 and 32 bytes (inclusive). Otherwise
+            if empty, then a new secret is generated. If the webhook is active,
+            then its status will transition to the 'unverified' state and it
+            won't receive any object events until successfully verified.
+        url:
+          type: string
+          description: |
+            The webhook's updated URL. If the webhook is active, then the
+            webhook's status will transition to the 'unverified' state and it
+            won't receive any object events until successfully verified.
+      required:
+        - id
+    Webhookswebhooks-update-response:
+      type: object
+      description: The response to updating the webhook.
+      properties:
+        webhook:
+          $ref: '#/components/schemas/Commonswebhook'
+      required:
+        - webhook
+    Webhookswebhooks-update-action:
+      type: string
+      enum:
+        - activate
+        - deactivate
+      description: The action to update the webhook's status.
+    Webhookswebhooks-update-request-event-types:
+      type: object
+      properties:
+        add:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commonswebhook-event-type'
+          description: |
+            The event types to add. If a provided event type is already set for
+            the webhook, then nothing is done. Note this is mutually exclusive
+            with 'set'.
+        remove:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commonswebhook-event-type'
+          description: |
+            The event types to remove. If a provided event type isn't set for
+            the webhook, then nothing is done. Note this is mutually exclusive
+            with 'set'.
+        set:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commonswebhook-event-type'
+          description: |
+            The updated event types, which will replace the webhook's current
+            event types. Note this is mutually exclusive with 'add' and
+            'remove'.
+    Worksworks-create-request:
+      type: object
+      properties:
+        applies_to_part:
+          type: string
+          description: |
+            The [part](https://devrev.ai/docs/product/parts) that the work
+            applies to. Specifying a part is required when creating tickets and
+            issues.
+        artifacts:
+          type: array
+          items:
+            type: string
+          description: |
+            The IDs of the artifacts to associate with the work item.
+        body:
+          type: string
+          description: Body of the work object.
+        owned_by:
+          type: array
+          items:
+            type: string
+          description: The users that own the work.
+        reported_by:
+          type: array
+          items:
+            type: string
+          description: The users that reported the work.
+        stage:
+          $ref: '#/components/schemas/Commonsstage-init'
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commonsset-tag-with-value'
+          description: Tags associated with the work item.
+        target_close_date:
+          type: string
+          description: Timestamp for when the work is expected to be complete.
+        title:
+          type: string
+          description: Title of the work object.
+        type:
+          $ref: '#/components/schemas/Commonswork-type'
+      required:
+        - applies_to_part
+        - owned_by
+        - title
+        - type
+    Worksworks-create-response:
+      type: object
+      properties:
+        work:
+          $ref: '#/components/schemas/Commonswork'
+      required:
+        - work
+    Worksworks-delete-request:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The work's ID.
+      required:
+        - id
+    Worksworks-delete-response:
+      type: object
+      additionalProperties: {}
+    Worksworks-export-response:
+      type: object
+      properties:
+        works:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commonswork'
+          description: The resulting collection of work items.
+      required:
+        - works
+    Worksworks-get-response:
+      type: object
+      properties:
+        work:
+          $ref: '#/components/schemas/Commonswork'
+      required:
+        - work
+    Worksworks-list-response:
+      type: object
+      properties:
+        next_cursor:
+          type: string
+          description: |
+            The cursor used to iterate subsequent results in accordance to the
+            sort order. If not set, then no later elements exist.
+        prev_cursor:
+          type: string
+          description: |
+            The cursor used to iterate preceding results in accordance to the
+            sort order. If not set, then no prior elements exist.
+        works:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commonswork'
+          description: The list of works.
+      required:
+        - works
+    Worksworks-update-request:
+      type: object
+      properties:
+        applies_to_part:
+          type: string
+          description: Updates the part that the work applies to.
+        artifacts:
+          $ref: '#/components/schemas/Worksworks-update-request-artifact-ids'
+        body:
+          type: string
+          description: |
+            Updated body of the work object, or unchanged if not provided.
+        custom_schema_fragments:
+          type: array
+          items:
+            type: string
+          description: The custom schema fragments to use.
+        id:
+          type: string
+          description: The work's ID.
+        owned_by:
+          $ref: '#/components/schemas/Worksworks-update-request-owned-by'
+        reported_by:
+          $ref: '#/components/schemas/Worksworks-update-request-reported-by'
+        stage:
+          $ref: '#/components/schemas/Worksstage-update'
+        tags:
+          $ref: '#/components/schemas/Worksworks-update-request-tags'
+        target_close_date:
+          type: string
+          description: |
+            Updates the timestamp for when the work is expected to be complete.
+        title:
+          type: string
+          description: |
+            Updated title of the work object, or unchanged if not provided.
+        type:
+          $ref: '#/components/schemas/Commonswork-type'
+      required:
+        - id
+        - type
+    Worksworks-update-response:
+      type: object
+      properties:
+        work:
+          $ref: '#/components/schemas/Commonswork'
+      required:
+        - work
+    Worksworks-update-request-artifact-ids:
+      type: object
+      properties:
+        set:
+          type: array
+          items:
+            type: string
+          description: Sets the IDs to the provided artifact IDs.
+    Worksworks-update-request-owned-by:
+      type: object
+      properties:
+        set:
+          type: array
+          items:
+            type: string
+          description: |
+            Sets the owner IDs to the provided user IDs. This must not be
+            empty.
+    Worksworks-update-request-reported-by:
+      type: object
+      properties:
+        set:
+          type: array
+          items:
+            type: string
+          description: |
+            Sets the users that reported the work to the provided user IDs.
+    Worksstage-update:
+      type: object
+      description: Updates an object's stage.
+      properties:
+        name:
+          type: string
+          description: |
+            The updated name of the stage, otherwise unchanged if not set.
+    Worksworks-update-request-tags:
+      type: object
+      properties:
+        set:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commonsset-tag-with-value'
+          description: Sets the provided tags on the work item.
+    Worksworks-update-request-issue:
+      type: object
+      properties:
+        priority:
+          $ref: '#/components/schemas/Commonsissue-priority'
+    Worksworks-update-request-ticket:
+      type: object
+      properties:
+        rev_org:
+          type: string
+          description: |
+            Updates the Rev organization that the ticket is associated with.
+        severity:
+          $ref: '#/components/schemas/Commonsticket-severity'
+    CommonsBadRequestError:
+      $ref: '#/components/schemas/Commonserror-base'
+    CommonsUnauthorizedError:
+      $ref: '#/components/schemas/Commonserror-base'
+    CommonsForbiddenError:
+      $ref: '#/components/schemas/Commonserror-base'
+    CommonsNotFoundError:
+      $ref: '#/components/schemas/Commonserror-base'
+    CommonsTooManyRequestsError:
+      $ref: '#/components/schemas/Commonserror-base'
+    CommonsInternalServerError:
+      $ref: '#/components/schemas/Commonserror-base'
+  securitySchemes:
+    AuthorizationAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+servers: []
