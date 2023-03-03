@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: api
-  version: 0.0.6
+  version: 0.0.7
 paths:
   /artifacts.locate:
     get:
@@ -983,8 +983,12 @@ paths:
         - worksService
       parameters: []
       responses:
-        '204':
+        '200':
           description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Worksworks-create-response'
       security: *ref_0
       requestBody:
         required: true
@@ -2130,35 +2134,6 @@ components:
       enum:
         - issue
         - ticket
-    Commonsworks-create-request-issue:
-      type: object
-      properties:
-        priority:
-          $ref: '#/components/schemas/Commonsissue-priority'
-    Commonsissue-priority:
-      type: string
-      enum:
-        - p0
-        - p1
-        - p2
-        - p3
-      description: Priority of the work based upon impact and criticality.
-    Commonsworks-create-request-ticket:
-      type: object
-      properties:
-        rev_org:
-          type: string
-          description: The Rev organization that the ticket is associated with.
-        severity:
-          $ref: '#/components/schemas/Commonsticket-severity'
-    Commonsticket-severity:
-      type: string
-      enum:
-        - blocker
-        - high
-        - low
-        - medium
-      description: Severity of the ticket.
     Commonswork:
       type: object
       properties:
@@ -2168,15 +2143,27 @@ components:
         - type
     Commonsissue:
       type: object
-      properties: {}
-      allOf:
-        - $ref: '#/components/schemas/Commonswork-base'
-        - $ref: '#/components/schemas/Commons_InlinedType13'
-    Commons_InlinedType13:
-      type: object
       properties:
         priority:
           $ref: '#/components/schemas/Commonsissue-priority'
+      allOf:
+        - $ref: '#/components/schemas/Commonswork-base'
+    Commonsticket-severity:
+      type: string
+      enum:
+        - blocker
+        - high
+        - low
+        - medium
+      description: Severity of the ticket.
+    Commonsissue-priority:
+      type: string
+      enum:
+        - p0
+        - p1
+        - p2
+        - p3
+      description: Priority of the work based upon impact and criticality.
     Commonswork-base:
       type: object
       properties:
@@ -2827,8 +2814,30 @@ components:
             event types. Note this is mutually exclusive with 'add' and
             'remove'.
     Worksworks-create-request:
+      oneOf:
+        - type: object
+          allOf:
+            - $ref: '#/components/schemas/Worksworks-create-request-issue'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - issue
+        - type: object
+          allOf:
+            - $ref: '#/components/schemas/Worksworks-create-request-ticket'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - ticket
+    Worksworks-create-request-issue:
       type: object
       properties:
+        priority:
+          $ref: '#/components/schemas/Commonsissue-priority'
         applies_to_part:
           type: string
           description: |
@@ -2867,13 +2876,60 @@ components:
         title:
           type: string
           description: Title of the work object.
-        type:
-          $ref: '#/components/schemas/Commonswork-type'
       required:
         - applies_to_part
         - owned_by
         - title
-        - type
+    Worksworks-create-request-ticket:
+      type: object
+      properties:
+        rev_org:
+          type: string
+          description: The Rev organization that the ticket is associated with.
+        severity:
+          $ref: '#/components/schemas/Commonsticket-severity'
+        applies_to_part:
+          type: string
+          description: |
+            The [part](https://devrev.ai/docs/product/parts) that the work
+            applies to. Specifying a part is required when creating tickets and
+            issues.
+        artifacts:
+          type: array
+          items:
+            type: string
+          description: |
+            The IDs of the artifacts to associate with the work item.
+        body:
+          type: string
+          description: Body of the work object.
+        owned_by:
+          type: array
+          items:
+            type: string
+          description: The users that own the work.
+        reported_by:
+          type: array
+          items:
+            type: string
+          description: The users that reported the work.
+        stage:
+          $ref: '#/components/schemas/Commonsstage-init'
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commonsset-tag-with-value'
+          description: Tags associated with the work item.
+        target_close_date:
+          type: string
+          description: Timestamp for when the work is expected to be complete.
+        title:
+          type: string
+          description: Title of the work object.
+      required:
+        - applies_to_part
+        - owned_by
+        - title
     Worksworks-create-response:
       type: object
       properties:
