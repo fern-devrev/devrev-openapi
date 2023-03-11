@@ -950,7 +950,9 @@ paths:
             Filters Dev users based on email addresses.
           required: false
           schema:
-            type: string
+            type: array
+            items:
+              type: string
         - name: limit
           in: query
           description: |
@@ -972,13 +974,17 @@ paths:
             Fields to sort the Dev users by and the direction to sort them.
           required: false
           schema:
-            type: string
+            type: array
+            items:
+              type: string
         - name: state
           in: query
           description: Filters Dev users based on state.
           required: false
           schema:
-            $ref: '#/components/schemas/user-state'
+            type: array
+            items:
+              $ref: '#/components/schemas/user-state'
       responses:
         '200':
           description: ''
@@ -1317,13 +1323,17 @@ paths:
           description: Filters for parts of the provided name(s).
           required: false
           schema:
-            type: string
+            type: array
+            items:
+              type: string
         - name: type
           in: query
           description: Filters for parts of the provided type(s).
           required: false
           schema:
-            $ref: '#/components/schemas/part-type'
+            type: array
+            items:
+              $ref: '#/components/schemas/part-type'
       responses:
         '200':
           description: ''
@@ -1649,7 +1659,9 @@ paths:
           description: Filters by creator.
           required: false
           schema:
-            type: string
+            type: array
+            items:
+              type: string
         - name: created_date.after
           in: query
           description: >
@@ -1712,7 +1724,9 @@ paths:
             them.
           required: false
           schema:
-            type: string
+            type: array
+            items:
+              type: string
       responses:
         '200':
           description: ''
@@ -2903,14 +2917,18 @@ paths:
             Filters for work belonging to any of the provided parts.
           required: false
           schema:
-            type: string
+            type: array
+            items:
+              type: string
         - name: created_by
           in: query
           description: |
             Filters for work created by any of these users.
           required: false
           schema:
-            type: string
+            type: array
+            items:
+              type: string
         - name: first
           in: query
           description: >
@@ -2925,21 +2943,27 @@ paths:
             Filters for issues with any of the provided priorities.
           required: false
           schema:
-            $ref: '#/components/schemas/issue-priority'
+            type: array
+            items:
+              $ref: '#/components/schemas/issue-priority'
         - name: owned_by
           in: query
           description: |
             Filters for work owned by any of these users.
           required: false
           schema:
-            type: string
+            type: array
+            items:
+              type: string
         - name: stage.name
           in: query
           description: |
             Filters for records in the provided stage(s).
           required: false
           schema:
-            type: string
+            type: array
+            items:
+              type: string
         - name: target_close_date.after
           in: query
           description: >
@@ -2963,20 +2987,26 @@ paths:
             organizations.
           required: false
           schema:
-            type: string
+            type: array
+            items:
+              type: string
         - name: ticket.severity
           in: query
           description: |
             Filters for tickets with any of the provided severities.
           required: false
           schema:
-            $ref: '#/components/schemas/ticket-severity'
+            type: array
+            items:
+              $ref: '#/components/schemas/ticket-severity'
         - name: type
           in: query
           description: Filters for work of the provided types.
           required: false
           schema:
-            $ref: '#/components/schemas/work-type'
+            type: array
+            items:
+              $ref: '#/components/schemas/work-type'
       responses:
         '200':
           description: ''
@@ -3104,14 +3134,18 @@ paths:
             Filters for work belonging to any of the provided parts.
           required: false
           schema:
-            type: string
+            type: array
+            items:
+              type: string
         - name: created_by
           in: query
           description: |
             Filters for work created by any of these users.
           required: false
           schema:
-            type: string
+            type: array
+            items:
+              type: string
         - name: cursor
           in: query
           description: >
@@ -3126,7 +3160,9 @@ paths:
             Filters for issues with any of the provided priorities.
           required: false
           schema:
-            $ref: '#/components/schemas/issue-priority'
+            type: array
+            items:
+              $ref: '#/components/schemas/issue-priority'
         - name: limit
           in: query
           description: |
@@ -3148,14 +3184,18 @@ paths:
             Filters for work owned by any of these users.
           required: false
           schema:
-            type: string
+            type: array
+            items:
+              type: string
         - name: stage.name
           in: query
           description: |
             Filters for records in the provided stage(s).
           required: false
           schema:
-            type: string
+            type: array
+            items:
+              type: string
         - name: target_close_date.after
           in: query
           description: >
@@ -3179,20 +3219,26 @@ paths:
             organizations.
           required: false
           schema:
-            type: string
+            type: array
+            items:
+              type: string
         - name: ticket.severity
           in: query
           description: |
             Filters for tickets with any of the provided severities.
           required: false
           schema:
-            $ref: '#/components/schemas/ticket-severity'
+            type: array
+            items:
+              $ref: '#/components/schemas/ticket-severity'
         - name: type
           in: query
           description: Filters for work of the provided types.
           required: false
           schema:
-            $ref: '#/components/schemas/work-type'
+            type: array
+            items:
+              $ref: '#/components/schemas/work-type'
       responses:
         '200':
           description: ''
