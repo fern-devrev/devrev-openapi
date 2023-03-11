@@ -1,14 +1,14 @@
 openapi: 3.0.1
 info:
-  title: api
-  version: 0.0.7
+  title: DevRev API
+  version: ''
 paths:
   /artifacts.locate:
     get:
       description: Gets the download URL for the artifact.
-      operationId: artifactsService.locate
+      operationId: artifacts_locate
       tags:
-        - artifactsService
+        - Artifacts
       parameters:
         - name: id
           in: query
@@ -22,16 +22,59 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Artifactsartifacts-locate-response'
+                $ref: '#/components/schemas/ArtifactsLocateResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: artifacts-locate
       security: &ref_0
         - ApiKeyAuth: []
   /artifacts.prepare:
     post:
       description: |
         Creates an artifact and generates an upload URL for its data.
-      operationId: artifactsService.prepare
+      operationId: artifacts_prepare
       tags:
-        - artifactsService
+        - Artifacts
       parameters: []
       responses:
         '200':
@@ -39,14 +82,57 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Artifactsartifacts-prepare-response'
+                $ref: '#/components/schemas/ArtifactsPrepareResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: artifacts-prepare
       security: *ref_0
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Artifactsartifacts-prepare-request'
+              $ref: '#/components/schemas/ArtifactsPrepareRequest'
   /dev-orgs.auth-connections.create:
     post:
       description: |
@@ -56,48 +142,136 @@ paths:
         enable this. Keep in mind that at a time, only one authentication
         connection can be enabled for a Dev organization. At present, only 5
         enterprise connections can be created by an organization.
-      operationId: authConnectionService.create
+      operationId: authConnection_create
       tags:
-        - authConnectionService
+        - AuthConnection
       parameters: []
       responses:
-        '204':
+        '200':
           description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DevOrgAuthConnectionsCreateResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: dev-org-auth-connections-create
       security: *ref_0
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: >-
-                #/components/schemas/AuthConnectiondev-org-auth-connections-create-request
+              $ref: '#/components/schemas/DevOrgAuthConnectionsCreateRequest'
   /dev-orgs.auth-connections.delete:
     post:
       description: |
         Deletes an authentication connection. Only enterprise connections which
         are explicitly set up for a Dev organization can be deleted. Default
         connections can not be deleted using this method.
-      operationId: authConnectionService.delete
+      operationId: authConnection_delete
       tags:
-        - authConnectionService
+        - AuthConnection
       parameters: []
       responses:
         '204':
           description: ''
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: dev-org-auth-connections-delete
       security: *ref_0
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: >-
-                #/components/schemas/AuthConnectiondev-org-auth-connections-delete-request
+              $ref: '#/components/schemas/DevOrgAuthConnectionsDeleteRequest'
   /dev-orgs.auth-connections.get:
     get:
       description: Retrieves the details for an authentication connection.
-      operationId: authConnectionService.get
+      operationId: authConnection_get
       tags:
-        - authConnectionService
+        - AuthConnection
       parameters:
         - name: id
           in: query
@@ -111,8 +285,50 @@ paths:
           content:
             application/json:
               schema:
-                $ref: >-
-                  #/components/schemas/AuthConnectiondev-org-auth-connections-get-response
+                $ref: '#/components/schemas/DevOrgAuthConnectionsGetResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: dev-org-auth-connections-get
       security: *ref_0
   /dev-orgs.auth-connections.list:
     get:
@@ -121,9 +337,9 @@ paths:
         organization. This list will include both social and enterprise
         connections which are either available by default or are explicitly
         created by the user.
-      operationId: authConnectionService.list
+      operationId: authConnection_list
       tags:
-        - authConnectionService
+        - AuthConnection
       parameters: []
       responses:
         '200':
@@ -131,8 +347,50 @@ paths:
           content:
             application/json:
               schema:
-                $ref: >-
-                  #/components/schemas/AuthConnectiondev-org-auth-connections-list-response
+                $ref: '#/components/schemas/DevOrgAuthConnectionsListResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: dev-org-auth-connections-list
       security: *ref_0
   /dev-orgs.auth-connections.toggle:
     post:
@@ -142,85 +400,263 @@ paths:
         When a new authentication connection is enabled, the connection which
         is currently enabled for the Dev organization is automatically
         disabled.
-      operationId: authConnectionService.toggle
+      operationId: authConnection_toggle
       tags:
-        - authConnectionService
+        - AuthConnection
       parameters: []
       responses:
         '204':
           description: ''
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: dev-org-auth-connections-toggle
       security: *ref_0
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: >-
-                #/components/schemas/AuthConnectiondev-org-auth-connections-toggle-request
+              $ref: '#/components/schemas/DevOrgAuthConnectionsToggleRequest'
   /dev-orgs.auth-connections.update:
     post:
       description: Updates an authentication connection.
-      operationId: authConnectionService.update
+      operationId: authConnection_update
       tags:
-        - authConnectionService
+        - AuthConnection
       parameters: []
       responses:
-        '204':
+        '200':
           description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DevOrgAuthConnectionsUpdateResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: dev-org-auth-connections-update
       security: *ref_0
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: >-
-                #/components/schemas/AuthConnectiondev-org-auth-connections-update-request
+              $ref: '#/components/schemas/DevOrgAuthConnectionsUpdateRequest'
   /auth-tokens.create:
     post:
       description: |
         Creates a JWT corresponding to the requested token type for the
         authenticated user.
-      operationId: authTokensService.create
+      operationId: authTokens_create
       tags:
-        - authTokensService
+        - AuthTokens
       parameters: []
       responses:
-        '204':
+        '200':
           description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthTokensCreateResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: auth-tokens-create
       security: *ref_0
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AuthTokensauth-tokens-create-request'
+              $ref: '#/components/schemas/AuthTokensCreateRequest'
   /auth-tokens.delete:
     post:
       description: |
         Revokes the token that matches the given token ID issued under the
         given Dev organization.
-      operationId: authTokensService.delete
+      operationId: authTokens_delete
       tags:
-        - authTokensService
+        - AuthTokens
       parameters: []
       responses:
         '204':
           description: ''
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: auth-tokens-delete
       security: *ref_0
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AuthTokensauth-tokens-delete-request'
+              $ref: '#/components/schemas/AuthTokensDeleteRequest'
   /auth-tokens.get:
     get:
       description: |
         Gets the token metadata corresponding to the given token ID under the
         given Dev organization.
-      operationId: authTokensService.get
+      operationId: authTokens_get
       tags:
-        - authTokensService
+        - AuthTokens
       parameters:
         - name: token_id
           in: query
@@ -235,16 +671,59 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AuthTokensauth-tokens-get-response'
+                $ref: '#/components/schemas/AuthTokensGetResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: auth-tokens-get
       security: *ref_0
   /auth-tokens.list:
     get:
       description: |
         Gets the token metadata for all the tokens corresponding to the given
         token type issued for a given subject.
-      operationId: authTokensService.list
+      operationId: authTokens_list
       tags:
-        - authTokensService
+        - AuthTokens
       parameters:
         - name: client_id
           in: query
@@ -261,7 +740,7 @@ paths:
             response will include tokens of all the types.
           required: false
           schema:
-            $ref: '#/components/schemas/Commonsauth-token-requested-token-type'
+            $ref: '#/components/schemas/AuthTokenRequestedTokenType'
         - name: subject
           in: query
           description: |
@@ -277,35 +756,121 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AuthTokensauth-tokens-list-response'
+                $ref: '#/components/schemas/AuthTokensListResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: auth-tokens-list
       security: *ref_0
   /auth-tokens.self.delete:
     post:
       description: |
         Revokes all the tokens that matches the given token type created by the
         authenticated user.
-      operationId: authTokensService.selfDelete
+      operationId: authTokens_selfDelete
       tags:
-        - authTokensService
+        - AuthTokens
       parameters: []
       responses:
         '204':
           description: ''
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: auth-tokens-self-delete
       security: *ref_0
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AuthTokensauth-tokens-self-delete-request'
+              $ref: '#/components/schemas/AuthTokensSelfDeleteRequest'
   /auth-tokens.update:
     post:
       description: |
         Updates token metadata of a token issued under a given Dev
         organization.
-      operationId: authTokensService.update
+      operationId: authTokens_update
       tags:
-        - authTokensService
+        - AuthTokens
       parameters: []
       responses:
         '200':
@@ -313,26 +878,76 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AuthTokensauth-tokens-update-response'
+                $ref: '#/components/schemas/AuthTokensUpdateResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: auth-tokens-update
       security: *ref_0
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AuthTokensauth-tokens-update-request'
+              $ref: '#/components/schemas/AuthTokensUpdateRequest'
   /dev-users.list:
     get:
       description: Lists users within your organization.
-      operationId: devUsersService.list
+      operationId: devUsers_list
       tags:
-        - devUsersService
+        - DevUsers
       parameters:
         - name: cursor
           in: query
           description: >
             The cursor to resume iteration from. If not provided, then iteration
             starts from the beginning.
+          required: false
+          schema:
+            type: string
+        - name: email
+          in: query
+          description: |
+            Filters Dev users based on email addresses.
           required: false
           schema:
             type: string
@@ -350,21 +965,77 @@ paths:
             used.
           required: false
           schema:
-            $ref: '#/components/schemas/Commonslist-mode'
+            $ref: '#/components/schemas/ListMode'
+        - name: sort_by
+          in: query
+          description: |
+            Fields to sort the Dev users by and the direction to sort them.
+          required: false
+          schema:
+            type: string
+        - name: state
+          in: query
+          description: Filters Dev users based on state.
+          required: false
+          schema:
+            $ref: '#/components/schemas/UserState'
       responses:
         '200':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DevUsersdev-users-list-response'
+                $ref: '#/components/schemas/DevUsersListResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: dev-users-list
       security: *ref_0
   /dev-users.self:
     get:
       description: Gets the authenticated user's information.
-      operationId: devUsersService.self
+      operationId: devUsers_getSelf
       tags:
-        - devUsersService
+        - DevUsers
       parameters: []
       responses:
         '200':
@@ -372,31 +1043,57 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DevUsersdev-users-self-response'
+                $ref: '#/components/schemas/DevUsersSelfResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: dev-users-self
       security: *ref_0
   /parts.create:
     post:
       description: Creates new [part](https://devrev.ai/docs/product/parts).
-      operationId: partsService.create
+      operationId: parts_create
       tags:
-        - partsService
-      parameters: []
-      responses:
-        '204':
-          description: ''
-      security: *ref_0
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Partsparts-create-request'
-  /parts.delete:
-    post:
-      description: Deletes a [part](https://devrev.ai/docs/product/parts).
-      operationId: partsService.delete
-      tags:
-        - partsService
+        - Parts
       parameters: []
       responses:
         '200':
@@ -404,21 +1101,128 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Partsparts-delete-response'
+                $ref: '#/components/schemas/PartsCreateResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: parts-create
       security: *ref_0
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Partsparts-delete-request'
+              $ref: '#/components/schemas/PartsCreateRequest'
+  /parts.delete:
+    post:
+      description: Deletes a [part](https://devrev.ai/docs/product/parts).
+      operationId: parts_delete
+      tags:
+        - Parts
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PartsDeleteResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: parts-delete
+      security: *ref_0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PartsDeleteRequest'
   /parts.get:
     get:
       description: |
         Gets a [part's](https://devrev.ai/docs/product/parts) information.
-      operationId: partsService.get
+      operationId: parts_get
       tags:
-        - partsService
+        - Parts
       parameters:
         - name: id
           in: query
@@ -432,15 +1236,58 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Partsparts-get-response'
+                $ref: '#/components/schemas/PartsGetResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: parts-get
       security: *ref_0
   /parts.list:
     get:
       description: |
         Lists a collection of [parts](https://devrev.ai/docs/product/parts).
-      operationId: partsService.list
+      operationId: parts_list
       tags:
-        - partsService
+        - Parts
       parameters:
         - name: cursor
           in: query
@@ -464,22 +1311,77 @@ paths:
             used.
           required: false
           schema:
-            $ref: '#/components/schemas/Commonslist-mode'
+            $ref: '#/components/schemas/ListMode'
+        - name: name
+          in: query
+          description: Filters for parts of the provided name(s).
+          required: false
+          schema:
+            type: string
+        - name: type
+          in: query
+          description: Filters for parts of the provided type(s).
+          required: false
+          schema:
+            $ref: '#/components/schemas/PartType'
       responses:
         '200':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Partsparts-list-response'
+                $ref: '#/components/schemas/PartsListResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: parts-list
       security: *ref_0
   /parts.update:
     post:
       description: |
         Updates a [part's](https://devrev.ai/docs/product/parts) information.
-      operationId: partsService.update
+      operationId: parts_update
       tags:
-        - partsService
+        - Parts
       parameters: []
       responses:
         '200':
@@ -487,39 +1389,65 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Partsparts-update-response'
+                $ref: '#/components/schemas/PartsUpdateResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: parts-update
       security: *ref_0
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Partsparts-update-request'
+              $ref: '#/components/schemas/PartsUpdateRequest'
   /rev-orgs.create:
     post:
       description: |
         Creates a Rev organization in the authenticated user's Dev
         organization.
-      operationId: revOrgsService.create
+      operationId: revOrgs_create
       tags:
-        - revOrgsService
-      parameters: []
-      responses:
-        '204':
-          description: ''
-      security: *ref_0
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/RevOrgsrev-orgs-create-request'
-  /rev-orgs.delete:
-    post:
-      description: Deletes the Rev organization.
-      operationId: revOrgsService.delete
-      tags:
-        - revOrgsService
+        - RevOrgs
       parameters: []
       responses:
         '200':
@@ -527,20 +1455,127 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RevOrgsrev-orgs-delete-response'
+                $ref: '#/components/schemas/RevOrgsCreateResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: rev-orgs-create
       security: *ref_0
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/RevOrgsrev-orgs-delete-request'
+              $ref: '#/components/schemas/RevOrgsCreateRequest'
+  /rev-orgs.delete:
+    post:
+      description: Deletes the Rev organization.
+      operationId: revOrgs_delete
+      tags:
+        - RevOrgs
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RevOrgsDeleteResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: rev-orgs-delete
+      security: *ref_0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RevOrgsDeleteRequest'
   /rev-orgs.get:
     get:
       description: Retrieves the Rev organization's information.
-      operationId: revOrgsService.get
+      operationId: revOrgs_get
       tags:
-        - revOrgsService
+        - RevOrgs
       parameters:
         - name: id
           in: query
@@ -554,7 +1589,50 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RevOrgsrev-orgs-get-response'
+                $ref: '#/components/schemas/RevOrgsGetResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: rev-orgs-get
       security: *ref_0
   /rev-orgs.list:
     get:
@@ -562,10 +1640,16 @@ paths:
         Gets the list of Rev organizations' information belonging to the
         authenticated user's Dev Organization which the user is also authorized
         to access.
-      operationId: revOrgsService.list
+      operationId: revOrgs_list
       tags:
-        - revOrgsService
+        - RevOrgs
       parameters:
+        - name: created_by
+          in: query
+          description: Filters by creator.
+          required: false
+          schema:
+            type: string
         - name: created_date.after
           in: query
           description: >
@@ -604,7 +1688,7 @@ paths:
             used.
           required: false
           schema:
-            $ref: '#/components/schemas/Commonslist-mode'
+            $ref: '#/components/schemas/ListMode'
         - name: modified_date.after
           in: query
           description: >
@@ -621,20 +1705,71 @@ paths:
           required: false
           schema:
             type: string
+        - name: sort_by
+          in: query
+          description: |
+            Fields to sort the Rev organizations by and the direction to sort
+            them.
+          required: false
+          schema:
+            type: string
       responses:
         '200':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RevOrgsrev-orgs-list-response'
+                $ref: '#/components/schemas/RevOrgsListResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: rev-orgs-list
       security: *ref_0
   /rev-orgs.update:
     post:
       description: Updates the Rev organization's information.
-      operationId: revOrgsService.update
+      operationId: revOrgs_update
       tags:
-        - revOrgsService
+        - RevOrgs
       parameters: []
       responses:
         '200':
@@ -642,39 +1777,65 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RevOrgsrev-orgs-update-response'
+                $ref: '#/components/schemas/RevOrgsUpdateResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: rev-orgs-update
       security: *ref_0
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/RevOrgsrev-orgs-update-request'
+              $ref: '#/components/schemas/RevOrgsUpdateRequest'
   /tags.create:
     post:
       description: |
         Creates a new tag, which is used to create associations between objects
         and a logical concept denoted by the tag's name.
-      operationId: tagsService.create
+      operationId: tags_create
       tags:
-        - tagsService
-      parameters: []
-      responses:
-        '204':
-          description: ''
-      security: *ref_0
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Tagstags-create-request'
-  /tags.delete:
-    post:
-      description: Deletes a tag.
-      operationId: tagsService.delete
-      tags:
-        - tagsService
+        - Tags
       parameters: []
       responses:
         '200':
@@ -682,20 +1843,127 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Tagstags-delete-response'
+                $ref: '#/components/schemas/TagsCreateResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: tags-create
       security: *ref_0
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Tagstags-delete-request'
+              $ref: '#/components/schemas/TagsCreateRequest'
+  /tags.delete:
+    post:
+      description: Deletes a tag.
+      operationId: tags_delete
+      tags:
+        - Tags
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TagsDeleteResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: tags-delete
+      security: *ref_0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TagsDeleteRequest'
   /tags.get:
     get:
       description: Gets a tag's information.
-      operationId: tagsService.get
+      operationId: tags_get
       tags:
-        - tagsService
+        - Tags
       parameters:
         - name: id
           in: query
@@ -709,14 +1977,57 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Tagstags-get-response'
+                $ref: '#/components/schemas/TagsGetResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: tags-get
       security: *ref_0
   /tags.list:
     get:
       description: Lists the available tags.
-      operationId: tagsService.list
+      operationId: tags_list
       tags:
-        - tagsService
+        - Tags
       parameters:
         - name: cursor
           in: query
@@ -739,21 +2050,64 @@ paths:
             used.
           required: false
           schema:
-            $ref: '#/components/schemas/Commonslist-mode'
+            $ref: '#/components/schemas/ListMode'
       responses:
         '200':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Tagstags-list-response'
+                $ref: '#/components/schemas/TagsListResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: tags-list
       security: *ref_0
   /tags.update:
     post:
       description: Updates a tag's information.
-      operationId: tagsService.update
+      operationId: tags_update
       tags:
-        - tagsService
+        - Tags
       parameters: []
       responses:
         '200':
@@ -761,38 +2115,127 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Tagstags-update-response'
+                $ref: '#/components/schemas/TagsUpdateResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: tags-update
       security: *ref_0
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Tagstags-update-request'
+              $ref: '#/components/schemas/TagsUpdateRequest'
   /timeline-entries.create:
     post:
       description: Creates a new entry on an object's timeline.
-      operationId: timelineEntriesService.create
+      operationId: timelineEntries_create
       tags:
-        - timelineEntriesService
+        - TimelineEntries
       parameters: []
       responses:
-        '204':
+        '200':
           description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimelineEntriesCreateResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: timeline-entries-create
       security: *ref_0
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: >-
-                #/components/schemas/TimelineEntriestimeline-entries-create-request
+              $ref: '#/components/schemas/TimelineEntriesCreateRequest'
   /timeline-entries.get:
     get:
-      description: Gets an entry on timeline.
-      operationId: timelineEntriesService.get
+      description: Gets an entry on an object's timeline.
+      operationId: timelineEntries_get
       tags:
-        - timelineEntriesService
+        - TimelineEntries
       parameters:
         - name: id
           in: query
@@ -806,15 +2249,57 @@ paths:
           content:
             application/json:
               schema:
-                $ref: >-
-                  #/components/schemas/TimelineEntriestimeline-entries-get-response
+                $ref: '#/components/schemas/TimelineEntriesGetResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: timeline-entries-get
       security: *ref_0
   /timeline-entries.list:
     get:
       description: Lists the timeline entries for an object.
-      operationId: timelineEntriesService.list
+      operationId: timelineEntries_list
       tags:
-        - timelineEntriesService
+        - TimelineEntries
       parameters:
         - name: object
           in: query
@@ -845,22 +2330,64 @@ paths:
             used.
           required: false
           schema:
-            $ref: '#/components/schemas/Commonslist-mode'
+            $ref: '#/components/schemas/ListMode'
       responses:
         '200':
           description: ''
           content:
             application/json:
               schema:
-                $ref: >-
-                  #/components/schemas/TimelineEntriestimeline-entries-list-response
+                $ref: '#/components/schemas/TimelineEntriesListResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: timeline-entries-list
       security: *ref_0
   /timeline-entries.update:
     post:
       description: Updates an entry on an object's timeline.
-      operationId: timelineEntriesService.update
+      operationId: timelineEntries_update
       tags:
-        - timelineEntriesService
+        - TimelineEntries
       parameters: []
       responses:
         '200':
@@ -868,39 +2395,63 @@ paths:
           content:
             application/json:
               schema:
-                $ref: >-
-                  #/components/schemas/TimelineEntriestimeline-entries-update-response
+                $ref: '#/components/schemas/TimelineEntriesUpdateResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: timeline-entries-update
       security: *ref_0
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: >-
-                #/components/schemas/TimelineEntriestimeline-entries-update-request
+              $ref: '#/components/schemas/TimelineEntriesUpdateRequest'
   /webhooks.create:
     post:
       description: Creates a new webhook target.
-      operationId: webhooksService.create
+      operationId: webhooks_create
       tags:
-        - webhooksService
-      parameters: []
-      responses:
-        '204':
-          description: ''
-      security: *ref_0
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Webhookswebhooks-create-request'
-  /webhooks.delete:
-    post:
-      description: Deletes the requested webhook.
-      operationId: webhooksService.delete
-      tags:
-        - webhooksService
+        - Webhooks
       parameters: []
       responses:
         '200':
@@ -908,20 +2459,127 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Webhookswebhooks-delete-response'
+                $ref: '#/components/schemas/WebhooksCreateResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: webhooks-create
       security: *ref_0
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Webhookswebhooks-delete-request'
+              $ref: '#/components/schemas/WebhooksCreateRequest'
+  /webhooks.delete:
+    post:
+      description: Deletes the requested webhook.
+      operationId: webhooks_delete
+      tags:
+        - Webhooks
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhooksDeleteResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: webhooks-delete
+      security: *ref_0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhooksDeleteRequest'
   /webhooks.get:
     get:
       description: Gets the requested webhook's information.
-      operationId: webhooksService.get
+      operationId: webhooks_get
       tags:
-        - webhooksService
+        - Webhooks
       parameters:
         - name: id
           in: query
@@ -935,14 +2593,57 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Webhookswebhooks-get-response'
+                $ref: '#/components/schemas/WebhooksGetResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: webhooks-get
       security: *ref_0
   /webhooks.list:
     get:
       description: Lists the webhooks.
-      operationId: webhooksService.list
+      operationId: webhooks_list
       tags:
-        - webhooksService
+        - Webhooks
       parameters: []
       responses:
         '200':
@@ -950,14 +2651,57 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Webhookswebhooks-list-response'
+                $ref: '#/components/schemas/WebhooksListResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: webhooks-list
       security: *ref_0
   /webhooks.update:
     post:
       description: Updates the requested webhook.
-      operationId: webhooksService.update
+      operationId: webhooks_update
       tags:
-        - webhooksService
+        - Webhooks
       parameters: []
       responses:
         '200':
@@ -965,22 +2709,65 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Webhookswebhooks-update-response'
+                $ref: '#/components/schemas/WebhooksUpdateResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: webhooks-update
       security: *ref_0
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Webhookswebhooks-update-request'
+              $ref: '#/components/schemas/WebhooksUpdateRequest'
   /works.create:
     post:
       description: |
         Creates new work ([issue](https://devrev.ai/docs/product/build),
         [ticket](https://devrev.ai/docs/product/support)) item.
-      operationId: worksService.create
+      operationId: works_create
       tags:
-        - worksService
+        - Works
       parameters: []
       responses:
         '200':
@@ -988,20 +2775,63 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Worksworks-create-response'
+                $ref: '#/components/schemas/WorksCreateResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: works-create
       security: *ref_0
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Worksworks-create-request'
+              $ref: '#/components/schemas/WorksCreateRequest'
   /works.delete:
     post:
       description: Deletes a work item.
-      operationId: worksService.delete
+      operationId: works_delete
       tags:
-        - worksService
+        - Works
       parameters: []
       responses:
         '200':
@@ -1009,21 +2839,78 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Worksworks-delete-response'
+                $ref: '#/components/schemas/WorksDeleteResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: works-delete
       security: *ref_0
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Worksworks-delete-request'
+              $ref: '#/components/schemas/WorksDeleteRequest'
   /works.export:
     get:
       description: Exports a collection of work items.
-      operationId: worksService.export
+      operationId: works_export
       tags:
-        - worksService
+        - Works
       parameters:
+        - name: applies_to_part
+          in: query
+          description: |
+            Filters for work belonging to any of the provided parts.
+          required: false
+          schema:
+            type: string
+        - name: created_by
+          in: query
+          description: |
+            Filters for work created by any of these users.
+          required: false
+          schema:
+            type: string
         - name: first
           in: query
           description: >
@@ -1032,6 +2919,27 @@ paths:
           required: false
           schema:
             type: integer
+        - name: issue.priority
+          in: query
+          description: |
+            Filters for issues with any of the provided priorities.
+          required: false
+          schema:
+            $ref: '#/components/schemas/IssuePriority'
+        - name: owned_by
+          in: query
+          description: |
+            Filters for work owned by any of these users.
+          required: false
+          schema:
+            type: string
+        - name: stage.name
+          in: query
+          description: |
+            Filters for records in the provided stage(s).
+          required: false
+          schema:
+            type: string
         - name: target_close_date.after
           in: query
           description: >
@@ -1048,20 +2956,84 @@ paths:
           required: false
           schema:
             type: string
+        - name: ticket.rev_org
+          in: query
+          description: |
+            Filters for tickets that are associated with any of the provided Rev
+            organizations.
+          required: false
+          schema:
+            type: string
+        - name: ticket.severity
+          in: query
+          description: |
+            Filters for tickets with any of the provided severities.
+          required: false
+          schema:
+            $ref: '#/components/schemas/TicketSeverity'
+        - name: type
+          in: query
+          description: Filters for work of the provided types.
+          required: false
+          schema:
+            $ref: '#/components/schemas/WorkType'
       responses:
         '200':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Worksworks-export-response'
+                $ref: '#/components/schemas/WorksExportResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: works-export
       security: *ref_0
   /works.get:
     get:
       description: Gets a work item's information.
-      operationId: worksService.get
+      operationId: works_get
       tags:
-        - worksService
+        - Works
       parameters:
         - name: id
           in: query
@@ -1075,15 +3047,71 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Worksworks-get-response'
+                $ref: '#/components/schemas/WorksGetResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
       security: *ref_0
   /works.list:
     get:
       description: Lists a collection of work items.
-      operationId: worksService.list
+      operationId: works_list
       tags:
-        - worksService
+        - Works
       parameters:
+        - name: applies_to_part
+          in: query
+          description: |
+            Filters for work belonging to any of the provided parts.
+          required: false
+          schema:
+            type: string
+        - name: created_by
+          in: query
+          description: |
+            Filters for work created by any of these users.
+          required: false
+          schema:
+            type: string
         - name: cursor
           in: query
           description: >
@@ -1092,6 +3120,13 @@ paths:
           required: false
           schema:
             type: string
+        - name: issue.priority
+          in: query
+          description: |
+            Filters for issues with any of the provided priorities.
+          required: false
+          schema:
+            $ref: '#/components/schemas/IssuePriority'
         - name: limit
           in: query
           description: |
@@ -1106,7 +3141,21 @@ paths:
             used.
           required: false
           schema:
-            $ref: '#/components/schemas/Commonslist-mode'
+            $ref: '#/components/schemas/ListMode'
+        - name: owned_by
+          in: query
+          description: |
+            Filters for work owned by any of these users.
+          required: false
+          schema:
+            type: string
+        - name: stage.name
+          in: query
+          description: |
+            Filters for records in the provided stage(s).
+          required: false
+          schema:
+            type: string
         - name: target_close_date.after
           in: query
           description: >
@@ -1123,20 +3172,84 @@ paths:
           required: false
           schema:
             type: string
+        - name: ticket.rev_org
+          in: query
+          description: |
+            Filters for tickets that are associated with any of the provided Rev
+            organizations.
+          required: false
+          schema:
+            type: string
+        - name: ticket.severity
+          in: query
+          description: |
+            Filters for tickets with any of the provided severities.
+          required: false
+          schema:
+            $ref: '#/components/schemas/TicketSeverity'
+        - name: type
+          in: query
+          description: Filters for work of the provided types.
+          required: false
+          schema:
+            $ref: '#/components/schemas/WorkType'
       responses:
         '200':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Worksworks-list-response'
+                $ref: '#/components/schemas/WorksListResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: works-list
       security: *ref_0
   /works.update:
     post:
       description: Updates a work item's information.
-      operationId: worksService.update
+      operationId: works_update
       tags:
-        - worksService
+        - Works
       parameters: []
       responses:
         '200':
@@ -1144,17 +3257,60 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Worksworks-update-response'
+                $ref: '#/components/schemas/WorksUpdateResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '429':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+        '503':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBase'
+      summary: works-update
       security: *ref_0
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Worksworks-update-request'
+              $ref: '#/components/schemas/WorksUpdateRequest'
 components:
   schemas:
-    Artifactsartifacts-locate-response:
+    ArtifactsLocateResponse:
       type: object
       description: The response to getting an artifact's download URL.
       properties:
@@ -1166,7 +3322,7 @@ components:
           description: The artifact's download URL.
       required:
         - url
-    Artifactsartifacts-prepare-request:
+    ArtifactsPrepareRequest:
       type: object
       description: The request to prepare a URL to upload a file.
       properties:
@@ -1175,14 +3331,14 @@ components:
           description: The name of the file that's being uploaded.
       required:
         - file_name
-    Artifactsartifacts-prepare-response:
+    ArtifactsPrepareResponse:
       type: object
       description: The response to preparing a URL to upload a file.
       properties:
         form_data:
           type: array
           items:
-            $ref: '#/components/schemas/Artifactsartifacts-prepare-response-form-data'
+            $ref: '#/components/schemas/ArtifactsPrepareResponseFormData'
           description: The POST policy form data.
         id:
           type: string
@@ -1194,7 +3350,7 @@ components:
         - form_data
         - id
         - url
-    Artifactsartifacts-prepare-response-form-data:
+    ArtifactsPrepareResponseFormData:
       type: object
       properties:
         key:
@@ -1206,34 +3362,215 @@ components:
       required:
         - key
         - value
-    AuthConnectiondev-org-auth-connections-create-request:
-      type: object
+    DevOrgAuthConnectionsCreateRequest:
+      oneOf:
+        - type: object
+          allOf:
+            - $ref: '#/components/schemas/AuthConnectionOptionsGoogleApps'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - google_apps
+        - type: object
+          allOf:
+            - $ref: '#/components/schemas/AuthConnectionOptionsOidc'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - oidc
+        - type: object
+          allOf:
+            - $ref: '#/components/schemas/AuthConnectionOptionsSaml'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - samlp
+        - type: object
+          allOf:
+            - $ref: '#/components/schemas/AuthConnectionOptionsAzureAd'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - waad
       description: |
         Request to create a new enterprise authentication connection.
       properties:
         display_name:
-          type: string
           description: |
             Display name of the authentication connection. This name will be
             visible to all the users when they sign in to this Dev
             organization. For example, if the display_name is 'abclogin', then
             it would appear on the login button as 'Log in to abclogin'.
-        type:
-          $ref: >-
-            #/components/schemas/Commonsdev-org-auth-connections-create-request-type
-      required:
-        - type
-    AuthConnectiondev-org-auth-connections-create-response:
+          type: string
+    DevOrgAuthConnectionsCreateResponse:
       type: object
       description: |
         Response for the request to create a new enterprise authentication
         connection.
       properties:
         auth_connection:
-          $ref: '#/components/schemas/Commonsauth-connection'
+          $ref: '#/components/schemas/AuthConnection'
       required:
         - auth_connection
-    AuthConnectiondev-org-auth-connections-delete-request:
+    DevOrgAuthConnectionsCreateRequestType:
+      type: string
+      enum:
+        - google_apps
+        - oidc
+        - samlp
+        - waad
+      description: |
+        Defines the type for the authentication connection. Different types of
+        authentication connections have different configuration parameters.
+    AuthConnectionOptionsAzureAd:
+      type: object
+      description: |
+        Object encapsulating the configuration parameters for an Azure AD
+        authentication connection.
+      properties:
+        client_id:
+          type: string
+          description: Client ID for the Azure authentication connection.
+        client_secret:
+          type: string
+          description: Client secret for the Azure authentication connection.
+        domain:
+          type: string
+          description: Domain URL of the Azure authentication connection.
+    AuthConnectionOptionsGoogleApps:
+      type: object
+      description: |
+        Object encapsulating the configuration parameters for a Google Apps
+        authentication connection.
+      properties:
+        client_id:
+          type: string
+          description: Client ID for the Google Apps authentication connection.
+        client_secret:
+          type: string
+          description: |
+            Client secret for the Google Apps authentication connection.
+        tenant_domain:
+          type: string
+          description: |
+            Tenant domain URL of the Google Apps authentication connection.
+    AuthConnectionOptionsOidc:
+      type: object
+      description: |
+        Object encapsulating the configuration parameters for an OIDC
+        authentication connection.
+      properties:
+        client_id:
+          type: string
+          description: Client ID for the OIDC authentication connection.
+        client_secret:
+          type: string
+          description: Client secret for the OIDC authentication connection.
+        issuer:
+          type: string
+          description: Issuer URL of the OIDC authentication connection.
+    AuthConnectionOptionsSaml:
+      type: object
+      description: |
+        Object encapsulating the configuration parameters for a SAML
+        authentication connection.
+      properties:
+        sign_in_endpoint:
+          type: string
+          description: Sign In endpoint for the SAML authentication connection.
+        signing_cert:
+          type: string
+          description: |
+            Signing certificate for the SAML authentication connection.
+    AuthConnection:
+      oneOf:
+        - type: object
+          allOf:
+            - $ref: '#/components/schemas/AuthConnectionOptionsGoogleApps'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - google_apps
+        - type: object
+          allOf:
+            - $ref: '#/components/schemas/AuthConnectionOptionsOidc'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - oidc
+        - type: object
+          allOf:
+            - $ref: '#/components/schemas/AuthConnectionOptionsSaml'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - samlp
+        - type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - social
+            value:
+              $ref: '#/components/schemas/AuthConnectionOptionsSocial'
+        - type: object
+          allOf:
+            - $ref: '#/components/schemas/AuthConnectionOptionsAzureAd'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - waad
+      description: |
+        Connection object that specifies the configuration for an
+        authentication connection that is set up for a Dev organization.
+      properties:
+        display_name:
+          description: |
+            Display name of the authentication connection. This name will be
+            visible to all the users when they sign in to this Dev
+            organization. For example, if the display_name is 'abclogin', then
+            it would appear on the login button as 'Log in to abclogin'.
+          type: string
+        enabled:
+          description: |
+            Whether the authentication connection is enabled or disabled. If
+            set to false, the authentication connection will not show up on the
+            login screen as a login option.
+          type: boolean
+        id:
+          description: ID of the authentication connection.
+          type: string
+    AuthConnectionType:
+      type: string
+      enum:
+        - google_apps
+        - oidc
+        - samlp
+        - social
+        - waad
+      description: |
+        Defines the type for the authentication connection. The configuration
+        for each authentication connection will depend on the type value.
+    AuthConnectionOptionsSocial:
+      type: object
+      additionalProperties: {}
+    DevOrgAuthConnectionsDeleteRequest:
       type: object
       description: |
         Request to delete an enterprise authentication connection for a Dev
@@ -1245,17 +3582,17 @@ components:
           description: ID of the authentication connection to be deleted.
       required:
         - id
-    AuthConnectiondev-org-auth-connections-get-response:
+    DevOrgAuthConnectionsGetResponse:
       type: object
       description: |
         Response object encapsulating the configuration details of an
         authentication connection.
       properties:
         auth_connection:
-          $ref: '#/components/schemas/Commonsauth-connection'
+          $ref: '#/components/schemas/AuthConnection'
       required:
         - auth_connection
-    AuthConnectiondev-org-auth-connections-list-response:
+    DevOrgAuthConnectionsListResponse:
       type: object
       description: |
         Response object for the request to list all the social and enterprise
@@ -1264,13 +3601,13 @@ components:
         auth_connections:
           type: array
           items:
-            $ref: '#/components/schemas/Commonsauth-connection'
+            $ref: '#/components/schemas/AuthConnection'
           description: |
             List of all the authentication connections currently configured for
             a Dev organization.
       required:
         - auth_connections
-    AuthConnectiondev-org-auth-connections-toggle-request:
+    DevOrgAuthConnectionsToggleRequest:
       type: object
       description: |
         Request to enable or disable an authentication connection for a Dev
@@ -1280,43 +3617,84 @@ components:
           type: string
           description: ID of the authentication connection to be toggled.
         toggle:
-          $ref: '#/components/schemas/Commonsauth-connection-toggle'
+          $ref: '#/components/schemas/AuthConnectionToggle'
       required:
         - id
-    AuthConnectiondev-org-auth-connections-update-request:
-      type: object
+    AuthConnectionToggle:
+      type: string
+      enum:
+        - disable
+        - enable
+    DevOrgAuthConnectionsUpdateRequest:
+      oneOf:
+        - type: object
+          allOf:
+            - $ref: '#/components/schemas/AuthConnectionOptionsGoogleApps'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - google_apps
+        - type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - none
+        - type: object
+          allOf:
+            - $ref: '#/components/schemas/AuthConnectionOptionsOidc'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - oidc
+        - type: object
+          allOf:
+            - $ref: '#/components/schemas/AuthConnectionOptionsSaml'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - samlp
+        - type: object
+          allOf:
+            - $ref: '#/components/schemas/AuthConnectionOptionsAzureAd'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - waad
       description: |
         Request to update an enterprise authentication connection for a Dev
         organization.
       properties:
         display_name:
-          type: string
           description: |
             New display name of the authentication connection. This name will
             be visible to all the users when they sign in to this Dev
             organization. For example, if the display_name is 'abclogin', then
             it would appear on the login button as 'Log in to abclogin'.
-        id:
           type: string
+        id:
           description: |
             ID of the authentication connection which is to be updated.
-        type:
-          $ref: >-
-            #/components/schemas/AuthConnectiondev-org-auth-connections-update-request-type
-      required:
-        - id
-        - type
-    AuthConnectiondev-org-auth-connections-update-response:
+          type: string
+    DevOrgAuthConnectionsUpdateResponse:
       type: object
       description: |
         Response for the request to update an enterprise authentication
         connection.
       properties:
         auth_connection:
-          $ref: '#/components/schemas/Commonsauth-connection'
+          $ref: '#/components/schemas/AuthConnection'
       required:
         - auth_connection
-    AuthConnectiondev-org-auth-connections-update-request-type:
+    DevOrgAuthConnectionsUpdateRequestType:
       type: string
       enum:
         - google_apps
@@ -1328,7 +3706,7 @@ components:
         Specifies the type for the authentication connection. Different types
         of authentication connections have different configuration parameters
         that can be updated.
-    AuthTokensauth-tokens-create-request:
+    AuthTokensCreateRequest:
       type: object
       description: |
         A request to create a new token corresponding to the requested token
@@ -1351,11 +3729,11 @@ components:
           description: |
             The expected validity lifetime of the token in number of days.
         grant_type:
-          $ref: '#/components/schemas/Commonsauth-token-grant-type'
+          $ref: '#/components/schemas/AuthTokenGrantType'
         requested_token_type:
-          $ref: '#/components/schemas/Commonsauth-token-requested-token-type'
+          $ref: '#/components/schemas/AuthTokenRequestedTokenType'
         rev_info:
-          $ref: '#/components/schemas/Commonsauth-tokens-rev-info'
+          $ref: '#/components/schemas/AuthTokensRevInfo'
         scope:
           type: string
           description: |
@@ -1368,11 +3746,11 @@ components:
             Represents the entity that requests the token. Not required when
             requesting an application access token (AAT).
         subject_token_type:
-          $ref: '#/components/schemas/Commonsauth-token-subject-token-type'
+          $ref: '#/components/schemas/AuthTokenSubjectTokenType'
         token_hint:
           type: string
           description: A hint that identifies the token.
-    AuthTokensauth-tokens-create-response:
+    AuthTokensCreateResponse:
       type: object
       description: |
         Response for the request to create a new token corresponding to the
@@ -1403,77 +3781,18 @@ components:
             The scopes associated with the issued token. A space-delimited list
             of values in which the order of values does not matter.
         token_type:
-          $ref: '#/components/schemas/Commonsauth-token-token-type'
+          $ref: '#/components/schemas/AuthTokenTokenType'
       required:
         - access_token
         - expires_in
         - token_type
-    AuthTokensauth-tokens-delete-request:
-      type: object
-      description: The request to revoke the token.
-      properties:
-        token_id:
-          type: string
-          description: |
-            The unique identifier for the token under a given Dev organization.
-            If no token ID is provided, then the token ID will be set from the
-            JTI claim of the token in the authorization header.
-    AuthTokensauth-tokens-get-response:
-      type: object
-      description: The response to get the token metadata.
-      properties:
-        token:
-          $ref: '#/components/schemas/Commonsauth-token'
-      required:
-        - token
-    AuthTokensauth-tokens-list-response:
-      type: object
-      description: The response to list the token metadata.
-      properties:
-        tokens:
-          type: array
-          items:
-            $ref: '#/components/schemas/Commonsauth-token'
-          description: The list of token metadata.
-      required:
-        - tokens
-    AuthTokensauth-tokens-self-delete-request:
-      type: object
-      description: |
-        The request to delete all the tokens created by the authenticated user,
-        that match with the provided token type.
-      properties:
-        requested_token_type:
-          $ref: '#/components/schemas/Commonsauth-token-requested-token-type'
-    AuthTokensauth-tokens-update-request:
-      type: object
-      description: A request to update the token metadata.
-      properties:
-        token_hint:
-          type: string
-          description: A hint that identifies the token.
-        token_id:
-          type: string
-          description: |
-            The unique identifier of the token under a given Dev organization.
-      required:
-        - token_hint
-        - token_id
-    AuthTokensauth-tokens-update-response:
-      type: object
-      description: Response for the request to update the token metadata.
-      properties:
-        token:
-          $ref: '#/components/schemas/Commonsauth-token'
-      required:
-        - token
-    Commonsauth-token-grant-type:
+    AuthTokenGrantType:
       type: string
       enum:
         - urn:devrev:params:oauth:grant-type:token-issue
         - urn:ietf:params:oauth:grant-type:token-exchange
       description: Specifies the process of obtaining a token.
-    Commonsauth-token-requested-token-type:
+    AuthTokenRequestedTokenType:
       type: string
       enum:
         - urn:devrev:params:oauth:token-type:aat
@@ -1486,7 +3805,7 @@ components:
         - urn:devrev:params:oauth:token-type:sys
         - urn:ietf:params:oauth:token-type:jwt
       description: The type of the requested token.
-    Commonsauth-tokens-rev-info:
+    AuthTokensRevInfo:
       type: object
       description: |
         Carries info corresponding to the Rev user to be provisioned and/or
@@ -1496,15 +3815,15 @@ components:
           type: string
           description: An identifier which uniquely identifies a Rev org.
         org_traits:
-          $ref: '#/components/schemas/Commonsauth-tokens-org-traits'
+          $ref: '#/components/schemas/AuthTokensOrgTraits'
         user_ref:
           type: string
           description: An identifier which uniquely identifies a Rev user.
         user_traits:
-          $ref: '#/components/schemas/Commonsauth-tokens-user-traits'
+          $ref: '#/components/schemas/AuthTokensUserTraits'
       required:
         - user_ref
-    Commonsauth-tokens-org-traits:
+    AuthTokensOrgTraits:
       type: object
       description: Carries Rev org info.
       properties:
@@ -1514,7 +3833,7 @@ components:
         domain:
           type: string
           description: The domain of the Rev org.
-    Commonsauth-tokens-user-traits:
+    AuthTokensUserTraits:
       type: object
       description: Carries Rev user info.
       properties:
@@ -1527,7 +3846,7 @@ components:
         full_name:
           type: string
           description: The full name of the Rev user.
-    Commonsauth-token-subject-token-type:
+    AuthTokenSubjectTokenType:
       type: string
       enum:
         - urn:devrev:params:oauth:token-type:jwt:auth0
@@ -1538,13 +3857,31 @@ components:
         - urn:devrev:params:oauth:token-type:userinfo:profile
         - urn:ietf:params:oauth:token-type:jwt
       description: The type of the subject token.
-    Commonsauth-token-token-type:
+    AuthTokenTokenType:
       type: string
       enum:
         - bearer
       description: |
         The type of the issued token. Bearer is the only supported token type.
-    Commonsauth-token:
+    AuthTokensDeleteRequest:
+      type: object
+      description: The request to revoke the token.
+      properties:
+        token_id:
+          type: string
+          description: |
+            The unique identifier for the token under a given Dev organization.
+            If no token ID is provided, then the token ID will be set from the
+            JTI claim of the token in the authorization header.
+    AuthTokensGetResponse:
+      type: object
+      description: The response to get the token metadata.
+      properties:
+        token:
+          $ref: '#/components/schemas/AuthToken'
+      required:
+        - token
+    AuthToken:
       type: object
       properties:
         client_id:
@@ -1559,14 +3896,14 @@ components:
           type: string
           description: The time at which the token was issued.
         requested_token_type:
-          $ref: '#/components/schemas/Commonsauth-token-requested-token-type'
+          $ref: '#/components/schemas/AuthTokenRequestedTokenType'
         scopes:
           type: array
           items:
             type: string
           description: The scopes associated with the issued token.
         status:
-          $ref: '#/components/schemas/Commonsauth-token-status'
+          $ref: '#/components/schemas/AuthTokenStatus'
         subject:
           type: string
           description: The subject of the token.
@@ -1574,12 +3911,60 @@ components:
           type: string
           description: A hint that identifies the token.
       allOf:
-        - $ref: '#/components/schemas/Commonsatom-base'
-    Commonsatom-base:
+        - $ref: '#/components/schemas/AtomBase'
+    AuthTokenStatus:
+      type: string
+      enum:
+        - active
+        - expired
+        - revoked
+      description: The status of the token.
+    AuthTokensListResponse:
+      type: object
+      description: The response to list the token metadata.
+      properties:
+        tokens:
+          type: array
+          items:
+            $ref: '#/components/schemas/AuthToken'
+          description: The list of token metadata.
+      required:
+        - tokens
+    AuthTokensSelfDeleteRequest:
+      type: object
+      description: |
+        The request to delete all the tokens created by the authenticated user,
+        that match with the provided token type.
+      properties:
+        requested_token_type:
+          $ref: '#/components/schemas/AuthTokenRequestedTokenType'
+    AuthTokensUpdateRequest:
+      type: object
+      description: A request to update the token metadata.
+      properties:
+        token_hint:
+          type: string
+          description: A hint that identifies the token.
+        token_id:
+          type: string
+          description: |
+            The unique identifier of the token under a given Dev organization.
+      required:
+        - token_hint
+        - token_id
+    AuthTokensUpdateResponse:
+      type: object
+      description: Response for the request to update the token metadata.
+      properties:
+        token:
+          $ref: '#/components/schemas/AuthToken'
+      required:
+        - token
+    AtomBase:
       type: object
       properties:
         created_by:
-          $ref: '#/components/schemas/Commonsuser-summary'
+          $ref: '#/components/schemas/UserSummary'
         created_date:
           type: string
           description: Timestamp when the object was created.
@@ -1590,31 +3975,53 @@ components:
           type: string
           description: Globally unique object ID.
         modified_by:
-          $ref: '#/components/schemas/Commonsuser-summary'
+          $ref: '#/components/schemas/UserSummary'
         modified_date:
           type: string
           description: Timestamp when the object was last modified.
       required:
         - id
-    Commonsuser-summary:
-      type: object
-      properties:
-        type:
-          $ref: '#/components/schemas/Commonsuser-type'
-      required:
-        - type
-    Commonsuser-type:
+    UserSummary:
+      oneOf:
+        - type: object
+          allOf:
+            - $ref: '#/components/schemas/DevUserSummary'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - dev_user
+        - type: object
+          allOf:
+            - $ref: '#/components/schemas/RevUserSummary'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - rev_user
+        - type: object
+          allOf:
+            - $ref: '#/components/schemas/SysUserSummary'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - sys_user
+    UserType:
       type: string
       enum:
         - dev_user
         - rev_user
         - sys_user
-    Commonsdev-user-summary:
+    DevUserSummary:
       type: object
       properties: {}
       allOf:
-        - $ref: '#/components/schemas/Commonsuser-base-summary'
-    Commonsuser-base-summary:
+        - $ref: '#/components/schemas/UserBaseSummary'
+    UserBaseSummary:
       type: object
       properties:
         display_name:
@@ -1631,10 +4038,10 @@ components:
           type: string
           description: URL of the user's profile picture.
         state:
-          $ref: '#/components/schemas/Commonsuser-state'
+          $ref: '#/components/schemas/UserState'
       allOf:
-        - $ref: '#/components/schemas/Commonsatom-base-summary'
-    Commonsatom-base-summary:
+        - $ref: '#/components/schemas/AtomBaseSummary'
+    AtomBaseSummary:
       type: object
       properties:
         display_id:
@@ -1645,7 +4052,7 @@ components:
           description: Globally unique object ID.
       required:
         - id
-    Commonsuser-state:
+    UserState:
       type: string
       enum:
         - active
@@ -1654,176 +4061,136 @@ components:
         - shadow
         - unassigned
       description: State of the user.
-    Commonsrev-user-summary:
+    RevUserSummary:
       type: object
       properties:
         rev_org:
-          $ref: '#/components/schemas/Commonsorg-summary'
+          $ref: '#/components/schemas/OrgSummary'
       allOf:
-        - $ref: '#/components/schemas/Commonsuser-base-summary'
-    Commonsorg-summary:
-      type: object
-      properties:
-        type:
-          $ref: '#/components/schemas/Commonsorg-type'
-      required:
-        - type
-    Commonsorg-type:
+        - $ref: '#/components/schemas/UserBaseSummary'
+    OrgSummary:
+      oneOf:
+        - type: object
+          allOf:
+            - $ref: '#/components/schemas/RevOrgSummary'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - rev_org
+    OrgType:
       type: string
       enum:
         - rev_org
-    Commonsrev-org-summary:
+    RevOrgSummary:
       type: object
       properties: {}
       allOf:
-        - $ref: '#/components/schemas/Commonsorg-base-summary'
-    Commonsorg-base-summary:
+        - $ref: '#/components/schemas/OrgBaseSummary'
+    OrgBaseSummary:
       type: object
       properties:
         display_name:
           type: string
           description: Name of the Organization.
       allOf:
-        - $ref: '#/components/schemas/Commonsatom-base-summary'
-    Commonssys-user-summary:
+        - $ref: '#/components/schemas/AtomBaseSummary'
+    SysUserSummary:
       type: object
       properties: {}
       allOf:
-        - $ref: '#/components/schemas/Commonsuser-base-summary'
-    Commonsauth-token-status:
+        - $ref: '#/components/schemas/UserBaseSummary'
+    ListMode:
       type: string
       enum:
-        - active
-        - expired
-        - revoked
-      description: The status of the token.
-    Commonsdev-org-auth-connections-create-request-type:
+        - after
+        - before
+      description: |
+        The iteration mode to use. If "after", then entries after the provided
+        cursor will be returned, or if no cursor is provided, then from the
+        beginning. If "before", then entries before the provided cursor will be
+        returned, or if no cursor is provided, then from the end. Entries will
+        always be returned in the specified sort-by order.
+    PartType:
       type: string
       enum:
-        - google_apps
-        - oidc
-        - samlp
-        - waad
-      description: |
-        Defines the type for the authentication connection. Different types of
-        authentication connections have different configuration parameters.
-    Commonsauth-connection-options-azure-ad:
+        - product
+    ArtifactSummary:
       type: object
-      description: |
-        Object encapsulating the configuration parameters for an Azure AD
-        authentication connection.
-      properties:
-        client_id:
-          type: string
-          description: Client ID for the Azure authentication connection.
-        client_secret:
-          type: string
-          description: Client secret for the Azure authentication connection.
-        domain:
-          type: string
-          description: Domain URL of the Azure authentication connection.
-    Commonsauth-connection-options-google-apps:
+      properties: {}
+      allOf:
+        - $ref: '#/components/schemas/AtomBaseSummary'
+    Stage:
       type: object
-      description: |
-        Object encapsulating the configuration parameters for a Google Apps
-        authentication connection.
+      description: Describes the current stage of a work item.
       properties:
-        client_id:
+        name:
           type: string
-          description: Client ID for the Google Apps authentication connection.
-        client_secret:
-          type: string
-          description: |
-            Client secret for the Google Apps authentication connection.
-        tenant_domain:
-          type: string
-          description: |
-            Tenant domain URL of the Google Apps authentication connection.
-    Commonsauth-connection-options-oidc:
-      type: object
-      description: |
-        Object encapsulating the configuration parameters for an OIDC
-        authentication connection.
-      properties:
-        client_id:
-          type: string
-          description: Client ID for the OIDC authentication connection.
-        client_secret:
-          type: string
-          description: Client secret for the OIDC authentication connection.
-        issuer:
-          type: string
-          description: Issuer URL of the OIDC authentication connection.
-    Commonsauth-connection-options-saml:
-      type: object
-      description: |
-        Object encapsulating the configuration parameters for a SAML
-        authentication connection.
-      properties:
-        sign_in_endpoint:
-          type: string
-          description: Sign In endpoint for the SAML authentication connection.
-        signing_cert:
-          type: string
-          description: |
-            Signing certificate for the SAML authentication connection.
-    Commonsauth-connection:
-      type: object
-      description: |
-        Connection object that specifies the configuration for an
-        authentication connection that is set up for a Dev organization.
-      properties:
-        display_name:
-          type: string
-          description: |
-            Display name of the authentication connection. This name will be
-            visible to all the users when they sign in to this Dev
-            organization. For example, if the display_name is 'abclogin', then
-            it would appear on the login button as 'Log in to abclogin'.
-        enabled:
-          type: boolean
-          description: |
-            Whether the authentication connection is enabled or disabled. If
-            set to false, the authentication connection will not show up on the
-            login screen as a login option.
-        id:
-          type: string
-          description: ID of the authentication connection.
-        type:
-          $ref: '#/components/schemas/Commonsauth-connection-type'
+          description: Current stage name of the work item.
       required:
-        - id
-        - type
-    Commonsauth-connection-type:
-      type: string
-      enum:
-        - google_apps
-        - oidc
-        - samlp
-        - social
-        - waad
-      description: |
-        Defines the type for the authentication connection. The configuration
-        for each authentication connection will depend on the type value.
-    Commonsauth-connection-options-social:
+        - name
+    TagWithValue:
       type: object
-      additionalProperties: {}
-    Commonsauth-connection-toggle:
-      type: string
-      enum:
-        - disable
-        - enable
-    Commonsdev-user:
+      properties:
+        tag:
+          $ref: '#/components/schemas/TagSummary'
+        value:
+          type: string
+          description: The value for the object's association with the tag.
+      required:
+        - tag
+    TagSummary:
+      type: object
+      properties:
+        name:
+          type: string
+          description: |
+            The name of the tag, which denotes the logical concept by which all
+            tagged objects will be associated. The name is guaranteed to be
+            unique.
+      required:
+        - name
+      allOf:
+        - $ref: '#/components/schemas/AtomBaseSummary'
+    ErrorBase:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The message associated with the error.
+    DevUsersListResponse:
+      type: object
+      description: The response to listing the Dev users.
+      properties:
+        dev_users:
+          type: array
+          items:
+            $ref: '#/components/schemas/DevUser'
+          description: The list of Dev users.
+        next_cursor:
+          type: string
+          description: |
+            The cursor used to iterate subsequent results in accordance to the
+            sort order. If not set, then no later elements exist.
+        prev_cursor:
+          type: string
+          description: |
+            The cursor used to iterate preceding results in accordance to the
+            sort order. If not set, then no prior elements exist.
+      required:
+        - dev_users
+    DevUser:
       type: object
       properties:
         external_identities:
           type: array
           items:
-            $ref: '#/components/schemas/Commonsexternal-identity'
+            $ref: '#/components/schemas/ExternalIdentity'
           description: IDs of the Dev User outside the DevRev SOR.
       allOf:
-        - $ref: '#/components/schemas/Commonsuser-base'
-    Commonsuser-base:
+        - $ref: '#/components/schemas/UserBase'
+    UserBase:
       type: object
       properties:
         display_name:
@@ -1845,45 +4212,93 @@ components:
           type: string
           description: URL of the user's profile picture.
         state:
-          $ref: '#/components/schemas/Commonsuser-state'
+          $ref: '#/components/schemas/UserState'
       allOf:
-        - $ref: '#/components/schemas/Commonsatom-base'
-    Commonsexternal-identity:
+        - $ref: '#/components/schemas/AtomBase'
+    ExternalIdentity:
       type: object
       additionalProperties: {}
       description: External identity of a user.
-    Commonspart-type:
-      type: string
-      enum:
-        - product
-    Commonsparts-create-request-capability:
+    DevUsersSelfResponse:
       type: object
-      additionalProperties: {}
-    Commonsparts-create-request-feature:
-      type: object
-      additionalProperties: {}
-    Commonsparts-create-request-product:
-      type: object
-      additionalProperties: {}
-    Commonspart:
+      description: |
+        The response to getting the information for the authenticated user.
+      properties:
+        dev_user:
+          $ref: '#/components/schemas/DevUser'
+      required:
+        - dev_user
+    PartsCreateRequest:
+      oneOf:
+        - type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - capability
+            value:
+              $ref: '#/components/schemas/PartsCreateRequestCapability'
+        - type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - feature
+            value:
+              $ref: '#/components/schemas/PartsCreateRequestFeature'
+        - type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - product
+            value:
+              $ref: '#/components/schemas/PartsCreateRequestProduct'
+      properties:
+        description:
+          description: Description of the part.
+          type: string
+        name:
+          description: Name of the part.
+          type: string
+        owned_by:
+          description: The users that own the part.
+          type: array
+          items:
+            type: string
+    PartsCreateResponse:
       type: object
       properties:
-        type:
-          $ref: '#/components/schemas/Commonspart-type'
+        part:
+          $ref: '#/components/schemas/Part'
       required:
-        - type
-    Commonsproduct:
+        - part
+    PartsCreateRequestCapability: {}
+    PartsCreateRequestFeature: {}
+    PartsCreateRequestProduct: {}
+    Part:
+      oneOf:
+        - type: object
+          allOf:
+            - $ref: '#/components/schemas/Product'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - product
+    Product:
       type: object
       properties: {}
       allOf:
-        - $ref: '#/components/schemas/Commonspart-base'
-    Commonspart-base:
+        - $ref: '#/components/schemas/PartBase'
+    PartBase:
       type: object
       properties:
         artifacts:
           type: array
           items:
-            $ref: '#/components/schemas/Commonsartifact-summary'
+            $ref: '#/components/schemas/ArtifactSummary'
           description: The attached artifacts.
         description:
           type: string
@@ -1894,57 +4309,150 @@ components:
         owned_by:
           type: array
           items:
-            $ref: '#/components/schemas/Commonsuser-summary'
+            $ref: '#/components/schemas/UserSummary'
           description: The users that own the part.
         stage:
-          $ref: '#/components/schemas/Commonsstage'
+          $ref: '#/components/schemas/Stage'
         tags:
           type: array
           items:
-            $ref: '#/components/schemas/Commonstag-with-value'
+            $ref: '#/components/schemas/TagWithValue'
           description: Tags associated with the object.
       required:
         - owned_by
       allOf:
-        - $ref: '#/components/schemas/Commonsatom-base'
-    Commonsartifact-summary:
+        - $ref: '#/components/schemas/AtomBase'
+    PartsDeleteRequest:
       type: object
-      properties: {}
-      allOf:
-        - $ref: '#/components/schemas/Commonsatom-base-summary'
-    Commonsstage:
-      type: object
-      description: Describes the current stage of a work item.
       properties:
-        name:
+        id:
           type: string
-          description: Current stage name of the work item.
+          description: The ID of the part to delete.
       required:
-        - name
-    Commonstag-with-value:
+        - id
+    PartsDeleteResponse:
+      type: object
+      additionalProperties: {}
+    PartsGetResponse:
       type: object
       properties:
-        tag:
-          $ref: '#/components/schemas/Commonstag-summary'
-        value:
-          type: string
-          description: The value for the object's association with the tag.
+        part:
+          $ref: '#/components/schemas/Part'
       required:
-        - tag
-    Commonstag-summary:
+        - part
+    PartsListResponse:
       type: object
       properties:
-        name:
+        next_cursor:
           type: string
           description: |
-            The name of the tag, which denotes the logical concept by which all
-            tagged objects will be associated. The name is guaranteed to be
-            unique.
+            The cursor used to iterate subsequent results in accordance to the
+            sort order. If not set, then no later elements exist.
+        parts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Part'
+          description: The list of parts.
+        prev_cursor:
+          type: string
+          description: |
+            The cursor used to iterate preceding results in accordance to the
+            sort order. If not set, then no prior elements exist.
       required:
-        - name
-      allOf:
-        - $ref: '#/components/schemas/Commonsatom-base-summary'
-    Commonsorg-environment:
+        - parts
+    PartsUpdateRequest:
+      oneOf:
+        - type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - capability
+            value:
+              $ref: '#/components/schemas/PartsUpdateRequestCapability'
+        - type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - feature
+            value:
+              $ref: '#/components/schemas/PartsUpdateRequestFeature'
+        - type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - none
+        - type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - product
+            value:
+              $ref: '#/components/schemas/PartsUpdateRequestProduct'
+      properties:
+        description:
+          description: The updated description of the part.
+          type: string
+        id:
+          description: The ID of the part to update.
+          type: string
+        name:
+          description: The updated name of the part.
+          type: string
+    PartsUpdateResponse:
+      type: object
+      properties:
+        part:
+          $ref: '#/components/schemas/Part'
+      required:
+        - part
+    PartsUpdateRequestCapability:
+      type: object
+      additionalProperties: {}
+    PartsUpdateRequestFeature:
+      type: object
+      additionalProperties: {}
+    PartsUpdateRequestProduct:
+      type: object
+      additionalProperties: {}
+    RevOrgsCreateRequest:
+      type: object
+      description: |
+        Request object to create a new Rev organization in the Dev
+        organization.
+      properties:
+        description:
+          type: string
+          description: Description of the Rev organization.
+        display_name:
+          type: string
+          description: Name of the Rev organization.
+        domain:
+          type: string
+          description: Company's domain name. Example - 'devrev.ai'.
+        environment:
+          $ref: '#/components/schemas/OrgEnvironment'
+        external_ref:
+          type: string
+          description: |
+            External ref is a custom unique identifier which is a reference to
+            an unique id for this organization's data in some system of
+            records.
+      required:
+        - display_name
+    RevOrgsCreateResponse:
+      type: object
+      description: |
+        Response object for request to create a new Rev organization.
+      properties:
+        rev_org:
+          $ref: '#/components/schemas/RevOrg'
+      required:
+        - rev_org
+    OrgEnvironment:
       type: string
       enum:
         - production
@@ -1952,7 +4460,7 @@ components:
         - test
       description: |
         The environment of the Org. Defaults to 'production' if not specified.
-    Commonsrev-org:
+    RevOrg:
       type: object
       properties:
         description:
@@ -1969,16 +4477,122 @@ components:
             is specified, a system-generated identifier will be assigned to the
             organization.
       allOf:
-        - $ref: '#/components/schemas/Commonsorg-base'
-    Commonsorg-base:
+        - $ref: '#/components/schemas/OrgBase'
+    OrgBase:
       type: object
       properties:
         display_name:
           type: string
           description: Name of the Organization.
       allOf:
-        - $ref: '#/components/schemas/Commonsatom-base'
-    Commonstag:
+        - $ref: '#/components/schemas/AtomBase'
+    RevOrgsDeleteRequest:
+      type: object
+      description: Request object to delete a Rev organization.
+      properties:
+        id:
+          type: string
+          description: The ID of Rev organization to delete.
+      required:
+        - id
+    RevOrgsDeleteResponse:
+      type: object
+      additionalProperties: {}
+      description: The response to deleting a Rev organization.
+    RevOrgsGetResponse:
+      type: object
+      description: The response to getting a Rev organization's information.
+      properties:
+        rev_org:
+          $ref: '#/components/schemas/RevOrg'
+      required:
+        - rev_org
+    RevOrgsListResponse:
+      type: object
+      description: |
+        The response to getting a list of Rev organizations' information.
+      properties:
+        next_cursor:
+          type: string
+          description: |
+            The cursor used to iterate subsequent results in accordance to the
+            sort order. If not set, then no later elements exist.
+        prev_cursor:
+          type: string
+          description: |
+            The cursor used to iterate preceding results in accordance to the
+            sort order. If not set, then no prior elements exist.
+        rev_orgs:
+          type: array
+          items:
+            $ref: '#/components/schemas/RevOrg'
+          description: List with all of the Rev organizations' information.
+      required:
+        - rev_orgs
+    RevOrgsUpdateRequest:
+      type: object
+      description: |
+        Request object to update information of the Rev organization.
+      properties:
+        description:
+          type: string
+          description: Description of the Rev organization.
+        display_name:
+          type: string
+          description: Customer chosen name for the Rev organization.
+        domain:
+          type: string
+          description: Company's domain name. Example - 'devrev.ai'.
+        environment:
+          $ref: '#/components/schemas/OrgEnvironment'
+        external_ref:
+          type: string
+          description: |
+            External ref is a custom unique identifier which is a reference to
+            an unique id for this organization's data in some system of
+            records.
+        id:
+          type: string
+          description: The ID of Rev organization to update.
+      required:
+        - id
+    RevOrgsUpdateResponse:
+      type: object
+      description: Response object to updating Rev organization's information.
+      properties:
+        rev_org:
+          $ref: '#/components/schemas/RevOrg'
+      required:
+        - rev_org
+    TagsCreateRequest:
+      type: object
+      description: The request to create a new tag.
+      properties:
+        allowed_values:
+          type: array
+          items:
+            type: string
+          description: |
+            The allowed values for the tag, or empty if no values are
+            permitted.
+        description:
+          type: string
+          description: The description for the tag.
+        name:
+          type: string
+          description: |
+            The name for the tag, which must be unique across all tags.
+      required:
+        - name
+    TagsCreateResponse:
+      type: object
+      description: The response to creating a new tag.
+      properties:
+        tag:
+          $ref: '#/components/schemas/Tag'
+      required:
+        - tag
+    Tag:
       type: object
       properties:
         allowed_values:
@@ -2003,41 +4617,147 @@ components:
       required:
         - name
       allOf:
-        - $ref: '#/components/schemas/Commonsatom-base'
-    Commonstimeline-entries-create-request-type:
+        - $ref: '#/components/schemas/AtomBase'
+    TagsDeleteRequest:
+      type: object
+      description: The request to delete a tag.
+      properties:
+        id:
+          type: string
+          description: The ID of the tag to delete.
+      required:
+        - id
+    TagsDeleteResponse:
+      type: object
+      additionalProperties: {}
+      description: The response for deleting a tag.
+    TagsGetResponse:
+      type: object
+      description: The response to getting a tag's information.
+      properties:
+        tag:
+          $ref: '#/components/schemas/Tag'
+      required:
+        - tag
+    TagsListResponse:
+      type: object
+      description: The response to listing the tags.
+      properties:
+        next_cursor:
+          type: string
+          description: |
+            The cursor used to iterate subsequent results in accordance to the
+            sort order. If not set, then no later elements exist.
+        prev_cursor:
+          type: string
+          description: |
+            The cursor used to iterate preceding results in accordance to the
+            sort order. If not set, then no prior elements exist.
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+          description: The list of tags.
+      required:
+        - tags
+    TagsUpdateRequest:
+      type: object
+      description: The request to update a tag.
+      properties:
+        allowed_values:
+          $ref: '#/components/schemas/TagsUpdateAllowedValues'
+        description:
+          type: string
+          description: The updated description of the tag.
+        id:
+          type: string
+          description: The ID of the tag to update.
+        name:
+          type: string
+          description: |
+            The updated name of the tag. The name must be unique across all
+            tags.
+      required:
+        - id
+    TagsUpdateResponse:
+      type: object
+      description: The response for updating a tag.
+      properties:
+        tag:
+          $ref: '#/components/schemas/Tag'
+      required:
+        - tag
+    TagsUpdateAllowedValues:
+      type: object
+      description: Specifies an update to a tag's allowed values.
+      properties:
+        set:
+          type: array
+          items:
+            type: string
+          description: Sets the allowed values for the tag.
+    TimelineEntriesCreateRequest:
+      oneOf:
+        - type: object
+          allOf:
+            - $ref: '#/components/schemas/TimelineEntriesCreateRequestTimelineComment'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - timeline_comment
+      description: The request to create a timeline entry for an object.
+      properties:
+        object:
+          description: The ID of the object to create the timeline entry for.
+          type: string
+    TimelineEntriesCreateResponse:
+      type: object
+      description: The response to creating a timeline entry for an object.
+      properties:
+        timeline_entry:
+          $ref: '#/components/schemas/TimelineEntry'
+      required:
+        - timeline_entry
+    TimelineEntriesCreateRequestType:
       type: string
       enum:
         - timeline_comment
-    Commonstimeline-entries-create-request-timeline-comment:
+    TimelineEntriesCreateRequestTimelineComment:
       type: object
       properties:
         body:
           type: string
           description: The comment's body.
         body_type:
-          $ref: '#/components/schemas/Commonstimeline-comment-body-type'
+          $ref: '#/components/schemas/TimelineCommentBodyType'
         snap_kit_body:
           type: object
           additionalProperties: {}
           description: The SnapKit body of the comment.
-    Commonstimeline-comment-body-type:
+    TimelineCommentBodyType:
       type: string
       enum:
         - snap_kit
         - text
       description: The type of the body to use for the comment.
-    Commonstimeline-entry:
-      type: object
-      properties:
-        type:
-          $ref: '#/components/schemas/Commonstimeline-entry-type'
-      required:
-        - type
-    Commonstimeline-entry-type:
+    TimelineEntry:
+      oneOf:
+        - type: object
+          allOf:
+            - $ref: '#/components/schemas/TimelineComment'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - timeline_comment
+    TimelineEntryType:
       type: string
       enum:
         - timeline_comment
-    Commonstimeline-comment:
+    TimelineComment:
       type: object
       properties:
         body:
@@ -2046,19 +4766,117 @@ components:
             The comment's body. If the comment has been deleted, then no body
             will appear in the response.
         body_type:
-          $ref: '#/components/schemas/Commonstimeline-comment-body-type'
+          $ref: '#/components/schemas/TimelineCommentBodyType'
         snap_kit_body:
           type: object
           additionalProperties: {}
           description: The SnapKit Body of the comment.
       allOf:
-        - $ref: '#/components/schemas/Commonstimeline-entry-base'
-    Commonstimeline-entry-base:
+        - $ref: '#/components/schemas/TimelineEntryBase'
+    TimelineEntryBase:
       type: object
       properties: {}
       allOf:
-        - $ref: '#/components/schemas/Commonsatom-base'
-    Commonswebhook-event-type:
+        - $ref: '#/components/schemas/AtomBase'
+    TimelineEntriesGetResponse:
+      type: object
+      description: The request to getting a timeline entry.
+      properties:
+        timeline_entry:
+          $ref: '#/components/schemas/TimelineEntry'
+      required:
+        - timeline_entry
+    TimelineEntriesListResponse:
+      type: object
+      description: The response to listing timeline entries for an object.
+      properties:
+        next_cursor:
+          type: string
+          description: |
+            The cursor used to iterate subsequent results in accordance to the
+            sort order. If not set, then no later elements exist.
+        prev_cursor:
+          type: string
+          description: |
+            The cursor used to iterate preceding results in accordance to the
+            sort order. If not set, then no prior elements exist.
+        timeline_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimelineEntry'
+          description: The timeline entries for the object.
+      required:
+        - timeline_entries
+    TimelineEntriesUpdateRequest:
+      oneOf:
+        - type: object
+          allOf:
+            - $ref: '#/components/schemas/TimelineEntriesUpdateRequestTimelineComment'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - timeline_comment
+      description: The request to update a timeline entry.
+      properties:
+        id:
+          description: The ID of the timeline entry to update.
+          type: string
+    TimelineEntriesUpdateResponse:
+      type: object
+      description: The response to updating a timeline entry.
+      properties:
+        timeline_entry:
+          $ref: '#/components/schemas/TimelineEntry'
+      required:
+        - timeline_entry
+    TimelineEntriesUpdateRequestType:
+      type: string
+      enum:
+        - timeline_comment
+    TimelineEntriesUpdateRequestTimelineComment:
+      type: object
+      properties:
+        body:
+          type: string
+          description: The updated comment's body.
+        body_type:
+          $ref: '#/components/schemas/TimelineCommentBodyType'
+        snap_kit_body:
+          type: object
+          additionalProperties: {}
+          description: The SnapKit body of the comment.
+    WebhooksCreateRequest:
+      type: object
+      description: The request to create a new webhook.
+      properties:
+        event_types:
+          type: array
+          items:
+            $ref: '#/components/schemas/WebhookEventType'
+          description: The event types that the webhook endpoint will receive.
+        secret:
+          type: string
+          description: |
+            The secret to use when verifying webhook events. If provided, the
+            secret must be between 8 and 32 bytes (inclusive). If not set, a
+            secret will be automatically generated and provided in the
+            response.
+        url:
+          type: string
+          description: The URL of the webhook endpoint.
+      required:
+        - url
+    WebhooksCreateResponse:
+      type: object
+      description: The response to creating a new webhook.
+      properties:
+        webhook:
+          $ref: '#/components/schemas/Webhook'
+      required:
+        - webhook
+    WebhookEventType:
       type: string
       enum:
         - part_created
@@ -2078,19 +4896,19 @@ components:
         - work_deleted
         - work_updated
       description: The event types that the webhook will receive.
-    Commonswebhook:
+    Webhook:
       type: object
       properties:
         event_types:
           type: array
           items:
-            $ref: '#/components/schemas/Commonswebhook-event-type'
+            $ref: '#/components/schemas/WebhookEventType'
           description: The event types that the webhook will receive.
         secret:
           type: string
           description: The secret to use for verifying webhook events.
         status:
-          $ref: '#/components/schemas/Commonswebhook-status'
+          $ref: '#/components/schemas/WebhookStatus'
         url:
           type: string
           description: The URL of the webhook endpoint.
@@ -2099,621 +4917,15 @@ components:
         - status
         - url
       allOf:
-        - $ref: '#/components/schemas/Commonsatom-base'
-    Commonswebhook-status:
+        - $ref: '#/components/schemas/AtomBase'
+    WebhookStatus:
       type: string
       enum:
         - active
         - inactive
         - unverified
       description: The status of the webhook.
-    Commonsstage-init:
-      type: object
-      description: Sets an object's initial stage.
-      properties:
-        name:
-          type: string
-          description: The name of the stage.
-      required:
-        - name
-    Commonsset-tag-with-value:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The ID of the tag.
-        value:
-          type: string
-          description: |
-            The value for the object's association with the tag. If specified,
-            the value must be one that's specified in the tag's allowed values.
-      required:
-        - id
-    Commonswork-type:
-      type: string
-      enum:
-        - issue
-        - ticket
-    Commonswork:
-      type: object
-      properties:
-        type:
-          $ref: '#/components/schemas/Commonswork-type'
-      required:
-        - type
-    Commonsissue:
-      type: object
-      properties:
-        priority:
-          $ref: '#/components/schemas/Commonsissue-priority'
-      allOf:
-        - $ref: '#/components/schemas/Commonswork-base'
-    Commonsticket-severity:
-      type: string
-      enum:
-        - blocker
-        - high
-        - low
-        - medium
-      description: Severity of the ticket.
-    Commonsissue-priority:
-      type: string
-      enum:
-        - p0
-        - p1
-        - p2
-        - p3
-      description: Priority of the work based upon impact and criticality.
-    Commonswork-base:
-      type: object
-      properties:
-        applies_to_part:
-          $ref: '#/components/schemas/Commonspart-summary'
-        artifacts:
-          type: array
-          items:
-            $ref: '#/components/schemas/Commonsartifact-summary'
-          description: The artifacts attached to the work item.
-        body:
-          type: string
-          description: Body of the work object.
-        owned_by:
-          type: array
-          items:
-            $ref: '#/components/schemas/Commonsuser-summary'
-          description: The users that own the work.
-        reported_by:
-          type: array
-          items:
-            $ref: '#/components/schemas/Commonsuser-summary'
-          description: Users that reported the work.
-        stage:
-          $ref: '#/components/schemas/Commonsstage'
-        tags:
-          type: array
-          items:
-            $ref: '#/components/schemas/Commonstag-with-value'
-          description: Tags associated with the object.
-        target_close_date:
-          type: string
-          description: Timestamp when the work is expected to be complete.
-        title:
-          type: string
-          description: Title of the work object.
-      required:
-        - owned_by
-        - title
-      allOf:
-        - $ref: '#/components/schemas/Commonsatom-base'
-    Commonslist-mode:
-      type: string
-      enum:
-        - after
-        - before
-      description: |
-        The iteration mode to use. If "after", then entries after the provided
-        cursor will be returned, or if no cursor is provided, then from the
-        beginning. If "before", then entries before the provided cursor will be
-        returned, or if no cursor is provided, then from the end. Entries will
-        always be returned in the specified sort-by order.
-    Commonspart-summary:
-      type: object
-      properties:
-        type:
-          $ref: '#/components/schemas/Commonspart-type'
-      required:
-        - type
-    Commonsproduct-summary:
-      type: object
-      properties: {}
-      allOf:
-        - $ref: '#/components/schemas/Commonspart-base-summary'
-    Commonspart-base-summary:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the part.
-      allOf:
-        - $ref: '#/components/schemas/Commonsatom-base-summary'
-    Commonsticket:
-      type: object
-      properties:
-        rev_org:
-          $ref: '#/components/schemas/Commonsorg-summary'
-        severity:
-          $ref: '#/components/schemas/Commonsticket-severity'
-      allOf:
-        - $ref: '#/components/schemas/Commonswork-base'
-    Commonserror-base:
-      type: object
-      properties:
-        message:
-          type: string
-          description: The message associated with the error.
-      required:
-        - message
-    DevUsersdev-users-list-response:
-      type: object
-      description: The response to listing the Dev users.
-      properties:
-        dev_users:
-          type: array
-          items:
-            $ref: '#/components/schemas/Commonsdev-user'
-          description: The list of Dev users.
-        next_cursor:
-          type: string
-          description: |
-            The cursor used to iterate subsequent results in accordance to the
-            sort order. If not set, then no later elements exist.
-        prev_cursor:
-          type: string
-          description: |
-            The cursor used to iterate preceding results in accordance to the
-            sort order. If not set, then no prior elements exist.
-      required:
-        - dev_users
-    DevUsersdev-users-self-response:
-      type: object
-      description: |
-        The response to getting the information for the authenticated user.
-      properties:
-        dev_user:
-          $ref: '#/components/schemas/Commonsdev-user'
-      required:
-        - dev_user
-    Partsparts-create-request:
-      type: object
-      properties:
-        description:
-          type: string
-          description: Description of the part.
-        name:
-          type: string
-          description: Name of the part.
-        owned_by:
-          type: array
-          items:
-            type: string
-          description: The users that own the part.
-        type:
-          $ref: '#/components/schemas/Commonspart-type'
-      required:
-        - owned_by
-        - type
-    Partsparts-create-response:
-      type: object
-      properties:
-        part:
-          $ref: '#/components/schemas/Commonspart'
-      required:
-        - part
-    Partsparts-delete-request:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The ID of the part to delete.
-      required:
-        - id
-    Partsparts-delete-response:
-      type: object
-      additionalProperties: {}
-    Partsparts-get-response:
-      type: object
-      properties:
-        part:
-          $ref: '#/components/schemas/Commonspart'
-      required:
-        - part
-    Partsparts-list-response:
-      type: object
-      properties:
-        next_cursor:
-          type: string
-          description: |
-            The cursor used to iterate subsequent results in accordance to the
-            sort order. If not set, then no later elements exist.
-        parts:
-          type: array
-          items:
-            $ref: '#/components/schemas/Commonspart'
-          description: The list of parts.
-        prev_cursor:
-          type: string
-          description: |
-            The cursor used to iterate preceding results in accordance to the
-            sort order. If not set, then no prior elements exist.
-      required:
-        - parts
-    Partsparts-update-request:
-      type: object
-      properties:
-        description:
-          type: string
-          description: The updated description of the part.
-        id:
-          type: string
-          description: The ID of the part to update.
-        name:
-          type: string
-          description: The updated name of the part.
-        type:
-          $ref: '#/components/schemas/Commonspart-type'
-      required:
-        - id
-        - type
-    Partsparts-update-response:
-      type: object
-      properties:
-        part:
-          $ref: '#/components/schemas/Commonspart'
-      required:
-        - part
-    Partsparts-update-request-capability:
-      type: object
-      additionalProperties: {}
-    Partsparts-update-request-feature:
-      type: object
-      additionalProperties: {}
-    Partsparts-update-request-product:
-      type: object
-      additionalProperties: {}
-    RevOrgsrev-orgs-create-request:
-      type: object
-      description: |
-        Request object to create a new Rev organization in the Dev
-        organization.
-      properties:
-        description:
-          type: string
-          description: Description of the Rev organization.
-        display_name:
-          type: string
-          description: Name of the Rev organization.
-        domain:
-          type: string
-          description: Company's domain name. Example - 'devrev.ai'.
-        environment:
-          $ref: '#/components/schemas/Commonsorg-environment'
-        external_ref:
-          type: string
-          description: |
-            External ref is a custom unique identifier which is a reference to
-            an unique id for this organization's data in some system of
-            records.
-      required:
-        - display_name
-    RevOrgsrev-orgs-create-response:
-      type: object
-      description: |
-        Response object for request to create a new Rev organization.
-      properties:
-        rev_org:
-          $ref: '#/components/schemas/Commonsrev-org'
-      required:
-        - rev_org
-    RevOrgsrev-orgs-delete-request:
-      type: object
-      description: Request object to delete a Rev organization.
-      properties:
-        id:
-          type: string
-          description: The ID of Rev organization to delete.
-      required:
-        - id
-    RevOrgsrev-orgs-delete-response:
-      type: object
-      additionalProperties: {}
-      description: The response to deleting a Rev organization.
-    RevOrgsrev-orgs-get-response:
-      type: object
-      description: The response to getting a Rev organization's information.
-      properties:
-        rev_org:
-          $ref: '#/components/schemas/Commonsrev-org'
-      required:
-        - rev_org
-    RevOrgsrev-orgs-list-response:
-      type: object
-      description: |
-        The response to getting a list of Rev organizations' information.
-      properties:
-        next_cursor:
-          type: string
-          description: |
-            The cursor used to iterate subsequent results in accordance to the
-            sort order. If not set, then no later elements exist.
-        prev_cursor:
-          type: string
-          description: |
-            The cursor used to iterate preceding results in accordance to the
-            sort order. If not set, then no prior elements exist.
-        rev_orgs:
-          type: array
-          items:
-            $ref: '#/components/schemas/Commonsrev-org'
-          description: List with all of the Rev organizations' information.
-      required:
-        - rev_orgs
-    RevOrgsrev-orgs-update-request:
-      type: object
-      description: |
-        Request object to update information of the Rev organization.
-      properties:
-        description:
-          type: string
-          description: Description of the Rev organization.
-        display_name:
-          type: string
-          description: Customer chosen name for the Rev organization.
-        domain:
-          type: string
-          description: Company's domain name. Example - 'devrev.ai'.
-        environment:
-          $ref: '#/components/schemas/Commonsorg-environment'
-        external_ref:
-          type: string
-          description: |
-            External ref is a custom unique identifier which is a reference to
-            an unique id for this organization's data in some system of
-            records.
-        id:
-          type: string
-          description: The ID of Rev organization to update.
-      required:
-        - id
-    RevOrgsrev-orgs-update-response:
-      type: object
-      description: Response object to updating Rev organization's information.
-      properties:
-        rev_org:
-          $ref: '#/components/schemas/Commonsrev-org'
-      required:
-        - rev_org
-    Tagstags-create-request:
-      type: object
-      description: The request to create a new tag.
-      properties:
-        allowed_values:
-          type: array
-          items:
-            type: string
-          description: |
-            The allowed values for the tag, or empty if no values are
-            permitted.
-        description:
-          type: string
-          description: The description for the tag.
-        name:
-          type: string
-          description: |
-            The name for the tag, which must be unique across all tags.
-      required:
-        - name
-    Tagstags-create-response:
-      type: object
-      description: The response to creating a new tag.
-      properties:
-        tag:
-          $ref: '#/components/schemas/Commonstag'
-      required:
-        - tag
-    Tagstags-delete-request:
-      type: object
-      description: The request to delete a tag.
-      properties:
-        id:
-          type: string
-          description: The ID of the tag to delete.
-      required:
-        - id
-    Tagstags-delete-response:
-      type: object
-      additionalProperties: {}
-      description: The response for deleting a tag.
-    Tagstags-get-response:
-      type: object
-      description: The response to getting a tag's information.
-      properties:
-        tag:
-          $ref: '#/components/schemas/Commonstag'
-      required:
-        - tag
-    Tagstags-list-response:
-      type: object
-      description: The response to listing the tags.
-      properties:
-        next_cursor:
-          type: string
-          description: |
-            The cursor used to iterate subsequent results in accordance to the
-            sort order. If not set, then no later elements exist.
-        prev_cursor:
-          type: string
-          description: |
-            The cursor used to iterate preceding results in accordance to the
-            sort order. If not set, then no prior elements exist.
-        tags:
-          type: array
-          items:
-            $ref: '#/components/schemas/Commonstag'
-          description: The list of tags.
-      required:
-        - tags
-    Tagstags-update-request:
-      type: object
-      description: The request to update a tag.
-      properties:
-        allowed_values:
-          $ref: '#/components/schemas/Tagstags-update-allowed-values'
-        description:
-          type: string
-          description: The updated description of the tag.
-        id:
-          type: string
-          description: The ID of the tag to update.
-        name:
-          type: string
-          description: |
-            The updated name of the tag. The name must be unique across all
-            tags.
-      required:
-        - id
-    Tagstags-update-response:
-      type: object
-      description: The response for updating a tag.
-      properties:
-        tag:
-          $ref: '#/components/schemas/Commonstag'
-      required:
-        - tag
-    Tagstags-update-allowed-values:
-      type: object
-      description: Specifies an update to a tag's allowed values.
-      properties:
-        set:
-          type: array
-          items:
-            type: string
-          description: Sets the allowed values for the tag.
-    TimelineEntriestimeline-entries-create-request:
-      type: object
-      description: The request to create a timeline entry for an object.
-      properties:
-        object:
-          type: string
-          description: The ID of the object to create the timeline entry for.
-        type:
-          $ref: '#/components/schemas/Commonstimeline-entries-create-request-type'
-      required:
-        - object
-        - type
-    TimelineEntriestimeline-entries-create-response:
-      type: object
-      description: The response to creating a timeline entry for an object.
-      properties:
-        timeline_entry:
-          $ref: '#/components/schemas/Commonstimeline-entry'
-      required:
-        - timeline_entry
-    TimelineEntriestimeline-entries-get-response:
-      type: object
-      description: The request to getting a timeline entry.
-      properties:
-        timeline_entry:
-          $ref: '#/components/schemas/Commonstimeline-entry'
-      required:
-        - timeline_entry
-    TimelineEntriestimeline-entries-list-response:
-      type: object
-      description: The response to listing timeline entries for an object.
-      properties:
-        next_cursor:
-          type: string
-          description: |
-            The cursor used to iterate subsequent results in accordance to the
-            sort order. If not set, then no later elements exist.
-        prev_cursor:
-          type: string
-          description: |
-            The cursor used to iterate preceding results in accordance to the
-            sort order. If not set, then no prior elements exist.
-        timeline_entries:
-          type: array
-          items:
-            $ref: '#/components/schemas/Commonstimeline-entry'
-          description: The timeline entries for the object.
-      required:
-        - timeline_entries
-    TimelineEntriestimeline-entries-update-request:
-      type: object
-      description: The request to update a timeline entry.
-      properties:
-        id:
-          type: string
-          description: The ID of the timeline entry to update.
-        type:
-          $ref: >-
-            #/components/schemas/TimelineEntriestimeline-entries-update-request-type
-      required:
-        - id
-        - type
-    TimelineEntriestimeline-entries-update-response:
-      type: object
-      description: The response to updating a timeline entry.
-      properties:
-        timeline_entry:
-          $ref: '#/components/schemas/Commonstimeline-entry'
-      required:
-        - timeline_entry
-    TimelineEntriestimeline-entries-update-request-type:
-      type: string
-      enum:
-        - timeline_comment
-    TimelineEntriestimeline-entries-update-request-timeline-comment:
-      type: object
-      properties:
-        body:
-          type: string
-          description: The updated comment's body.
-        body_type:
-          $ref: '#/components/schemas/Commonstimeline-comment-body-type'
-        snap_kit_body:
-          type: object
-          additionalProperties: {}
-          description: The SnapKit body of the comment.
-    Webhookswebhooks-create-request:
-      type: object
-      description: The request to create a new webhook.
-      properties:
-        event_types:
-          type: array
-          items:
-            $ref: '#/components/schemas/Commonswebhook-event-type'
-          description: The event types that the webhook endpoint will receive.
-        secret:
-          type: string
-          description: |
-            The secret to use when verifying webhook events. If provided, the
-            secret must be between 8 and 32 bytes (inclusive). If not set, a
-            secret will be automatically generated and provided in the
-            response.
-        url:
-          type: string
-          description: The URL of the webhook endpoint.
-      required:
-        - url
-    Webhookswebhooks-create-response:
-      type: object
-      description: The response to creating a new webhook.
-      properties:
-        webhook:
-          $ref: '#/components/schemas/Commonswebhook'
-      required:
-        - webhook
-    Webhookswebhooks-delete-request:
+    WebhooksDeleteRequest:
       type: object
       description: The request to delete a webhook.
       properties:
@@ -2722,37 +4934,37 @@ components:
           description: ID for the webhook.
       required:
         - id
-    Webhookswebhooks-delete-response:
+    WebhooksDeleteResponse:
       type: object
       additionalProperties: {}
       description: The response to deleting the webhook.
-    Webhookswebhooks-get-response:
+    WebhooksGetResponse:
       type: object
       description: The response to getting the information for the webhook.
       properties:
         webhook:
-          $ref: '#/components/schemas/Commonswebhook'
+          $ref: '#/components/schemas/Webhook'
       required:
         - webhook
-    Webhookswebhooks-list-response:
+    WebhooksListResponse:
       type: object
       description: The response to listing the webhooks.
       properties:
         webhooks:
           type: array
           items:
-            $ref: '#/components/schemas/Commonswebhook'
+            $ref: '#/components/schemas/Webhook'
           description: The list of webhooks.
       required:
         - webhooks
-    Webhookswebhooks-update-request:
+    WebhooksUpdateRequest:
       type: object
       description: The request to update a webhook.
       properties:
         action:
-          $ref: '#/components/schemas/Webhookswebhooks-update-action'
+          $ref: '#/components/schemas/WebhooksUpdateAction'
         event_types:
-          $ref: '#/components/schemas/Webhookswebhooks-update-request-event-types'
+          $ref: '#/components/schemas/WebhooksUpdateRequestEventTypes'
         id:
           type: string
           description: ID for the webhook.
@@ -2772,27 +4984,27 @@ components:
             won't receive any object events until successfully verified.
       required:
         - id
-    Webhookswebhooks-update-response:
+    WebhooksUpdateResponse:
       type: object
       description: The response to updating the webhook.
       properties:
         webhook:
-          $ref: '#/components/schemas/Commonswebhook'
+          $ref: '#/components/schemas/Webhook'
       required:
         - webhook
-    Webhookswebhooks-update-action:
+    WebhooksUpdateAction:
       type: string
       enum:
         - activate
         - deactivate
       description: The action to update the webhook's status.
-    Webhookswebhooks-update-request-event-types:
+    WebhooksUpdateRequestEventTypes:
       type: object
       properties:
         add:
           type: array
           items:
-            $ref: '#/components/schemas/Commonswebhook-event-type'
+            $ref: '#/components/schemas/WebhookEventType'
           description: |
             The event types to add. If a provided event type is already set for
             the webhook, then nothing is done. Note this is mutually exclusive
@@ -2800,7 +5012,7 @@ components:
         remove:
           type: array
           items:
-            $ref: '#/components/schemas/Commonswebhook-event-type'
+            $ref: '#/components/schemas/WebhookEventType'
           description: |
             The event types to remove. If a provided event type isn't set for
             the webhook, then nothing is done. Note this is mutually exclusive
@@ -2808,16 +5020,16 @@ components:
         set:
           type: array
           items:
-            $ref: '#/components/schemas/Commonswebhook-event-type'
+            $ref: '#/components/schemas/WebhookEventType'
           description: |
             The updated event types, which will replace the webhook's current
             event types. Note this is mutually exclusive with 'add' and
             'remove'.
-    Worksworks-create-request:
+    WorksCreateRequest:
       oneOf:
         - type: object
           allOf:
-            - $ref: '#/components/schemas/Worksworks-create-request-issue'
+            - $ref: '#/components/schemas/WorksCreateRequestIssue'
             - type: object
               properties:
                 type:
@@ -2826,118 +5038,217 @@ components:
                     - issue
         - type: object
           allOf:
-            - $ref: '#/components/schemas/Worksworks-create-request-ticket'
+            - $ref: '#/components/schemas/WorksCreateRequestTicket'
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - ticket
-    Worksworks-create-request-issue:
-      type: object
       properties:
-        priority:
-          $ref: '#/components/schemas/Commonsissue-priority'
         applies_to_part:
-          type: string
           description: |
             The [part](https://devrev.ai/docs/product/parts) that the work
             applies to. Specifying a part is required when creating tickets and
             issues.
+          type: string
         artifacts:
-          type: array
-          items:
-            type: string
           description: |
             The IDs of the artifacts to associate with the work item.
+          type: array
+          items:
+            type: string
         body:
-          type: string
           description: Body of the work object.
+          type: string
         owned_by:
-          type: array
-          items:
-            type: string
           description: The users that own the work.
-        reported_by:
           type: array
           items:
             type: string
+        reported_by:
           description: The users that reported the work.
-        stage:
-          $ref: '#/components/schemas/Commonsstage-init'
-        tags:
           type: array
           items:
-            $ref: '#/components/schemas/Commonsset-tag-with-value'
+            type: string
+        stage:
+          $ref: '#/components/schemas/StageInit'
+        tags:
           description: Tags associated with the work item.
+          type: array
+          items:
+            $ref: '#/components/schemas/SetTagWithValue'
         target_close_date:
-          type: string
           description: Timestamp for when the work is expected to be complete.
-        title:
           type: string
+        title:
           description: Title of the work object.
+          type: string
+    WorksCreateResponse:
+      type: object
+      properties:
+        work:
+          $ref: '#/components/schemas/Work'
       required:
-        - applies_to_part
-        - owned_by
-        - title
-    Worksworks-create-request-ticket:
+        - work
+    StageInit:
+      type: object
+      description: Sets an object's initial stage.
+      properties:
+        name:
+          type: string
+          description: The name of the stage.
+      required:
+        - name
+    SetTagWithValue:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The ID of the tag.
+        value:
+          type: string
+          description: |
+            The value for the object's association with the tag. If specified,
+            the value must be one that's specified in the tag's allowed values.
+      required:
+        - id
+    WorkType:
+      type: string
+      enum:
+        - issue
+        - ticket
+    WorksCreateRequestIssue:
+      type: object
+      properties:
+        priority:
+          $ref: '#/components/schemas/IssuePriority'
+    IssuePriority:
+      type: string
+      enum:
+        - p0
+        - p1
+        - p2
+        - p3
+      description: Priority of the work based upon impact and criticality.
+    WorksCreateRequestTicket:
       type: object
       properties:
         rev_org:
           type: string
           description: The Rev organization that the ticket is associated with.
         severity:
-          $ref: '#/components/schemas/Commonsticket-severity'
+          $ref: '#/components/schemas/TicketSeverity'
+    TicketSeverity:
+      type: string
+      enum:
+        - blocker
+        - high
+        - low
+        - medium
+      description: Severity of the ticket.
+    Work:
+      oneOf:
+        - type: object
+          allOf:
+            - $ref: '#/components/schemas/Issue'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - issue
+        - type: object
+          allOf:
+            - $ref: '#/components/schemas/Ticket'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - ticket
+    Issue:
+      type: object
+      properties:
+        priority:
+          $ref: '#/components/schemas/IssuePriority'
+      allOf:
+        - $ref: '#/components/schemas/WorkBase'
+    WorkBase:
+      type: object
+      properties:
         applies_to_part:
-          type: string
-          description: |
-            The [part](https://devrev.ai/docs/product/parts) that the work
-            applies to. Specifying a part is required when creating tickets and
-            issues.
+          $ref: '#/components/schemas/PartSummary'
         artifacts:
           type: array
           items:
-            type: string
-          description: |
-            The IDs of the artifacts to associate with the work item.
+            $ref: '#/components/schemas/ArtifactSummary'
+          description: The artifacts attached to the work item.
         body:
           type: string
           description: Body of the work object.
         owned_by:
           type: array
           items:
-            type: string
+            $ref: '#/components/schemas/UserSummary'
           description: The users that own the work.
         reported_by:
           type: array
           items:
-            type: string
-          description: The users that reported the work.
+            $ref: '#/components/schemas/UserSummary'
+          description: Users that reported the work.
         stage:
-          $ref: '#/components/schemas/Commonsstage-init'
+          $ref: '#/components/schemas/Stage'
         tags:
           type: array
           items:
-            $ref: '#/components/schemas/Commonsset-tag-with-value'
-          description: Tags associated with the work item.
+            $ref: '#/components/schemas/TagWithValue'
+          description: Tags associated with the object.
         target_close_date:
           type: string
-          description: Timestamp for when the work is expected to be complete.
+          description: Timestamp when the work is expected to be complete.
         title:
           type: string
           description: Title of the work object.
       required:
-        - applies_to_part
         - owned_by
         - title
-    Worksworks-create-response:
+      allOf:
+        - $ref: '#/components/schemas/AtomBase'
+    PartSummary:
+      oneOf:
+        - type: object
+          allOf:
+            - $ref: '#/components/schemas/ProductSummary'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - product
+    ProductSummary:
+      type: object
+      properties: {}
+      allOf:
+        - $ref: '#/components/schemas/PartBaseSummary'
+    PartBaseSummary:
       type: object
       properties:
-        work:
-          $ref: '#/components/schemas/Commonswork'
-      required:
-        - work
-    Worksworks-delete-request:
+        name:
+          type: string
+          description: Name of the part.
+      allOf:
+        - $ref: '#/components/schemas/AtomBaseSummary'
+    Ticket:
+      type: object
+      properties:
+        rev_org:
+          $ref: '#/components/schemas/OrgSummary'
+        severity:
+          $ref: '#/components/schemas/TicketSeverity'
+      allOf:
+        - $ref: '#/components/schemas/WorkBase'
+    WorksDeleteRequest:
       type: object
       properties:
         id:
@@ -2945,27 +5256,27 @@ components:
           description: The work's ID.
       required:
         - id
-    Worksworks-delete-response:
+    WorksDeleteResponse:
       type: object
       additionalProperties: {}
-    Worksworks-export-response:
+    WorksExportResponse:
       type: object
       properties:
         works:
           type: array
           items:
-            $ref: '#/components/schemas/Commonswork'
+            $ref: '#/components/schemas/Work'
           description: The resulting collection of work items.
       required:
         - works
-    Worksworks-get-response:
+    WorksGetResponse:
       type: object
       properties:
         work:
-          $ref: '#/components/schemas/Commonswork'
+          $ref: '#/components/schemas/Work'
       required:
         - work
-    Worksworks-list-response:
+    WorksListResponse:
       type: object
       properties:
         next_cursor:
@@ -2981,59 +5292,78 @@ components:
         works:
           type: array
           items:
-            $ref: '#/components/schemas/Commonswork'
+            $ref: '#/components/schemas/Work'
           description: The list of works.
       required:
         - works
-    Worksworks-update-request:
-      type: object
+    WorksUpdateRequest:
+      oneOf:
+        - type: object
+          allOf:
+            - $ref: '#/components/schemas/WorksUpdateRequestIssue'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - issue
+        - type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - none
+        - type: object
+          allOf:
+            - $ref: '#/components/schemas/WorksUpdateRequestTicket'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - ticket
       properties:
         applies_to_part:
-          type: string
           description: Updates the part that the work applies to.
-        artifacts:
-          $ref: '#/components/schemas/Worksworks-update-request-artifact-ids'
-        body:
           type: string
+        artifacts:
+          $ref: '#/components/schemas/WorksUpdateRequestArtifactIds'
+        body:
           description: |
             Updated body of the work object, or unchanged if not provided.
+          type: string
         custom_schema_fragments:
+          description: The custom schema fragments to use.
           type: array
           items:
             type: string
-          description: The custom schema fragments to use.
         id:
-          type: string
           description: The work's ID.
-        owned_by:
-          $ref: '#/components/schemas/Worksworks-update-request-owned-by'
-        reported_by:
-          $ref: '#/components/schemas/Worksworks-update-request-reported-by'
-        stage:
-          $ref: '#/components/schemas/Worksstage-update'
-        tags:
-          $ref: '#/components/schemas/Worksworks-update-request-tags'
-        target_close_date:
           type: string
+        owned_by:
+          $ref: '#/components/schemas/WorksUpdateRequestOwnedBy'
+        reported_by:
+          $ref: '#/components/schemas/WorksUpdateRequestReportedBy'
+        stage:
+          $ref: '#/components/schemas/StageUpdate'
+        tags:
+          $ref: '#/components/schemas/WorksUpdateRequestTags'
+        target_close_date:
           description: |
             Updates the timestamp for when the work is expected to be complete.
-        title:
           type: string
+        title:
           description: |
             Updated title of the work object, or unchanged if not provided.
-        type:
-          $ref: '#/components/schemas/Commonswork-type'
-      required:
-        - id
-        - type
-    Worksworks-update-response:
+          type: string
+    WorksUpdateResponse:
       type: object
       properties:
         work:
-          $ref: '#/components/schemas/Commonswork'
+          $ref: '#/components/schemas/Work'
       required:
         - work
-    Worksworks-update-request-artifact-ids:
+    WorksUpdateRequestArtifactIds:
       type: object
       properties:
         set:
@@ -3041,7 +5371,7 @@ components:
           items:
             type: string
           description: Sets the IDs to the provided artifact IDs.
-    Worksworks-update-request-owned-by:
+    WorksUpdateRequestOwnedBy:
       type: object
       properties:
         set:
@@ -3051,7 +5381,7 @@ components:
           description: |
             Sets the owner IDs to the provided user IDs. This must not be
             empty.
-    Worksworks-update-request-reported-by:
+    WorksUpdateRequestReportedBy:
       type: object
       properties:
         set:
@@ -3060,7 +5390,7 @@ components:
             type: string
           description: |
             Sets the users that reported the work to the provided user IDs.
-    Worksstage-update:
+    StageUpdate:
       type: object
       description: Updates an object's stage.
       properties:
@@ -3068,20 +5398,20 @@ components:
           type: string
           description: |
             The updated name of the stage, otherwise unchanged if not set.
-    Worksworks-update-request-tags:
+    WorksUpdateRequestTags:
       type: object
       properties:
         set:
           type: array
           items:
-            $ref: '#/components/schemas/Commonsset-tag-with-value'
+            $ref: '#/components/schemas/SetTagWithValue'
           description: Sets the provided tags on the work item.
-    Worksworks-update-request-issue:
+    WorksUpdateRequestIssue:
       type: object
       properties:
         priority:
-          $ref: '#/components/schemas/Commonsissue-priority'
-    Worksworks-update-request-ticket:
+          $ref: '#/components/schemas/IssuePriority'
+    WorksUpdateRequestTicket:
       type: object
       properties:
         rev_org:
@@ -3089,19 +5419,7 @@ components:
           description: |
             Updates the Rev organization that the ticket is associated with.
         severity:
-          $ref: '#/components/schemas/Commonsticket-severity'
-    CommonsBadRequestError:
-      $ref: '#/components/schemas/Commonserror-base'
-    CommonsUnauthorizedError:
-      $ref: '#/components/schemas/Commonserror-base'
-    CommonsForbiddenError:
-      $ref: '#/components/schemas/Commonserror-base'
-    CommonsNotFoundError:
-      $ref: '#/components/schemas/Commonserror-base'
-    CommonsTooManyRequestsError:
-      $ref: '#/components/schemas/Commonserror-base'
-    CommonsInternalServerError:
-      $ref: '#/components/schemas/Commonserror-base'
+          $ref: '#/components/schemas/TicketSeverity'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
@@ -3109,3 +5427,4 @@ components:
       name: Authorization
 servers:
   - url: https://api.devrev.ai
+    description: Production
