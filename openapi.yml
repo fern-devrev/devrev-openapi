@@ -28,43 +28,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: artifacts-locate
       security: &ref_0
         - ApiKeyAuth: []
@@ -88,43 +88,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: artifacts-prepare
       security: *ref_0
       requestBody:
@@ -158,43 +158,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: dev-org-auth-connections-create
       security: *ref_0
       requestBody:
@@ -221,43 +221,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: dev-org-auth-connections-delete
       security: *ref_0
       requestBody:
@@ -291,43 +291,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: dev-org-auth-connections-get
       security: *ref_0
   /dev-orgs.auth-connections.list:
@@ -353,43 +353,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: dev-org-auth-connections-list
       security: *ref_0
   /dev-orgs.auth-connections.toggle:
@@ -412,43 +412,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: dev-org-auth-connections-toggle
       security: *ref_0
       requestBody:
@@ -476,43 +476,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: dev-org-auth-connections-update
       security: *ref_0
       requestBody:
@@ -542,43 +542,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: auth-tokens-create
       security: *ref_0
       requestBody:
@@ -604,43 +604,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: auth-tokens-delete
       security: *ref_0
       requestBody:
@@ -677,43 +677,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: auth-tokens-get
       security: *ref_0
   /auth-tokens.list:
@@ -762,43 +762,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: auth-tokens-list
       security: *ref_0
   /auth-tokens.self.delete:
@@ -818,43 +818,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: auth-tokens-self-delete
       security: *ref_0
       requestBody:
@@ -884,43 +884,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: auth-tokens-update
       security: *ref_0
       requestBody:
@@ -991,43 +991,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: dev-users-list
       security: *ref_0
   /dev-users.self:
@@ -1049,43 +1049,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: dev-users-self
       security: *ref_0
   /parts.create:
@@ -1107,43 +1107,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: parts-create
       security: *ref_0
       requestBody:
@@ -1171,43 +1171,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: parts-delete
       security: *ref_0
       requestBody:
@@ -1242,43 +1242,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: parts-get
       security: *ref_0
   /parts.list:
@@ -1336,43 +1336,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: parts-list
       security: *ref_0
   /parts.update:
@@ -1395,43 +1395,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: parts-update
       security: *ref_0
       requestBody:
@@ -1461,43 +1461,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: rev-orgs-create
       security: *ref_0
       requestBody:
@@ -1525,43 +1525,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: rev-orgs-delete
       security: *ref_0
       requestBody:
@@ -1595,43 +1595,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: rev-orgs-get
       security: *ref_0
   /rev-orgs.list:
@@ -1725,43 +1725,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: rev-orgs-list
       security: *ref_0
   /rev-orgs.update:
@@ -1783,43 +1783,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: rev-orgs-update
       security: *ref_0
       requestBody:
@@ -1849,43 +1849,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: tags-create
       security: *ref_0
       requestBody:
@@ -1913,43 +1913,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: tags-delete
       security: *ref_0
       requestBody:
@@ -1983,43 +1983,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: tags-get
       security: *ref_0
   /tags.list:
@@ -2063,43 +2063,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: tags-list
       security: *ref_0
   /tags.update:
@@ -2121,43 +2121,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: tags-update
       security: *ref_0
       requestBody:
@@ -2185,43 +2185,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: timeline-entries-create
       security: *ref_0
       requestBody:
@@ -2255,43 +2255,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: timeline-entries-get
       security: *ref_0
   /timeline-entries.list:
@@ -2343,43 +2343,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: timeline-entries-list
       security: *ref_0
   /timeline-entries.update:
@@ -2401,43 +2401,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: timeline-entries-update
       security: *ref_0
       requestBody:
@@ -2465,43 +2465,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: webhooks-create
       security: *ref_0
       requestBody:
@@ -2529,43 +2529,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: webhooks-delete
       security: *ref_0
       requestBody:
@@ -2599,43 +2599,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: webhooks-get
       security: *ref_0
   /webhooks.list:
@@ -2657,43 +2657,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: webhooks-list
       security: *ref_0
   /webhooks.update:
@@ -2715,43 +2715,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: webhooks-update
       security: *ref_0
       requestBody:
@@ -2781,43 +2781,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: works-create
       security: *ref_0
       requestBody:
@@ -2845,43 +2845,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: works-delete
       security: *ref_0
       requestBody:
@@ -2989,43 +2989,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: works-export
       security: *ref_0
   /works.get:
@@ -3053,43 +3053,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       security: *ref_0
   /works.list:
     get:
@@ -3205,43 +3205,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: works-list
       security: *ref_0
   /works.update:
@@ -3263,43 +3263,43 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/bad-request-error-body'
         '401':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/unauthorized-error-body'
         '403':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/forbidden-error-body'
         '404':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/not-found-error-body'
         '429':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/too-many-requests-error-body'
         '500':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/internal-server-error-error-body'
         '503':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error-base'
+                $ref: '#/components/schemas/service-unavailable-error-body'
       summary: works-update
       security: *ref_0
       requestBody:
@@ -4211,13 +4211,129 @@ components:
         - name
       allOf:
         - $ref: '#/components/schemas/atom-base-summary'
-    error-base:
-      title: error-base
-      type: object
+    bad-request-error-body:
+      title: bad-request-error-body
+      oneOf:
+        - type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - bad_request
+        - type: object
+          allOf:
+            - $ref: '#/components/schemas/missing-required-field-body'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - missing_required_field
+        - type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - parse_error
       properties:
         message:
-          type: string
           description: The message associated with the error.
+          type: string
+    missing-required-field-body:
+      title: missing-required-field-body
+      type: object
+      properties:
+        field_name:
+          type: string
+          description: The missing field's name.
+      required:
+        - field_name
+    unauthorized-error-body:
+      title: unauthorized-error-body
+      oneOf:
+        - type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - unauthenticated
+      properties:
+        message:
+          description: The message associated with the error.
+          type: string
+    forbidden-error-body:
+      title: forbidden-error-body
+      oneOf:
+        - type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - forbidden
+      properties:
+        message:
+          description: The message associated with the error.
+          type: string
+    not-found-error-body:
+      title: not-found-error-body
+      oneOf:
+        - type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - not_found
+      properties:
+        message:
+          description: The message associated with the error.
+          type: string
+    too-many-requests-error-body:
+      title: too-many-requests-error-body
+      oneOf:
+        - type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - too_many_requests
+      properties:
+        message:
+          description: The message associated with the error.
+          type: string
+        retry_after:
+          description: The number of seconds after which the client should retry.
+          type: integer
+    internal-server-error-error-body:
+      title: internal-server-error-error-body
+      oneOf:
+        - type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - internal_error
+      properties:
+        message:
+          description: The message associated with the error.
+          type: string
+        reference_id:
+          description: >-
+            A unique ID that's generated for the error that can be used for
+            inquiry.
+          type: integer
+    service-unavailable-error-body:
+      title: service-unavailable-error-body
+      oneOf:
+        - type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - service_unavailable
+      properties:
+        message:
+          description: The message associated with the error.
+          type: string
     dev-users-list-response:
       title: dev-users-list-response
       type: object
