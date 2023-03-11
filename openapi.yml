@@ -4471,29 +4471,32 @@ components:
       title: parts-create-request
       oneOf:
         - type: object
-          properties:
-            type:
-              type: string
-              enum:
-                - capability
-            value:
-              $ref: '#/components/schemas/parts-create-request-capability'
+          allOf:
+            - $ref: '#/components/schemas/parts-create-request-capability'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - capability
         - type: object
-          properties:
-            type:
-              type: string
-              enum:
-                - feature
-            value:
-              $ref: '#/components/schemas/parts-create-request-feature'
+          allOf:
+            - $ref: '#/components/schemas/parts-create-request-feature'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - feature
         - type: object
-          properties:
-            type:
-              type: string
-              enum:
-                - product
-            value:
-              $ref: '#/components/schemas/parts-create-request-product'
+          allOf:
+            - $ref: '#/components/schemas/parts-create-request-product'
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - product
       properties:
         description:
           description: Description of the part.
@@ -4517,15 +4520,15 @@ components:
     parts-create-request-capability:
       title: parts-create-request-capability
       type: object
-      additionalProperties: true
+      properties: {}
     parts-create-request-feature:
       title: parts-create-request-feature
       type: object
-      additionalProperties: true
+      properties: {}
     parts-create-request-product:
       title: parts-create-request-product
       type: object
-      additionalProperties: true
+      properties: {}
     part:
       title: part
       oneOf:
