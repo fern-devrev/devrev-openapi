@@ -3638,7 +3638,7 @@ components:
     auth-connection-options-social:
       title: auth-connection-options-social
       type: object
-      additionalProperties: {}
+      additionalProperties: true
     dev-org-auth-connections-delete-request:
       title: dev-org-auth-connections-delete-request
       type: object
@@ -4455,7 +4455,7 @@ components:
     external-identity:
       title: external-identity
       type: object
-      additionalProperties: {}
+      additionalProperties: true
       description: External identity of a user.
     dev-users-self-response:
       title: dev-users-self-response
@@ -4516,10 +4516,16 @@ components:
         - part
     parts-create-request-capability:
       title: parts-create-request-capability
+      type: object
+      additionalProperties: true
     parts-create-request-feature:
       title: parts-create-request-feature
+      type: object
+      additionalProperties: true
     parts-create-request-product:
       title: parts-create-request-product
+      type: object
+      additionalProperties: true
     part:
       title: part
       oneOf:
@@ -4581,7 +4587,7 @@ components:
     parts-delete-response:
       title: parts-delete-response
       type: object
-      additionalProperties: {}
+      additionalProperties: true
     parts-get-response:
       title: parts-get-response
       type: object
@@ -4665,15 +4671,15 @@ components:
     parts-update-request-capability:
       title: parts-update-request-capability
       type: object
-      additionalProperties: {}
+      additionalProperties: true
     parts-update-request-feature:
       title: parts-update-request-feature
       type: object
-      additionalProperties: {}
+      additionalProperties: true
     parts-update-request-product:
       title: parts-update-request-product
       type: object
-      additionalProperties: {}
+      additionalProperties: true
     rev-orgs-create-request:
       title: rev-orgs-create-request
       type: object
@@ -4760,7 +4766,7 @@ components:
     rev-orgs-delete-response:
       title: rev-orgs-delete-response
       type: object
-      additionalProperties: {}
+      additionalProperties: true
       description: The response to deleting a Rev organization.
     rev-orgs-get-response:
       title: rev-orgs-get-response
@@ -4901,7 +4907,7 @@ components:
     tags-delete-response:
       title: tags-delete-response
       type: object
-      additionalProperties: {}
+      additionalProperties: true
       description: The response for deleting a tag.
     tags-get-response:
       title: tags-get-response
@@ -5016,7 +5022,7 @@ components:
           $ref: '#/components/schemas/timeline-comment-body-type'
         snap_kit_body:
           type: object
-          additionalProperties: {}
+          additionalProperties: true
           description: The SnapKit body of the comment.
     timeline-comment-body-type:
       title: timeline-comment-body-type
@@ -5055,7 +5061,7 @@ components:
           $ref: '#/components/schemas/timeline-comment-body-type'
         snap_kit_body:
           type: object
-          additionalProperties: {}
+          additionalProperties: true
           description: The SnapKit Body of the comment.
       allOf:
         - $ref: '#/components/schemas/timeline-entry-base'
@@ -5139,7 +5145,7 @@ components:
           $ref: '#/components/schemas/timeline-comment-body-type'
         snap_kit_body:
           type: object
-          additionalProperties: {}
+          additionalProperties: true
           description: The SnapKit body of the comment.
     webhooks-create-request:
       title: webhooks-create-request
@@ -5237,7 +5243,7 @@ components:
     webhooks-delete-response:
       title: webhooks-delete-response
       type: object
-      additionalProperties: {}
+      additionalProperties: true
       description: The response to deleting the webhook.
     webhooks-get-response:
       title: webhooks-get-response
@@ -5585,7 +5591,7 @@ components:
     works-delete-response:
       title: works-delete-response
       type: object
-      additionalProperties: {}
+      additionalProperties: true
     works-export-response:
       title: works-export-response
       type: object
