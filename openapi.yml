@@ -3426,40 +3426,40 @@ components:
       oneOf:
         - type: object
           allOf:
-            - $ref: '#/components/schemas/auth-connection-options-google-apps'
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - google_apps
+            - $ref: '#/components/schemas/auth-connection-options-google-apps'
         - type: object
           allOf:
-            - $ref: '#/components/schemas/auth-connection-options-oidc'
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - oidc
+            - $ref: '#/components/schemas/auth-connection-options-oidc'
         - type: object
           allOf:
-            - $ref: '#/components/schemas/auth-connection-options-saml'
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - samlp
+            - $ref: '#/components/schemas/auth-connection-options-saml'
         - type: object
           allOf:
-            - $ref: '#/components/schemas/auth-connection-options-azure-ad'
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - waad
+            - $ref: '#/components/schemas/auth-connection-options-azure-ad'
       description: |
         Request to create a new enterprise authentication connection.
       properties:
@@ -3561,31 +3561,31 @@ components:
       oneOf:
         - type: object
           allOf:
-            - $ref: '#/components/schemas/auth-connection-options-google-apps'
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - google_apps
+            - $ref: '#/components/schemas/auth-connection-options-google-apps'
         - type: object
           allOf:
-            - $ref: '#/components/schemas/auth-connection-options-oidc'
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - oidc
+            - $ref: '#/components/schemas/auth-connection-options-oidc'
         - type: object
           allOf:
-            - $ref: '#/components/schemas/auth-connection-options-saml'
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - samlp
+            - $ref: '#/components/schemas/auth-connection-options-saml'
         - type: object
           properties:
             type:
@@ -3596,13 +3596,13 @@ components:
               $ref: '#/components/schemas/auth-connection-options-social'
         - type: object
           allOf:
-            - $ref: '#/components/schemas/auth-connection-options-azure-ad'
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - waad
+            - $ref: '#/components/schemas/auth-connection-options-azure-ad'
       description: |
         Connection object that specifies the configuration for an
         authentication connection that is set up for a Dev organization.
@@ -3704,13 +3704,13 @@ components:
       oneOf:
         - type: object
           allOf:
-            - $ref: '#/components/schemas/auth-connection-options-google-apps'
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - google_apps
+            - $ref: '#/components/schemas/auth-connection-options-google-apps'
         - type: object
           properties:
             type:
@@ -3719,31 +3719,31 @@ components:
                 - none
         - type: object
           allOf:
-            - $ref: '#/components/schemas/auth-connection-options-oidc'
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - oidc
+            - $ref: '#/components/schemas/auth-connection-options-oidc'
         - type: object
           allOf:
-            - $ref: '#/components/schemas/auth-connection-options-saml'
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - samlp
+            - $ref: '#/components/schemas/auth-connection-options-saml'
         - type: object
           allOf:
-            - $ref: '#/components/schemas/auth-connection-options-azure-ad'
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - waad
+            - $ref: '#/components/schemas/auth-connection-options-azure-ad'
       description: |
         Request to update an enterprise authentication connection for a Dev
         organization.
@@ -4085,31 +4085,31 @@ components:
       oneOf:
         - type: object
           allOf:
-            - $ref: '#/components/schemas/dev-user-summary'
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - dev_user
+            - $ref: '#/components/schemas/dev-user-summary'
         - type: object
           allOf:
-            - $ref: '#/components/schemas/rev-user-summary'
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - rev_user
+            - $ref: '#/components/schemas/rev-user-summary'
         - type: object
           allOf:
-            - $ref: '#/components/schemas/sys-user-summary'
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - sys_user
+            - $ref: '#/components/schemas/sys-user-summary'
     user-type:
       title: user-type
       type: string
@@ -4179,13 +4179,13 @@ components:
       oneOf:
         - type: object
           allOf:
-            - $ref: '#/components/schemas/rev-org-summary'
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - rev_org
+            - $ref: '#/components/schemas/rev-org-summary'
     org-type:
       title: org-type
       type: string
@@ -4281,19 +4281,22 @@ components:
                 - bad_request
         - type: object
           allOf:
-            - $ref: '#/components/schemas/missing-required-field-body'
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - missing_required_field
+            - $ref: '#/components/schemas/missing-required-field-body'
         - type: object
-          properties:
-            type:
-              type: string
-              enum:
-                - parse_error
+          allOf:
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - parse_error
+            - $ref: '#/components/schemas/parse-error-body'
       properties:
         message:
           description: The message associated with the error.
@@ -4307,6 +4310,10 @@ components:
           description: The missing field's name.
       required:
         - field_name
+    parse-error-body:
+      title: parse-error-body
+      type: object
+      properties: {}
     unauthorized-error-body:
       title: unauthorized-error-body
       oneOf:
@@ -4472,31 +4479,31 @@ components:
       oneOf:
         - type: object
           allOf:
-            - $ref: '#/components/schemas/parts-create-request-capability'
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - capability
+            - $ref: '#/components/schemas/parts-create-request-capability'
         - type: object
           allOf:
-            - $ref: '#/components/schemas/parts-create-request-feature'
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - feature
+            - $ref: '#/components/schemas/parts-create-request-feature'
         - type: object
           allOf:
-            - $ref: '#/components/schemas/parts-create-request-product'
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - product
+            - $ref: '#/components/schemas/parts-create-request-product'
       properties:
         description:
           description: Description of the part.
@@ -4534,13 +4541,13 @@ components:
       oneOf:
         - type: object
           allOf:
-            - $ref: '#/components/schemas/product'
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - product
+            - $ref: '#/components/schemas/product'
     product:
       title: product
       type: object
@@ -4987,14 +4994,14 @@ components:
       oneOf:
         - type: object
           allOf:
-            - $ref: >-
-                #/components/schemas/timeline-entries-create-request-timeline-comment
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - timeline_comment
+            - $ref: >-
+                #/components/schemas/timeline-entries-create-request-timeline-comment
       description: The request to create a timeline entry for an object.
       properties:
         object:
@@ -5039,13 +5046,13 @@ components:
       oneOf:
         - type: object
           allOf:
-            - $ref: '#/components/schemas/timeline-comment'
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - timeline_comment
+            - $ref: '#/components/schemas/timeline-comment'
     timeline-entry-type:
       title: timeline-entry-type
       type: string
@@ -5110,14 +5117,14 @@ components:
       oneOf:
         - type: object
           allOf:
-            - $ref: >-
-                #/components/schemas/timeline-entries-update-request-timeline-comment
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - timeline_comment
+            - $ref: >-
+                #/components/schemas/timeline-entries-update-request-timeline-comment
       description: The request to update a timeline entry.
       properties:
         id:
@@ -5346,22 +5353,22 @@ components:
       oneOf:
         - type: object
           allOf:
-            - $ref: '#/components/schemas/works-create-request-issue'
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - issue
+            - $ref: '#/components/schemas/works-create-request-issue'
         - type: object
           allOf:
-            - $ref: '#/components/schemas/works-create-request-ticket'
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - ticket
+            - $ref: '#/components/schemas/works-create-request-ticket'
       properties:
         applies_to_part:
           description: |
@@ -5478,22 +5485,22 @@ components:
       oneOf:
         - type: object
           allOf:
-            - $ref: '#/components/schemas/issue'
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - issue
+            - $ref: '#/components/schemas/issue'
         - type: object
           allOf:
-            - $ref: '#/components/schemas/ticket'
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - ticket
+            - $ref: '#/components/schemas/ticket'
     issue:
       title: issue
       type: object
@@ -5550,13 +5557,13 @@ components:
       oneOf:
         - type: object
           allOf:
-            - $ref: '#/components/schemas/product-summary'
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - product
+            - $ref: '#/components/schemas/product-summary'
     product-summary:
       title: product-summary
       type: object
@@ -5640,13 +5647,13 @@ components:
       oneOf:
         - type: object
           allOf:
-            - $ref: '#/components/schemas/works-update-request-issue'
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - issue
+            - $ref: '#/components/schemas/works-update-request-issue'
         - type: object
           properties:
             type:
@@ -5655,13 +5662,13 @@ components:
                 - none
         - type: object
           allOf:
-            - $ref: '#/components/schemas/works-update-request-ticket'
             - type: object
               properties:
                 type:
                   type: string
                   enum:
                     - ticket
+            - $ref: '#/components/schemas/works-update-request-ticket'
       properties:
         applies_to_part:
           description: Updates the part that the work applies to.
