@@ -8,7 +8,7 @@ paths:
       description: Gets the download URL for the artifact.
       operationId: artifacts_locate
       tags:
-        - Artifacts
+        - artifacts
       parameters:
         - name: id
           in: query
@@ -74,7 +74,7 @@ paths:
         Creates an artifact and generates an upload URL for its data.
       operationId: artifacts_prepare
       tags:
-        - Artifacts
+        - artifacts
       parameters: []
       responses:
         '200':
@@ -144,7 +144,7 @@ paths:
         enterprise connections can be created by an organization.
       operationId: authConnection_create
       tags:
-        - AuthConnection
+        - auth-connection
       parameters: []
       responses:
         '200':
@@ -211,7 +211,7 @@ paths:
         connections can not be deleted using this method.
       operationId: authConnection_delete
       tags:
-        - AuthConnection
+        - auth-connection
       parameters: []
       responses:
         '204':
@@ -271,7 +271,7 @@ paths:
       description: Retrieves the details for an authentication connection.
       operationId: authConnection_get
       tags:
-        - AuthConnection
+        - auth-connection
       parameters:
         - name: id
           in: query
@@ -339,7 +339,7 @@ paths:
         created by the user.
       operationId: authConnection_list
       tags:
-        - AuthConnection
+        - auth-connection
       parameters: []
       responses:
         '200':
@@ -402,7 +402,7 @@ paths:
         disabled.
       operationId: authConnection_toggle
       tags:
-        - AuthConnection
+        - auth-connection
       parameters: []
       responses:
         '204':
@@ -462,7 +462,7 @@ paths:
       description: Updates an authentication connection.
       operationId: authConnection_update
       tags:
-        - AuthConnection
+        - auth-connection
       parameters: []
       responses:
         '200':
@@ -528,7 +528,7 @@ paths:
         authenticated user.
       operationId: authTokens_create
       tags:
-        - AuthTokens
+        - auth-tokens
       parameters: []
       responses:
         '200':
@@ -594,7 +594,7 @@ paths:
         given Dev organization.
       operationId: authTokens_delete
       tags:
-        - AuthTokens
+        - auth-tokens
       parameters: []
       responses:
         '204':
@@ -656,7 +656,7 @@ paths:
         given Dev organization.
       operationId: authTokens_get
       tags:
-        - AuthTokens
+        - auth-tokens
       parameters:
         - name: token_id
           in: query
@@ -723,7 +723,7 @@ paths:
         token type issued for a given subject.
       operationId: authTokens_list
       tags:
-        - AuthTokens
+        - auth-tokens
       parameters:
         - name: client_id
           in: query
@@ -808,7 +808,7 @@ paths:
         authenticated user.
       operationId: authTokens_selfDelete
       tags:
-        - AuthTokens
+        - auth-tokens
       parameters: []
       responses:
         '204':
@@ -870,7 +870,7 @@ paths:
         organization.
       operationId: authTokens_update
       tags:
-        - AuthTokens
+        - auth-tokens
       parameters: []
       responses:
         '200':
@@ -934,7 +934,7 @@ paths:
       description: Lists users within your organization.
       operationId: devUsers_list
       tags:
-        - DevUsers
+        - dev-users
       parameters:
         - name: cursor
           in: query
@@ -1041,7 +1041,7 @@ paths:
       description: Gets the authenticated user's information.
       operationId: devUsers_getSelf
       tags:
-        - DevUsers
+        - dev-users
       parameters: []
       responses:
         '200':
@@ -1099,7 +1099,7 @@ paths:
       description: Creates new [part](https://devrev.ai/docs/product/parts).
       operationId: parts_create
       tags:
-        - Parts
+        - parts
       parameters: []
       responses:
         '200':
@@ -1163,7 +1163,7 @@ paths:
       description: Deletes a [part](https://devrev.ai/docs/product/parts).
       operationId: parts_delete
       tags:
-        - Parts
+        - parts
       parameters: []
       responses:
         '200':
@@ -1228,7 +1228,7 @@ paths:
         Gets a [part's](https://devrev.ai/docs/product/parts) information.
       operationId: parts_get
       tags:
-        - Parts
+        - parts
       parameters:
         - name: id
           in: query
@@ -1293,7 +1293,7 @@ paths:
         Lists a collection of [parts](https://devrev.ai/docs/product/parts).
       operationId: parts_list
       tags:
-        - Parts
+        - parts
       parameters:
         - name: cursor
           in: query
@@ -1391,7 +1391,7 @@ paths:
         Updates a [part's](https://devrev.ai/docs/product/parts) information.
       operationId: parts_update
       tags:
-        - Parts
+        - parts
       parameters: []
       responses:
         '200':
@@ -1457,7 +1457,7 @@ paths:
         organization.
       operationId: revOrgs_create
       tags:
-        - RevOrgs
+        - rev-orgs
       parameters: []
       responses:
         '200':
@@ -1521,7 +1521,7 @@ paths:
       description: Deletes the Rev organization.
       operationId: revOrgs_delete
       tags:
-        - RevOrgs
+        - rev-orgs
       parameters: []
       responses:
         '200':
@@ -1585,7 +1585,7 @@ paths:
       description: Retrieves the Rev organization's information.
       operationId: revOrgs_get
       tags:
-        - RevOrgs
+        - rev-orgs
       parameters:
         - name: id
           in: query
@@ -1652,7 +1652,7 @@ paths:
         to access.
       operationId: revOrgs_list
       tags:
-        - RevOrgs
+        - rev-orgs
       parameters:
         - name: created_by
           in: query
@@ -1787,7 +1787,7 @@ paths:
       description: Updates the Rev organization's information.
       operationId: revOrgs_update
       tags:
-        - RevOrgs
+        - rev-orgs
       parameters: []
       responses:
         '200':
@@ -1853,7 +1853,7 @@ paths:
         and a logical concept denoted by the tag's name.
       operationId: tags_create
       tags:
-        - Tags
+        - tags
       parameters: []
       responses:
         '200':
@@ -1917,7 +1917,7 @@ paths:
       description: Deletes a tag.
       operationId: tags_delete
       tags:
-        - Tags
+        - tags
       parameters: []
       responses:
         '200':
@@ -1981,7 +1981,7 @@ paths:
       description: Gets a tag's information.
       operationId: tags_get
       tags:
-        - Tags
+        - tags
       parameters:
         - name: id
           in: query
@@ -2045,7 +2045,7 @@ paths:
       description: Lists the available tags.
       operationId: tags_list
       tags:
-        - Tags
+        - tags
       parameters:
         - name: cursor
           in: query
@@ -2125,7 +2125,7 @@ paths:
       description: Updates a tag's information.
       operationId: tags_update
       tags:
-        - Tags
+        - tags
       parameters: []
       responses:
         '200':
@@ -2189,7 +2189,7 @@ paths:
       description: Creates a new entry on an object's timeline.
       operationId: timelineEntries_create
       tags:
-        - TimelineEntries
+        - timeline-entries
       parameters: []
       responses:
         '200':
@@ -2253,7 +2253,7 @@ paths:
       description: Gets an entry on an object's timeline.
       operationId: timelineEntries_get
       tags:
-        - TimelineEntries
+        - timeline-entries
       parameters:
         - name: id
           in: query
@@ -2317,7 +2317,7 @@ paths:
       description: Lists the timeline entries for an object.
       operationId: timelineEntries_list
       tags:
-        - TimelineEntries
+        - timeline-entries
       parameters:
         - name: object
           in: query
@@ -2405,7 +2405,7 @@ paths:
       description: Updates an entry on an object's timeline.
       operationId: timelineEntries_update
       tags:
-        - TimelineEntries
+        - timeline-entries
       parameters: []
       responses:
         '200':
@@ -2469,7 +2469,7 @@ paths:
       description: Creates a new webhook target.
       operationId: webhooks_create
       tags:
-        - Webhooks
+        - webhooks
       parameters: []
       responses:
         '200':
@@ -2533,7 +2533,7 @@ paths:
       description: Deletes the requested webhook.
       operationId: webhooks_delete
       tags:
-        - Webhooks
+        - webhooks
       parameters: []
       responses:
         '200':
@@ -2597,7 +2597,7 @@ paths:
       description: Gets the requested webhook's information.
       operationId: webhooks_get
       tags:
-        - Webhooks
+        - webhooks
       parameters:
         - name: id
           in: query
@@ -2661,7 +2661,7 @@ paths:
       description: Lists the webhooks.
       operationId: webhooks_list
       tags:
-        - Webhooks
+        - webhooks
       parameters: []
       responses:
         '200':
@@ -2719,7 +2719,7 @@ paths:
       description: Updates the requested webhook.
       operationId: webhooks_update
       tags:
-        - Webhooks
+        - webhooks
       parameters: []
       responses:
         '200':
@@ -2785,7 +2785,7 @@ paths:
         [ticket](https://devrev.ai/docs/product/support)) item.
       operationId: works_create
       tags:
-        - Works
+        - works
       parameters: []
       responses:
         '200':
@@ -2849,7 +2849,7 @@ paths:
       description: Deletes a work item.
       operationId: works_delete
       tags:
-        - Works
+        - works
       parameters: []
       responses:
         '200':
@@ -2913,7 +2913,7 @@ paths:
       description: Exports a collection of work items.
       operationId: works_export
       tags:
-        - Works
+        - works
       parameters:
         - name: applies_to_part
           in: query
@@ -3069,7 +3069,7 @@ paths:
       description: Gets a work item's information.
       operationId: works_get
       tags:
-        - Works
+        - works
       parameters:
         - name: id
           in: query
@@ -3132,7 +3132,7 @@ paths:
       description: Lists a collection of work items.
       operationId: works_list
       tags:
-        - Works
+        - works
       parameters:
         - name: applies_to_part
           in: query
@@ -3303,7 +3303,7 @@ paths:
       description: Updates a work item's information.
       operationId: works_update
       tags:
-        - Works
+        - works
       parameters: []
       responses:
         '200':
